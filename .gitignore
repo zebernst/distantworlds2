@@ -182,3 +182,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+### local ignores
+.idea/webServers.xml
