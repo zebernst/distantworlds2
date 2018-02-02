@@ -21,7 +21,7 @@ SITE_ROOT = PurePath(__file__).parent.parent.parent
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'dw2photo.serveftp.com']
 
 
 # Application definition
