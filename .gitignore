@@ -185,3 +185,4 @@ Temporary Items
 
 ### local ignores
 .idea/webServers.xml
+db.sqlite3

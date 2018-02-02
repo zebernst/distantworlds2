@@ -10,20 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
+from pathlib import PurePath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE_ROOT = PurePath(__file__).parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dpamz@&wa*x#0exclk6k*d&nfb9$&4q4x_*+85!e=uoqezus)t'  # todo: re-generate this secret key in its own file
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -37,7 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'images.apps.ImagesConfig',
+    'core.apps.CoreConfig',
+    'astrophotography.apps.AstrophotographyConfig',
 ]
 
 MIDDLEWARE = [
@@ -50,12 +47,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'astrophotography.urls'
+ROOT_URLCONF = 'distantworlds2.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [str(SITE_ROOT/'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -69,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'astrophotography.wsgi.application'
+WSGI_APPLICATION = 'distantworlds2.wsgi.application'
 
 
 # Database
@@ -78,7 +75,7 @@ WSGI_APPLICATION = 'astrophotography.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': str(SITE_ROOT/'db.sqlite3'),
     }
 }
 

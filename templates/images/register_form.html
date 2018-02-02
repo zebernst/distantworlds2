@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+profile
+{% endblock %}
+
+{% block content %}
+<form method="post">
+        {% csrf_token %}
+        <table>
+            {{ user_form.as_table }}
+            {{ cmdr_form.as_table }}
+        </table>
+        <button type="submit">Save</button><br>
+    </form>
+{% endblock %}

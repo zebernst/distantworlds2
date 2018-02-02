@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html">
+    <meta name="author" content="Zach Bernstein">
+
+    <title>Distant Worlds 2 | {% block title %}CHANGE ME{% endblock %}</title>
+
+    {#  jquery  #}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% block javascript %}{% endblock %}
+</head>
+<body>
+<nav>
+    <ul>
+{#        <li><a href="{% url 'gradebook:index' %}">Home</a></li>#}
+    </ul>
+</nav>
+<div id="sidebar">
+    {% block sidebar %}{% endblock %}
+</div>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

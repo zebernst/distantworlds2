@@ -1,17 +1,9 @@
-from django.contrib.auth.models import User
+import hashlib
+
 from django.db import models
+from django.utils.text import slugify
 
-
-class Commander(models.Model):
-    # relationship
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    # commander info
-    cmdr_name = models.CharField('commander name', max_length=25)
-
-    # distant worlds 2 info (see roster)
-    roster_num = models.PositiveSmallIntegerField('roster number')
-    # ...
+from core.models import Commander
 
 
 class Location(models.Model):
@@ -23,17 +15,26 @@ class Location(models.Model):
     # body
     body = models.CharField(max_length=32, null=True, blank=True)
 
-    # todo: integrate with edsm?
+    # todo: integrate with edsm? (make another class and link via fk)
 
 
 class Image(models.Model):
+
+    def user_media_folder(self, filename):
+        """return the media folder for a certain user"""
+        self.orig_filename = filename
+        if self.owner:
+            return 'uploads/{}/{}'.format(slugify(self.owner.cmdr_name), filename)  # self.owner.cmdr_name
+        else:
+            return 'uploads/anonymous/{}'.format(filename)
+
     # id is automatic
 
     # utility fields
     sha1sum = models.CharField(unique=True, max_length=40, blank=True)
 
     # filesystem
-    filename = models.CharField(max_length=128)
+    file = models.ImageField(upload_to=user_media_folder)
     orig_filename = models.CharField('original filename', max_length=768, blank=True)
     upload_date = models.DateTimeField('date uploaded', auto_now_add=True)
 
@@ -44,4 +45,18 @@ class Image(models.Model):
     # user
     owner = models.ForeignKey(Commander, on_delete=models.SET_NULL, null=True, blank=True)
 
+    # image uses
+    public = models.BooleanField(default=False)
+    contest_entry = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        if not self.pk: # if file is new
+            sha1 = hashlib.sha1()
+            for chunk in self.file.chunks():
+                sha1.update(chunk)
+            self.sha1sum = sha1.hexdigest()
+
+        super(Image, self).save()
+
+# todo: for upload template, make 'file' and 'url' tabs and use ajax to rewrite the page accordingly
 

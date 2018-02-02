@@ -8,6 +8,8 @@ name = "pypi"
 [packages]
 
 django = "*"
+python-decouple = "*"
+pillow = "*"
 
 
 [dev-packages]
