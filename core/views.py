@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.views import generic
 
-from astrophotography.forms import *
+from core.forms import *
 
 
 class IndexView(generic.TemplateView):
@@ -14,7 +14,7 @@ class Success(generic.TemplateView):
 
 
 class SignUpView(generic.FormView):
-    # form_class = SignUpForm
+    # todo: https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html#rendering-bootstrap-4-forms
     template_name = 'registration/register_form.html'
     success_url = '/success/'
 

@@ -5,7 +5,7 @@ profile
 {% endblock %}
 
 {% block content %}
-<form method="post">
+<form method="post" class="form-group">
         {% csrf_token %}
         <table>
             {{ user_form.as_table }}

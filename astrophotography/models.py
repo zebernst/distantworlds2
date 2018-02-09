@@ -38,7 +38,7 @@ class Image(LoginRequiredMixin, models.Model):
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
 
     # filesystem
-    image = models.ImageField(upload_to=waypoint_folder)
+    image = models.ImageField(upload_to=waypoint_folder)  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
     thumb = models.ImageField(upload_to='thumbs', null=True)
 
     orig_filename = models.CharField('original filename', max_length=768)
