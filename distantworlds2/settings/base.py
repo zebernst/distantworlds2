@@ -23,6 +23,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'dw2photo.serveftp.com']
 
+LOGIN_REDIRECT_URL = 'core:home'
 
 # Application definition
 

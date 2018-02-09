@@ -157,7 +157,7 @@ class Commander(models.Model):
     roster_num = models.PositiveSmallIntegerField('roster number', blank=False, null=True)
 
     # scrape roster
-    ship = models.ForeignKey(Ship, on_delete=models.SET_NULL)
+    ship = models.ForeignKey(Ship, on_delete=models.SET_NULL, null=True)
     comms_id = models.CharField('comms nickname', max_length=15, null=True)
     timezone = models.CharField(max_length=8)
     platform = models.CharField(max_length=8)

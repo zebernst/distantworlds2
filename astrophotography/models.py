@@ -1,6 +1,7 @@
 import hashlib
 import os
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import models
 from django.utils.text import slugify
 
@@ -8,7 +9,7 @@ from core.models import Commander, Location, Waypoint
 
 
 # todo: make success_url go to the Location form that pre-populates from filename
-class Image(models.Model):
+class Image(LoginRequiredMixin, models.Model):
 
     def user_media_folder(self, filename):
         """return the media folder for a certain user"""
@@ -63,6 +64,9 @@ class Image(models.Model):
             for chunk in self.image.chunks():
                 sha1.update(chunk)
             self.sha1sum = sha1.hexdigest()
+
+        # save user
+
 
         # convert .bmp files before saving
         name, ext = os.path.splitext(self.image.name)
