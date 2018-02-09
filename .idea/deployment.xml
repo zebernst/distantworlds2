@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Tom's RasPi (photoadmin)" />
+  <component name="PublishConfigData" serverName="Atomic RasPi (photoadmin)">
+    <serverData>
+      <paths name="Atomic RasPi">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/galaxy/distantworlds2" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/home/galaxy/distantworlds2/.git" />
+            <excludedPath path="/home/galaxy/distantworlds2/.idea" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+            <excludedPath local="true" path="$PROJECT_DIR$/db.sqlite3" />
+            <excludedPath path="/home/galaxy/distantworlds2/db.sqlite3" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
 </project>
