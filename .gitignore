@@ -187,3 +187,4 @@ Temporary Items
 .idea/webServers.xml
 db.sqlite3
 /media/
+/static/bootstrap/

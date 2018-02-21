@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
+{% load static %}
 
 {% block title %}
     Register
 {% endblock %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/register-form.css' %}">
+{% endblock %}
+
 {% block content %}
-    <form method="post" class="form-group" novalidate>
+    <section id="register-form">
+    <form method="post" class="form-group" novalidate id="form-register">
         {% csrf_token %}
+
+        <h1 class="h3 mb-3 mt-5 font-weight-normal">Create an account</h1>
 
         {% for hidden_field in user_form.hidden_fields %}
             {{ hidden_field }}
@@ -24,56 +32,42 @@
             </div>
         {% endif %}
 
-        {% for field in user_form.visible_fields %}
-            <div class="form-group">
-                {{ field.label_tag }}
-
-                {% if user_form.is_bound %}
-                    {% if field.errors %}
-                        {% render_field field class="form-control is-invalid" %}
-                        {% for error in field.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        {% render_field field class="form-control is-valid" %}
-                    {% endif %}
-                {% else %}
-                    {% render_field field class="form-control" %}
-                {% endif %}
-
-                {% if field.help_text %}
-                    <small class="form-text text-muted">{{ field.help_text|safe }}</small>
-                {% endif %}
+        <div class="form-group">
+            {% include 'includes/form-element.html' with form=user_form field=user_form.username placeholder='username' show_help=False %}
+            <div class="my-3"></div>
+            {% include 'includes/form-element.html' with form=user_form field=user_form.email placeholder='email@example.com' %}
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                {% include 'includes/form-element.html' with form=user_form field=user_form.password1 placeholder='password' show_help=False %}
             </div>
-        {% endfor %}
-
-        {% for field in cmdr_form.visible_fields %}
-            <div class="form-group">
-                {{ field.label_tag }}
-
-                {% if cmdr_form.is_bound %}
-                    {% if field.errors %}
-                        {% render_field field class="form-control is-invalid" %}
-                        {% for error in field.errors %}
-                            <div class="invalid-feedback">
-                                {{ error }}
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        {% render_field field class="form-control is-valid" %}
-                    {% endif %}
-                {% else %}
-                    {% render_field field class="form-control" %}
-                {% endif %}
-
-                {% if field.help_text %}
-                    <small class="form-text text-muted">{{ field.help_text }}</small>
-                {% endif %}
+            <div class="col">
+                {% include 'includes/form-element.html' with form=user_form field=user_form.password2 placeholder='confirm password' show_help=False %}
             </div>
-        {% endfor %}
+        </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <h3 class="mb-3 mt-5 font-weight-normal">Expedition info</h3>
+
+        <div class="row form-group">
+            <div class="col">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">CMDR</span>
+                    </div>
+                    {% include 'includes/form-element.html' with form=cmdr_form field=cmdr_form.cmdr_name placeholder='commander name' %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">#</span>
+                    </div>
+                    {% include 'includes/form-element.html' with form=cmdr_form field=cmdr_form.roster_num placeholder='DW2 roster number' %}
+                </div>
+            </div>
+        </div>
+
+       <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
     </form>
+     </section>
 {% endblock %}
