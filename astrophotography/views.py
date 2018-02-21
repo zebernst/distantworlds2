@@ -24,3 +24,7 @@ class ImageUpload(generic.FormView):
             return redirect(self.success_url)
         else:
             return render(request, self.template_name, {'form': form})
+
+
+class UserImageGallery(generic.ListView):
+    model = Image

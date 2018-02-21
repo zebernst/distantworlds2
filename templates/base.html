@@ -21,6 +21,7 @@
     <link rel="icon" type="image/png"   sizes="32x32"     href="{% static 'icons/favicon-32x32.png' %}">
     <link rel="icon" type="image/png"   sizes="96x96"     href="{% static 'icons/favicon-96x96.png' %}">
     <link rel="icon" type="image/png"   sizes="16x16"     href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}">
     <link rel="manifest" href="{% static 'icons/manifest.json' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}">
@@ -30,6 +31,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {#    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">#}
+    {% block stylesheet %}{% endblock %}
+
+    <!-- fontawesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
     <title>Distant Worlds 2 | {% block title %}INVALID{% endblock %}</title>
 
@@ -40,7 +45,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container">
             <!-- main navbar title & toggle icon -->
-            <a class="navbar-brand" href="{% url 'core:home' %}">Distant Worlds II</a>
+            <a class="navbar-brand" href="{% url 'core:home' %}">distant worlds ii</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
                     aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,38 +57,39 @@
                     <li class="nav-item">
                         {% url 'core:home' as home %}
                         <a class="nav-link {% if request.path == home %}active{% endif %}"
-                           href="{{ home }}">Home</a>
+                           href="{{ home }}">home</a>
                     </li>
                     <li class="nav-item">
                         {% url 'astrophotography:upload-image' as upload_img %}
                         <a class="nav-link {% if request.path == upload_img %}active{% endif %}"
-                           href="{{ upload_img }}">Upload</a>
+                           href="{{ upload_img }}">upload</a>
                     </li>
                 </ul>
 
                 <!-- profile section -->
                 {% if user.is_authenticated %}
                     <div class="btn-group navbar-nav navbar-right">
-                        <a class="btn btn-outline-info"
-                           href="{% url 'core:home' %}{# todo: user overview page #}">{{ user.commander }}</a>
-                        <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split"
+                        <a class="btn btn-outline-light btn-sm"
+                           href="{% url 'core:home' %}{# todo: user overview page #}"><i class="fas fa-user-circle fa-fw"></i> {{ user.commander }}</a>
+                        <button type="button" class="btn btn-sm btn-outline-light dropdown-toggle dropdown-toggle-split"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
+                            <span class="sr-only">toggle dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                            <a href="{% url 'logout' %}" class="dropdown-item"><span
-                                    class="glyphicon glyphicon-user"> Logout</span></a>
+                            <h6 class="dropdown-header">Images</h6>
+                            <a href="#" class="dropdown-item">My Images</a>
                             <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cogs fa-fw"></i> Settings</a>
+                            <a href="{% url 'logout' %}" class="dropdown-item"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a>
                         </div>
                     </div>
                 {% else %}
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a href="{% url 'register' %}" class="nav-link"><span class="glyphicon glyphicon-user"> Sign Up</span></a>
+                            <a href="{% url 'register' %}" class="nav-link"><i class="fas fa-user-plus"></i> sign up</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'login' %}" class="nav-link"><span
-                                    class="glyphicon glyphicon-user"> Login</span></a>
+                            <a href="{% url 'login' %}" class="nav-link"><i class="fas fa-sign-in-alt"></i> login</a>
                         </li>
                     </ul>
                 {% endif %}

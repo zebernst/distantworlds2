@@ -1,43 +1,89 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
 
 {% block title %}
-Login
+    Login
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/login-form.css' %}">
 {% endblock %}
 
 {% block content %}
+    <section id="login-form">
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+            {% else %}
+                <p>Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+        <form method="post" action="{% url 'login' %}" class="form-login">
+            {% csrf_token %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-<div>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</div>
-<div>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</div>
+            {% for hidden_field in form.hidden_fields %}
+                {{ hidden_field }}
+            {% endfor %}
 
-<div>
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</div>
-</form>
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+            <label for="{{ form.username.auto_id }}" class="sr-only">{{ form.username.label }}</label>
+            {% if form.is_bound %}
+                {% if form.username.errors %}
+                    {% render_field form.username class="form-control is-invalid" %}
+                    {% for error in form.username.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% render_field form.username class="form-control is-valid" %}
+                {% endif %}
+            {% else %}
+                {% render_field form.username class="form-control" placeholder=form.username.label %}
+            {% endif %}
+
+
+            <label for="{{ form.password.auto_id }}" class="sr-only">{{ form.password.label }}</label>
+            {% if form.is_bound %}
+                {% if form.password.errors %}
+                    {% render_field form.password class="form-control is-invalid" %}
+                    {% for error in form.password.errors %}
+                        <div class="invalid-feedback">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% render_field form.password class="form-control is-valid" %}
+                {% endif %}
+            {% else %}
+                {% render_field form.password class="form-control" placeholder=form.password.label %}
+            {% endif %}
+
+            <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </div>
+        </form>
+    </section>
 
 {% endblock %}
