@@ -10,6 +10,7 @@ name = "pypi"
 django = "*"
 python-decouple = "*"
 pillow = "*"
+django-widget-tweaks = "*"
 
 
 [dev-packages]

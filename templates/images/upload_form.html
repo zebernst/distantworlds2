@@ -1,15 +1,39 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}
-upload
+    Upload
 {% endblock %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data" class="form-group">
+    <h1 class="mt-5">upload an image</h1>
+    <form method="post" enctype="multipart/form-data" class="form-group" novalidate>
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit">Save</button><br>
+        
+        {% for field in form.visible_fields %}
+            <div class="form-group">
+                {{ field.label_tag }}
+
+                {% if form.is_bound %}
+                    {% if field.errors %}
+                        {% render_field field class="form-control is-invalid" %}
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {% render_field field class="form-control is-valid" %}
+                    {% endif %}
+                {% else %}
+                    {% render_field field class="form-control" %}
+                {% endif %}
+
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {% endblock %}
