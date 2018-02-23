@@ -11,6 +11,7 @@ django = "*"
 python-decouple = "*"
 pillow = "*"
 django-widget-tweaks = "*"
+gspread = "*"
 
 
 [dev-packages]

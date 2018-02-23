@@ -23,8 +23,8 @@ from core.views import SignUpView
 urlpatterns = [
     # auth
     path('admin/', admin.site.urls),
-    path('user/', include('django.contrib.auth.urls')),
-    path('user/register/', SignUpView.as_view(), name='register'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', SignUpView.as_view(), name='register'),
 
     path('', include('core.urls')),
     path('photos/', include('astrophotography.urls')),

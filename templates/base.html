@@ -86,10 +86,12 @@
                 {% else %}
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a href="{% url 'register' %}" class="nav-link"><i class="fas fa-user-plus"></i> sign up</a>
+                            {% url 'register' as register %}
+                            <a href="{{ register }}" class="nav-link {% if request.path == register %}active{% endif %}"><i class="fas fa-user-plus"></i> sign up</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'login' %}" class="nav-link"><i class="fas fa-sign-in-alt"></i> login</a>
+                            {% url 'login' as login %}
+                            <a href="{{ login }}" class="nav-link {% if request.path == login %}active{% endif %}"><i class="fas fa-sign-in-alt"></i> login</a>
                         </li>
                     </ul>
                 {% endif %}

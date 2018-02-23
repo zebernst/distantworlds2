@@ -5,7 +5,7 @@ from .forms import *
 
 
 # Create your views here.
-class ImageUpload(generic.FormView):
+class ImageUpload(LoginRequiredMixin, generic.FormView):
     form_class = ImageForm
     template_name = 'images/upload_form.html'
     success_url = '/success/'
