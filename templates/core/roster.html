@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Roster
+{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">distant worlds 2 roster</h1>
+    <p class="lead">table goes here</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Roster #</th>
+                <th>Commander</th>
+                <th>Validated</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cmdr in commanders %}
+        <tr>
+            <td>{{ cmdr.roster_num }}</td>
+            <td>{{ cmdr.cmdr_name }}</td>
+            <td>{{ cmdr.validation }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

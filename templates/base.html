@@ -64,6 +64,11 @@
                         <a class="nav-link {% if request.path == upload_img %}active{% endif %}"
                            href="{{ upload_img }}">upload</a>
                     </li>
+                    <li class="nav-item">
+                        {% url 'core:roster' as roster %}
+                        <a class="nav-link {% if request.path == roster %}active{% endif %}"
+                           href="{{ roster }}">roster</a>
+                    </li>
                 </ul>
 
                 <!-- profile section -->

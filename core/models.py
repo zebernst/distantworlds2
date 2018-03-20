@@ -192,7 +192,7 @@ class Commander(models.Model):
     # distant worlds 2 info (see roster)
     roster_num = models.PositiveSmallIntegerField('DW2 Roster #', blank=False, null=True)
 
-    validation = models.BooleanField('Validated', default=True)
+    validation = models.BooleanField('Validated', default=False)
     staff = models.BooleanField('Expedition staff', default=False)
 
     modified = models.DateTimeField()

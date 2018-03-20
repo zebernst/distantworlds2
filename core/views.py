@@ -13,6 +13,15 @@ class Success(generic.TemplateView):
     template_name = 'success.html'
 
 
+class RosterView(generic.TemplateView):
+    template_name = 'core/roster.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['commanders'] = Commander.objects.all()
+        return context
+
+
 class SignUpView(generic.FormView):
     # todo: https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html#rendering-bootstrap-4-forms
     template_name = 'registration/register_form.html'
