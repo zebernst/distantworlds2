@@ -33,9 +33,16 @@ class SignUpView(generic.FormView):
             # signal receiver creates and links a new Commander object on user_form.save(). The cmdr_form is
             # re-initialized with an instance of user.commander and its data is saved to that object.
             user = user_form.save()
-            cmdr_form = CommanderForm(request.POST, prefix='cmdr', instance=user.commander)  # includes instance
-            cmdr_form.save()  # save commander data
             user.save()
+
+            try:
+                cmdr = Commander.objects.get(roster_num=cmdr_form.cleaned_data['roster_num'])
+            except Commander.DoesNotExist:
+                # todo: redirect to Register Commander form (need to create)
+                cmdr = CommanderForm(request.POST, prefix='cmdr').save()  # , instance=user.commander)
+
+            cmdr.user = user
+            cmdr.save()
 
             # authenticate
             raw_pw = user_form.cleaned_data.get('password1')
