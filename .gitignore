@@ -188,3 +188,4 @@ Temporary Items
 db.sqlite3
 /media/
 /static/bootstrap/
+/core/google_api_secret.json

@@ -1,5 +1,9 @@
+import dateutil.parser
+import gspread
+from dateutil import tz
 from django.contrib.auth.models import User
 from django.db import models
+from oauth2client.service_account import ServiceAccountCredentials
 
 
 class Location(models.Model):
@@ -113,10 +117,6 @@ class Commander(models.Model):
     VIPER_MK_IV = 'viper4'
     VULTURE = 'vulture'
 
-    NO = 0
-    YES = 1
-    MAYBE = 2
-
     DW2_SHIP_TYPES = (
         (ADDER, 'Adder'),
         (ANACONDA, 'Anaconda'),
@@ -175,31 +175,26 @@ class Commander(models.Model):
         (PS4,   'PS4'),
         (MACOS, 'Mac')
     )
-
-    DW2_PATCHES = (
-        (NO, 'No'),
-        (YES, 'Yes'),
-        (MAYBE, 'Maybe')
-    )
     # endregion
 
     # relationship
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
 
     # commander info
     cmdr_name = models.CharField('Commander Name', max_length=25, blank=False)
 
     # distant worlds 2 info (see roster)
     roster_num = models.PositiveSmallIntegerField('DW2 Roster #', blank=False, null=True)
+    applicant_num = models.PositiveSmallIntegerField('Contin. #', blank=False, null=True)
 
-    validation = models.BooleanField('Validated', default=False)
+    # validation = models.BooleanField('Validated', default=False)
     staff = models.BooleanField('Expedition staff', default=False)
 
     modified = models.DateTimeField()
 
     ship_model = models.CharField('Ship Model', max_length=16, choices=DW2_SHIP_TYPES)
     ship_name = models.CharField('Ship Name', max_length=24, null=True, blank=True)
-    ship_id = models.CharField('Ship ID', max_length=6)
+    call_sign = models.CharField('Ship ID', max_length=6)
     ship_range = models.FloatField('Jump Range (LY)')
     livery = models.CharField('ship livery', max_length=48, null=True)
 
@@ -213,8 +208,6 @@ class Commander(models.Model):
     role2 = models.IntegerField('Secondary Role', choices=DW2_ROLES, null=True)
 
     avg_playtime = models.CharField('Average hours played per week', max_length=16)
-
-    dw_patch = models.PositiveSmallIntegerField('Interested in embroidered patch', choices=DW2_PATCHES)
 
     # region expeditions
     exp_01 = models.BooleanField('Expedition: Nebulae Research Voyages', default=False)
@@ -279,4 +272,221 @@ class Commander(models.Model):
 
     @classmethod
     def scrape_roster(cls):
-        pass  # todo
+        # connect to google api
+        scope = ['https://spreadsheets.google.com/feeds']
+        credentials = ServiceAccountCredentials.from_json_keyfile_name('core/google_api_secret.json', scope)
+        client = gspread.authorize(credentials)
+
+        # get worksheet
+        wbk = client.open('DW2 Roster Django Interface')
+        roster = wbk.get_worksheet(1).get_all_records()
+
+        # helper dicts for switch case statements
+        ships = {
+            'Alliance Chieftain':   Commander.CHIEFTAIN,
+            'Anaconda':             Commander.ANACONDA,
+            'Asp Explorer':         Commander.ASP_EXPLORER,
+            'Asp Scout':            Commander.ASP_SCOUT,
+            'Beluga Liner':         Commander.BELUGA,
+            'Cobra Mk III':         Commander.COBRA_MK_III,
+            'Cobra Mk IV':          Commander.COBRA_MK_IV,
+            'Diamondback Explorer': Commander.DIAMONDBACK_EXPLORER,
+            'Diamondback Scout':    Commander.DIAMONDBACK_SCOUT,
+            'Dolphin':              Commander.DOLPHIN,
+            'Eagle Mk II':          Commander.EAGLE,
+            'Federal Assault Ship': Commander.FEDERAL_ASSAULT_SHIP,
+            'Federal Corvette':     Commander.FEDERAL_CORVETTE,
+            'Federal Dropship':     Commander.FEDERAL_DROPSHIP,
+            'Federal Gunship':      Commander.FEDERAL_GUNSHIP,
+            'Fer-De-Lance':         Commander.FER_DE_LANCE,
+            'Hauler':               Commander.HAULER,
+            'Imperial Clipper':     Commander.IMPERIAL_CLIPPER,
+            'Imperial Courier':     Commander.IMPERIAL_COURIER,
+            'Imperial Cutter':      Commander.IMPERIAL_CUTTER,
+            'Imperial Eagle':       Commander.IMPERIAL_EAGLE,
+            'Keelback':             Commander.KEELBACK,
+            'Krait':                Commander.KRAIT,
+            'Orca':                 Commander.ORCA,
+            'Python':               Commander.PYTHON,
+            'Sidewinder Mk I':      Commander.SIDEWINDER,
+            'Type-10 Defender':     Commander.TYPE_10,
+            'Type-6 Transporter':   Commander.TYPE_6,
+            'Type-7 Transporter':   Commander.TYPE_7,
+            'Type-9 Heavy':         Commander.TYPE_9,
+            'Viper Mk III':         Commander.VIPER_MK_III,
+            'Viper Mk IV':          Commander.VIPER_MK_IV,
+            'Vulture':              Commander.VULTURE
+        }
+        roles = {
+            'Explorer': Commander.EXPL,
+            'Fuel Rat': Commander.RAT,
+            'Miner': Commander.MINER,
+            'Fleet Mechanic': Commander.MECH,
+            'Tour Guide': Commander.GUIDE,
+            'Photographer': Commander.PHOTO,
+            'Fighter Escort': Commander.ESCORT,
+            'Geologist': Commander.GEOL,
+            'Scientist': Commander.SCI,
+            'Media': Commander.MEDIA,
+            'MediCorp': Commander.MCORP,
+            'Fleet Logistics': Commander.LOGIST
+        }
+
+        # process roster
+        for entry in roster:
+
+            # skip non-validated entries
+            if entry['Validation'] != 'Validated':
+                continue
+
+            # if Commander.objects.filter(roster_num=entry['Roster Number']).exists()
+            # do stuff
+            data = {
+                'applicant_num': entry['Valid Application Number'],
+                'roster_num': entry['Roster Number'],
+                'modified': dateutil.parser.parse(entry['Application Date']).replace(tzinfo=tz.gettz("Europe/Paris")),
+                'timezone': entry['Timezone'] if entry['Timezone'] != '' else None,
+
+                'cmdr_name': entry['CMDR Name'],
+                'comms_id': entry['Comms ID'] if entry['Comms ID'] != '' else None,
+
+                'ship_model': ships.get(entry['Ship Type'], 'INVALID SHIP'),
+                'ship_name': entry['Ship Name'] if entry['Ship Name'] != '' else None,
+                'ship_range': entry['Ship Range'],
+                'call_sign': entry['Call Sign'],
+                'livery': entry['Livery'],
+
+                'role1': roles.get(entry['Primary Role'], Commander.EXPL),
+                'role2': roles.get(entry['Secondary Role'], None),
+
+                'dwe_veteran': True if entry['DWE Veteran'] == 'Yes' else False,
+                'visited_beagle_point': True if entry['BP Veteran'] == 'Yes' else False,
+
+                'staff': True if entry['Staff'] == 'Yes' else False,
+
+                'platform': entry['Platform'],
+                'avg_playtime': entry['Gametime']
+            }
+
+            expeditions = [e.strip() for e in entry['Expeditions'].split(',')]  # trim whitespace around strings
+            # this is vile please don't judge me
+            for exp in expeditions:
+                if exp == "Nebulae Research Voyages":
+                    data['exp_01'] = True
+                elif exp == "REGOR Border Mapping":
+                    data['exp_02'] = True
+                elif exp == "Sagittarius-Carina Mission":
+                    data['exp_03'] = True
+                elif exp == "Dumbbell Project":
+                    data['exp_04'] = True
+                elif exp == "Distant Worlds 3302":
+                    data['exp_05'] = True
+                elif exp == "Formidine Rift Survey":
+                    data['exp_06'] = True
+                elif exp == "Meet & Greet Expedition":
+                    data['exp_07'] = True
+                elif exp == "Crab Nebula Expedition":
+                    data['exp_08'] = True
+                elif exp == "Borderlands Venture":
+                    data['exp_09'] = True
+                elif exp == "Western Expedition":
+                    data['exp_10'] = True
+                elif exp == "August Exodus - A Jaunt To Jaques":
+                    data['exp_11'] = True
+                elif exp == "Lost Stars - DWE XBox":
+                    data['exp_12'] = True
+                elif exp == "Formidine Rift Expedition":
+                    data['exp_13'] = True
+                elif exp == "Small Worlds Expedition":
+                    data['exp_14'] = True
+                elif exp == "Go West":
+                    data['exp_15'] = True
+                elif exp == "Galactic Nebula Expedition":
+                    data['exp_16'] = True
+                elif exp == "Colonia Core Circuit 3302":
+                    data['exp_17'] = True
+                elif exp == "Cassiopeia Project":
+                    data['exp_18'] = True
+                elif exp == "S.H.E.P.A.R.D. Mission":
+                    data['exp_19'] = True
+                elif exp == "Christmas Carriers Convoy":
+                    data['exp_20'] = True
+                elif exp == "Distant Stars - Unknown Origins":
+                    data['exp_21'] = True
+                elif exp == "Meet & Greet Expedition 2":
+                    data['exp_22'] = True
+                elif exp == "Heavy Weight Champions Circuit":
+                    data['exp_23'] = True
+                elif exp == "La Grande Expédition Remlok":
+                    data['exp_24'] = True
+                elif exp == "Mind The Gap":
+                    data['exp_25'] = True
+                elif exp == "Silly Ships Expedition":
+                    data['exp_26'] = True
+                elif exp == "Pioneers And Explorers":
+                    data['exp_27'] = True
+                elif exp == "Mercury 7 Expedition":
+                    data['exp_28'] = True
+                elif exp == "Helium Hunt":
+                    data['exp_29'] = True
+                elif exp == "Helicon's Peak Expedition":
+                    data['exp_30'] = True
+                elif exp == "Local Sightseeing Tour":
+                    data['exp_31'] = True
+                elif exp == "Azophi Expedition":
+                    data['exp_32'] = True
+                elif exp == "Silly Ships Expedition 2":
+                    data['exp_33'] = True
+                elif exp == "Summer Great Expedition":
+                    data['exp_34'] = True
+                elif exp == "Small Worlds Expedition 2":
+                    data['exp_35'] = True
+                elif exp == "Monoceros Mission":
+                    data['exp_36'] = True
+                elif exp == "Land Of Giants":
+                    data['exp_37'] = True
+                elif exp == "Grand Day Out":
+                    data['exp_38'] = True
+                elif exp == "Devos Expedition Program #1":
+                    data['exp_39'] = True
+                elif exp == "CCN Short Expedition":
+                    data['exp_40'] = True
+                elif exp == "Miskatonic University Galactic Expedition":
+                    data['exp_41'] = True
+                elif exp == "Dead End's Circumnavigation Expedition":
+                    data['exp_42'] = True
+                elif exp == "DSN Luxury Tour":
+                    data['exp_43'] = True
+                elif exp == "Distant Friends Expedition":
+                    data['exp_44'] = True
+                elif exp == "Minerva Centaurus Expedition":
+                    data['exp_45'] = True
+                elif exp == "Christmas Delights":
+                    data['exp_46'] = True
+                elif exp == "INRA Expedition":
+                    data['exp_47'] = True
+                elif exp == "Christmas Carriers Convoy 2":
+                    data['exp_48'] = True
+                elif exp == "Orange Run":
+                    data['exp_49'] = True
+                elif exp == "Enigma Expedition":
+                    data['exp_50'] = True
+                elif exp == "Beagle Point Expedition":
+                    data['exp_51'] = True
+                elif exp == "Perseus Survey":
+                    data['exp_52'] = True
+                elif exp == "Saud Kruger Buoy Tour":
+                    data['exp_53'] = True
+                elif exp == "Adder Tour":
+                    data['exp_54'] = True
+                elif exp == "A Fallen Commander":
+                    data['exp_55'] = True
+
+            cmdr, new = Commander.objects.update_or_create(roster_num=entry['Roster Number'], defaults=data)
+            # print('{cmdr}: {new}'.format(cmdr=cmdr, new='Created' if new else 'Updated'))
+            cmdr.save()
+
+            # wait for user
+            # input()
+
+        # note: todo: when making profile page, make it READ ONLY - can only make changes via google form

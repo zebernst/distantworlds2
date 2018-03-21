@@ -12,6 +12,8 @@ python-decouple = "*"
 pillow = "*"
 django-widget-tweaks = "*"
 gspread = "*"
+"oauth2client" = "*"
+python-dateutil = "*"
 
 
 [dev-packages]
