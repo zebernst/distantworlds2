@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from oauth2client.service_account import ServiceAccountCredentials
 
+from .utils import ChoiceEnum
+
 
 class Location(models.Model):
     # system
@@ -63,136 +65,79 @@ class Waypoint(models.Model):
 
 class Commander(models.Model):
 
-    # region constants
-    EXPL = 0
-    RAT = 1
-    MINER = 2
-    MECH = 3
-    GUIDE = 4
-    PHOTO = 5
-    ESCORT = 6
-    GEOL = 7
-    SCI = 8
-    MEDIA = 9
-    MCORP = 10
-    LOGIST = 11
+    class Role(ChoiceEnum):
+        EXPL = 0
+        RAT = 1
+        MINER = 2
+        MECH = 3
+        GUIDE = 4
+        PHOTO = 5
+        ESCORT = 6
+        GEOL = 7
+        SCI = 8
+        MEDIA = 9
+        MCORP = 10
+        LOGIST = 11
 
-    PC = 0
-    XBOX = 1
-    PS4 = 2
-    MACOS = 3
+    class Platform(ChoiceEnum):
+        PC = 0
+        XBOX = 1
+        PS4 = 2
+        MAC = 3
 
-    ADDER = 'adder'
-    ANACONDA = 'conda'
-    ASP_EXPLORER = 'aspx'
-    ASP_SCOUT = 'asps'
-    BELUGA = 'beluga'
-    CHIEFTAIN = 'chieftain'
-    COBRA_MK_III = 'cobra3'
-    COBRA_MK_IV = 'cobra4'
-    DIAMONDBACK_EXPLORER = 'dbx'
-    DIAMONDBACK_SCOUT = 'dbs'
-    DOLPHIN = 'dolphin'
-    EAGLE = 'eagle'
-    FEDERAL_ASSAULT_SHIP = 'fas'
-    FEDERAL_CORVETTE = 'corvette'
-    FEDERAL_DROPSHIP = 'dropship'
-    FEDERAL_GUNSHIP = 'gunship'
-    FER_DE_LANCE = 'fdl'
-    HAULER = 'hauler'
-    IMPERIAL_CLIPPER = 'clipper'
-    IMPERIAL_COURIER = 'courier'
-    IMPERIAL_CUTTER = 'cutter'
-    IMPERIAL_EAGLE = 'ieagle'
-    KEELBACK = 'keelback'
-    KRAIT = 'krait'
-    ORCA = 'orca'
-    PYTHON = 'python'
-    SIDEWINDER = 'sidewinder'
-    TYPE_10 = 't10'
-    TYPE_6 = 't6'
-    TYPE_7 = 't7'
-    TYPE_9 = 't9'
-    VIPER_MK_III = 'viper3'
-    VIPER_MK_IV = 'viper4'
-    VULTURE = 'vulture'
+    class Ship(ChoiceEnum):
+        ADDER = 'adder'
+        ANACONDA = 'conda'
+        ASP_EXPLORER = 'aspx'
+        ASP_SCOUT = 'asps'
+        BELUGA = 'beluga'
+        CHIEFTAIN = 'chieftain'
+        COBRA_MK_III = 'cobra3'
+        COBRA_MK_IV = 'cobra4'
+        DIAMONDBACK_EXPLORER = 'dbx'
+        DIAMONDBACK_SCOUT = 'dbs'
+        DOLPHIN = 'dolphin'
+        EAGLE = 'eagle'
+        FEDERAL_ASSAULT_SHIP = 'fas'
+        FEDERAL_CORVETTE = 'corvette'
+        FEDERAL_DROPSHIP = 'dropship'
+        FEDERAL_GUNSHIP = 'gunship'
+        FER_DE_LANCE = 'fdl'
+        HAULER = 'hauler'
+        IMPERIAL_CLIPPER = 'clipper'
+        IMPERIAL_COURIER = 'courier'
+        IMPERIAL_CUTTER = 'cutter'
+        IMPERIAL_EAGLE = 'ieagle'
+        KEELBACK = 'keelback'
+        KRAIT = 'krait'
+        ORCA = 'orca'
+        PYTHON = 'python'
+        SIDEWINDER = 'sidewinder'
+        TYPE_10 = 't10'
+        TYPE_6 = 't6'
+        TYPE_7 = 't7'
+        TYPE_9 = 't9'
+        VIPER_MK_III = 'viper3'
+        VIPER_MK_IV = 'viper4'
+        VULTURE = 'vulture'
 
-    DW2_SHIP_TYPES = (
-        (ADDER, 'Adder'),
-        (ANACONDA, 'Anaconda'),
-        (ASP_EXPLORER, 'Asp Explorer'),
-        (ASP_SCOUT, 'Asp Scout'),
-        (BELUGA, 'Beluga Liner'),
-        (CHIEFTAIN, 'Chieftain'),
-        (COBRA_MK_III, 'Cobra Mk III'),
-        (COBRA_MK_IV, 'Cobra Mk IV'),
-        (DIAMONDBACK_EXPLORER, 'Diamondback Explorer'),
-        (DIAMONDBACK_SCOUT, 'Diamondback Scout'),
-        (DOLPHIN, 'Dolphin'),
-        (EAGLE, 'Eagle Mk II'),
-        (FEDERAL_ASSAULT_SHIP, 'Federal Assault Ship'),
-        (FEDERAL_CORVETTE, 'Federal Corvette'),
-        (FEDERAL_DROPSHIP, 'Federal Dropship'),
-        (FEDERAL_GUNSHIP, 'Federal Gunship'),
-        (FER_DE_LANCE, 'Fer-De-Lance'),
-        (HAULER, 'Hauler'),
-        (IMPERIAL_CLIPPER, 'Imperial Clipper'),
-        (IMPERIAL_COURIER, 'Imperial Courier'),
-        (IMPERIAL_CUTTER, 'Imperial Cutter'),
-        (IMPERIAL_EAGLE, 'Imperial Eagle'),
-        (KEELBACK, 'Keelback'),
-        (KRAIT, 'Krait'),
-        (ORCA, 'Orca'),
-        (PYTHON, 'Python'),
-        (SIDEWINDER, 'Sidewinder Mk I'),
-        (TYPE_10, 'Type-10 Defender'),
-        (TYPE_6, 'Type-6 Transporter'),
-        (TYPE_7, 'Type-7 Transporter'),
-        (TYPE_9, 'Type-9 Heavy'),
-        (VIPER_MK_III, 'Viper Mk III'),
-        (VIPER_MK_IV, 'Viper Mk IV'),
-        (VULTURE, 'Vulture')
-    )
-
-    DW2_ROLES = (
-        (EXPL,   'Explorer'),
-        (RAT,    'Fuel Rat'),
-        (MINER,  'Miner'),
-        (MECH,   'Fleet Mechanic'),
-        (GUIDE,  'Tour Guide'),
-        (PHOTO,  'Astrophotographer'),
-        (ESCORT, 'Fighter Escort'),
-        (GEOL,   'Geologist'),
-        (SCI,    'Scientist'),
-        (MEDIA,  'Media'),
-        (MCORP,  'MediCorp'),
-        (LOGIST, 'Fleet Logistics')
-    )
-
-    DW2_PLATFORMS = (
-        (PC,    'PC'),
-        (XBOX,  'XBOne'),
-        (PS4,   'PS4'),
-        (MACOS, 'Mac')
-    )
-    # endregion
+    # application number (pk)
+    app_num = models.PositiveIntegerField('App. #', primary_key=True)
 
     # relationship
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
 
     # commander info
-    cmdr_name = models.CharField('Commander Name', max_length=25, blank=False)
+    cmdr_name = models.CharField('Commander Name', max_length=25)
 
     # distant worlds 2 info (see roster)
-    roster_num = models.PositiveSmallIntegerField('DW2 Roster #', blank=False, null=True)
-    applicant_num = models.PositiveSmallIntegerField('Contin. #', blank=False, null=True)
+    roster_num = models.PositiveSmallIntegerField('DW2 Roster #')
 
-    # validation = models.BooleanField('Validated', default=False)
     staff = models.BooleanField('Expedition staff', default=False)
 
     modified = models.DateTimeField()
 
-    ship_model = models.CharField('Ship Model', max_length=16, choices=DW2_SHIP_TYPES)
+    ship_model = models.CharField('Ship Model', max_length=16, choices=Ship.choices())
     ship_name = models.CharField('Ship Name', max_length=24, null=True, blank=True)
     call_sign = models.CharField('Ship ID', max_length=6)
     ship_range = models.FloatField('Jump Range (LY)')
@@ -200,12 +145,12 @@ class Commander(models.Model):
 
     comms_id = models.CharField('Comms Nickname', max_length=15, null=True)
     timezone = models.CharField('Timezone', max_length=8, null=True)
-    platform = models.CharField('Platform', max_length=8, choices=DW2_PLATFORMS, default="PC")
+    platform = models.CharField('Platform', max_length=8, choices=Platform.choices(), default=Platform.PC.value)
     dwe_veteran = models.BooleanField('Participated in DWE 3302', default=False)
     visited_beagle_point = models.BooleanField('Has visited Beagle Point', default=False)
 
-    role1 = models.IntegerField('Primary Role', choices=DW2_ROLES, default=EXPL)
-    role2 = models.IntegerField('Secondary Role', choices=DW2_ROLES, null=True)
+    role1 = models.IntegerField('Primary Role', choices=Role.choices(), default=Role.EXPL.value)
+    role2 = models.IntegerField('Secondary Role', choices=Role.choices(), null=True)
 
     avg_playtime = models.CharField('Average hours played per week', max_length=16)
 
@@ -283,53 +228,53 @@ class Commander(models.Model):
 
         # helper dicts for switch case statements
         ships = {
-            'Alliance Chieftain':   Commander.CHIEFTAIN,
-            'Anaconda':             Commander.ANACONDA,
-            'Asp Explorer':         Commander.ASP_EXPLORER,
-            'Asp Scout':            Commander.ASP_SCOUT,
-            'Beluga Liner':         Commander.BELUGA,
-            'Cobra Mk III':         Commander.COBRA_MK_III,
-            'Cobra Mk IV':          Commander.COBRA_MK_IV,
-            'Diamondback Explorer': Commander.DIAMONDBACK_EXPLORER,
-            'Diamondback Scout':    Commander.DIAMONDBACK_SCOUT,
-            'Dolphin':              Commander.DOLPHIN,
-            'Eagle Mk II':          Commander.EAGLE,
-            'Federal Assault Ship': Commander.FEDERAL_ASSAULT_SHIP,
-            'Federal Corvette':     Commander.FEDERAL_CORVETTE,
-            'Federal Dropship':     Commander.FEDERAL_DROPSHIP,
-            'Federal Gunship':      Commander.FEDERAL_GUNSHIP,
-            'Fer-De-Lance':         Commander.FER_DE_LANCE,
-            'Hauler':               Commander.HAULER,
-            'Imperial Clipper':     Commander.IMPERIAL_CLIPPER,
-            'Imperial Courier':     Commander.IMPERIAL_COURIER,
-            'Imperial Cutter':      Commander.IMPERIAL_CUTTER,
-            'Imperial Eagle':       Commander.IMPERIAL_EAGLE,
-            'Keelback':             Commander.KEELBACK,
-            'Krait':                Commander.KRAIT,
-            'Orca':                 Commander.ORCA,
-            'Python':               Commander.PYTHON,
-            'Sidewinder Mk I':      Commander.SIDEWINDER,
-            'Type-10 Defender':     Commander.TYPE_10,
-            'Type-6 Transporter':   Commander.TYPE_6,
-            'Type-7 Transporter':   Commander.TYPE_7,
-            'Type-9 Heavy':         Commander.TYPE_9,
-            'Viper Mk III':         Commander.VIPER_MK_III,
-            'Viper Mk IV':          Commander.VIPER_MK_IV,
-            'Vulture':              Commander.VULTURE
+            'Alliance Chieftain':   cls.Ship.CHIEFTAIN.value,
+            'Anaconda':             cls.Ship.ANACONDA.value,
+            'Asp Explorer':         cls.Ship.ASP_EXPLORER.value,
+            'Asp Scout':            cls.Ship.ASP_SCOUT.value,
+            'Beluga Liner':         cls.Ship.BELUGA.value,
+            'Cobra Mk III':         cls.Ship.COBRA_MK_III.value,
+            'Cobra Mk IV':          cls.Ship.COBRA_MK_IV.value,
+            'Diamondback Explorer': cls.Ship.DIAMONDBACK_EXPLORER.value,
+            'Diamondback Scout':    cls.Ship.DIAMONDBACK_SCOUT.value,
+            'Dolphin':              cls.Ship.DOLPHIN.value,
+            'Eagle Mk II':          cls.Ship.EAGLE.value,
+            'Federal Assault Ship': cls.Ship.FEDERAL_ASSAULT_SHIP.value,
+            'Federal Corvette':     cls.Ship.FEDERAL_CORVETTE.value,
+            'Federal Dropship':     cls.Ship.FEDERAL_DROPSHIP.value,
+            'Federal Gunship':      cls.Ship.FEDERAL_GUNSHIP.value,
+            'Fer-De-Lance':         cls.Ship.FER_DE_LANCE.value,
+            'Hauler':               cls.Ship.HAULER.value,
+            'Imperial Clipper':     cls.Ship.IMPERIAL_CLIPPER.value,
+            'Imperial Courier':     cls.Ship.IMPERIAL_COURIER.value,
+            'Imperial Cutter':      cls.Ship.IMPERIAL_CUTTER.value,
+            'Imperial Eagle':       cls.Ship.IMPERIAL_EAGLE.value,
+            'Keelback':             cls.Ship.KEELBACK.value,
+            'Krait':                cls.Ship.KRAIT.value,
+            'Orca':                 cls.Ship.ORCA.value,
+            'Python':               cls.Ship.PYTHON.value,
+            'Sidewinder Mk I':      cls.Ship.SIDEWINDER.value,
+            'Type-10 Defender':     cls.Ship.TYPE_10.value,
+            'Type-6 Transporter':   cls.Ship.TYPE_6.value,
+            'Type-7 Transporter':   cls.Ship.TYPE_7.value,
+            'Type-9 Heavy':         cls.Ship.TYPE_9.value,
+            'Viper Mk III':         cls.Ship.VIPER_MK_III.value,
+            'Viper Mk IV':          cls.Ship.VIPER_MK_IV.value,
+            'Vulture':              cls.Ship.VULTURE.value
         }
         roles = {
-            'Explorer': Commander.EXPL,
-            'Fuel Rat': Commander.RAT,
-            'Miner': Commander.MINER,
-            'Fleet Mechanic': Commander.MECH,
-            'Tour Guide': Commander.GUIDE,
-            'Photographer': Commander.PHOTO,
-            'Fighter Escort': Commander.ESCORT,
-            'Geologist': Commander.GEOL,
-            'Scientist': Commander.SCI,
-            'Media': Commander.MEDIA,
-            'MediCorp': Commander.MCORP,
-            'Fleet Logistics': Commander.LOGIST
+            'Explorer':             cls.Role.EXPL.value,
+            'Fuel Rat':             cls.Role.RAT.value,
+            'Miner':                cls.Role.MINER.value,
+            'Fleet Mechanic':       cls.Role.MECH.value,
+            'Tour Guide':           cls.Role.GUIDE.value,
+            'Photographer':         cls.Role.PHOTO.value,
+            'Fighter Escort':       cls.Role.ESCORT.value,
+            'Geologist':            cls.Role.GEOL.value,
+            'Scientist':            cls.Role.SCI.value,
+            'Media':                cls.Role.MEDIA.value,
+            'MediCorp':             cls.Role.MCORP.value,
+            'Fleet Logistics':      cls.Role.LOGIST.value
         }
 
         # process roster
@@ -339,10 +284,9 @@ class Commander(models.Model):
             if entry['Validation'] != 'Validated':
                 continue
 
-            # if Commander.objects.filter(roster_num=entry['Roster Number']).exists()
             # do stuff
             data = {
-                'applicant_num': entry['Valid Application Number'],
+                'app_num': entry['Valid Application Number'],
                 'roster_num': entry['Roster Number'],
                 'modified': dateutil.parser.parse(entry['Application Date']).replace(tzinfo=tz.gettz("Europe/Paris")),
                 'timezone': entry['Timezone'] if entry['Timezone'] != '' else None,
@@ -356,7 +300,7 @@ class Commander(models.Model):
                 'call_sign': entry['Call Sign'],
                 'livery': entry['Livery'],
 
-                'role1': roles.get(entry['Primary Role'], Commander.EXPL),
+                'role1': roles.get(entry['Primary Role'], cls.Role.EXPL.value),
                 'role2': roles.get(entry['Secondary Role'], None),
 
                 'dwe_veteran': True if entry['DWE Veteran'] == 'Yes' else False,
@@ -369,8 +313,7 @@ class Commander(models.Model):
             }
 
             expeditions = [e.strip() for e in entry['Expeditions'].split(',')]  # trim whitespace around strings
-            # this is vile please don't judge me
-            for exp in expeditions:
+            for exp in expeditions:  # this is vile please don't judge me
                 if exp == "Nebulae Research Voyages":
                     data['exp_01'] = True
                 elif exp == "REGOR Border Mapping":
@@ -482,11 +425,7 @@ class Commander(models.Model):
                 elif exp == "A Fallen Commander":
                     data['exp_55'] = True
 
-            cmdr, new = Commander.objects.update_or_create(roster_num=entry['Roster Number'], defaults=data)
-            # print('{cmdr}: {new}'.format(cmdr=cmdr, new='Created' if new else 'Updated'))
+            cmdr, new = Commander.objects.update_or_create(app_num=entry['Valid Application Number'], defaults=data)
             cmdr.save()
-
-            # wait for user
-            # input()
 
         # note: todo: when making profile page, make it READ ONLY - can only make changes via google form

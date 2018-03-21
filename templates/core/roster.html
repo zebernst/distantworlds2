@@ -7,23 +7,47 @@
 {% block content %}
     <h1 class="mt-5">distant worlds 2 roster</h1>
     <p class="lead">table goes here</p>
-    <table>
+    <table id="roster">
         <thead>
             <tr>
                 <th>Roster #</th>
                 <th>Commander</th>
-                <th>Validated</th>
+                <th>Comms ID</th>
+                <th>Ship Type</th>
+                <th>Ship Name</th>
+                <th>Ship Range</th>
+                <th>Paintjob</th>
+                <th>Primary Role</th>
+                <th>Secondary Role</th>
+                <th>DWE 3302 Veteran</th>
+                <th>Visited Beagle Point</th>
+                <th>Platform</th>
             </tr>
         </thead>
         <tbody>
-        {% for cmdr in commanders %}
-        <tr>
-            <td>{{ cmdr.roster_num }}</td>
-            <td>{{ cmdr.cmdr_name }}</td>
-            <td>{{ cmdr.validation }}</td>
-        </tr>
-        {% endfor %}
+            {% for cmdr in commanders %}
+            <tr>
+                <td>{{ cmdr.roster_num }}</td>
+                <td>{{ cmdr.cmdr_name }}</td>
+                <td>{{ cmdr.comms_id }}</td>
+                <td>{{ cmdr.ship_model }}</td>
+                <td>{{ cmdr.ship_name }}</td>
+                <td>{{ cmdr.ship_range }}</td>
+                <td>{{ cmdr.livery }}</td>
+                <td>{{ cmdr.role1 }}</td>
+                <td>{{ cmdr.role2 }}</td>
+                <td>{{ cmdr.dwe_veteran }}</td>
+                <td>{{ cmdr.visited_beagle_point }}</td>
+                <td>{{ cmdr.platform }}</td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
+
+    <script>
+    $(document).ready( function () {
+        $('#roster').DataTable();
+    } );
+    </script>
 
 {% endblock %}
