@@ -218,7 +218,8 @@ class Commander(models.Model):
     @classmethod
     def scrape_roster(cls):
         # connect to google api
-        scope = ['https://spreadsheets.google.com/feeds']
+        scope = ['https://spreadsheets.google.com/feeds',
+                 'https://www.googleapis.com/auth/drive']
         credentials = ServiceAccountCredentials.from_json_keyfile_name('core/google_api_secret.json', scope)
         client = gspread.authorize(credentials)
 
