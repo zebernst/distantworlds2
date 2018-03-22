@@ -6,6 +6,7 @@ from django.db import models
 from oauth2client.service_account import ServiceAccountCredentials
 from tqdm import tqdm
 
+from distantworlds2.settings.base import SITE_ROOT
 from .utils import ChoiceEnum
 
 
@@ -225,7 +226,8 @@ class Commander(models.Model):
         # connect to google api
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        credentials = ServiceAccountCredentials.from_json_keyfile_name('core/google_api_secret.json', scope)
+        filepath = str(SITE_ROOT/'core/google_api_secret.json')
+        credentials = ServiceAccountCredentials.from_json_keyfile_name(filepath, scope)
         client = gspread.authorize(credentials)
 
         print('Connected to Google sheet.')
@@ -291,7 +293,6 @@ class Commander(models.Model):
         tqdm_args = {
             'desc': 'Updating database',
             'total': len(roster),
-            'leave': True,
             'unit': '',
             'unit_scale': True,
             'dynamic_ncols': True,
@@ -460,6 +461,6 @@ class Commander(models.Model):
             cmdr.save()
 
         print("{:>4d} new records created".format(created))
-        print("{:>4d} records updated".format(updated))
+        print("{:>4d} existing records updated".format(updated))
 
         # note: todo: when making profile page, make it READ ONLY - can only make changes via google form
