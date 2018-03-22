@@ -4,6 +4,7 @@ from dateutil import tz
 from django.contrib.auth.models import User
 from django.db import models
 from oauth2client.service_account import ServiceAccountCredentials
+from tqdm import tqdm
 
 from .utils import ChoiceEnum
 
@@ -134,7 +135,7 @@ class Commander(models.Model):
     cmdr_name = models.CharField('Commander Name', max_length=25)
 
     # distant worlds 2 info (see roster)
-    roster_num = models.PositiveSmallIntegerField('DW2 Roster #')
+    roster_num = models.PositiveSmallIntegerField('DW2 Roster #', unique=True)
 
     staff = models.BooleanField('Expedition staff', default=False)
 
@@ -144,6 +145,7 @@ class Commander(models.Model):
     ship_name = models.CharField('Ship Name', max_length=24, null=True, blank=True)
     call_sign = models.CharField('Ship ID', max_length=6)
     ship_range = models.FloatField('Jump Range (LY)')
+    ship_showcase_link = models.CharField('Showcase Image Link', max_length=256, null=True, blank=True)
     livery = models.CharField('ship livery', max_length=48, null=True)
 
     comms_id = models.CharField('Comms Nickname', max_length=15, null=True)
@@ -226,9 +228,13 @@ class Commander(models.Model):
         credentials = ServiceAccountCredentials.from_json_keyfile_name('core/google_api_secret.json', scope)
         client = gspread.authorize(credentials)
 
+        print('Connected to Google sheet.')
+        print('Fetching data....', end='', flush=True)
+
         # get worksheet
         wbk = client.open('DW2 Roster Django Interface')
-        roster = wbk.get_worksheet(1).get_all_records()
+        roster = wbk.get_worksheet(0).get_all_records()
+        print('done.')
 
         # helper dicts for switch case statements
         ships = {
@@ -281,14 +287,27 @@ class Commander(models.Model):
             'Fleet Logistics':      cls.Role.LOGIST.value
         }
 
+        # tqdm preferences
+        tqdm_args = {
+            'desc': 'Updating database',
+            'total': len(roster),
+            'leave': True,
+            'unit': '',
+            'unit_scale': True,
+            'dynamic_ncols': True,
+            'bar_format': '{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}, {rate_fmt}]'
+        }
+
+        # counters
+        created, updated = 0, 0
+
         # process roster
-        for entry in roster:
+        for entry in tqdm(roster, **tqdm_args):
 
             # skip non-validated entries
             if entry['Validation'] != 'Validated':
                 continue
 
-            # do stuff
             data = {
                 'app_num': entry['Valid Application Number'],
                 'roster_num': entry['Roster Number'],
@@ -429,7 +448,18 @@ class Commander(models.Model):
                 elif exp == "A Fallen Commander":
                     data['exp_55'] = True
 
+            # create/update Commander object
             cmdr, new = Commander.objects.update_or_create(app_num=entry['Valid Application Number'], defaults=data)
+
+            # count
+            if new:
+                created += 1
+            else:
+                updated += 1
+
             cmdr.save()
+
+        print("{:>4d} new records created".format(created))
+        print("{:>4d} records updated".format(updated))
 
         # note: todo: when making profile page, make it READ ONLY - can only make changes via google form
