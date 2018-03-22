@@ -73,17 +73,73 @@
                         {% url 'core:home' as home %}
                         <a class="nav-link {% if request.path == home %}active{% endif %}"
                            href="{{ home }}">home</a>
-                    </li>
+                    </li> <!-- home -->
                     <li class="nav-item">
-                        {% url 'astrophotography:upload-image' as upload_img %}
-                        <a class="nav-link {% if request.path == upload_img %}active{% endif %}"
-                           href="{{ upload_img }}">upload</a>
-                    </li>
+                        {% url 'core:join' as join %}
+                        <a class="nav-link {% if request.path == join %}active{% endif %}"
+                           href="{{ join }}">sign up</a>
+                    </li> <!-- join -->
                     <li class="nav-item">
+                        {% url 'core:news' as news %}
+                        <a class="nav-link {% if request.path == news %}active{% endif %}"
+                           href="{{ news }}">news</a>
+                    </li> <!-- news -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="fleetDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">the fleet</a>
+                        <div class="dropdown-menu" aria-labelledby="fleetDropdown">
+                            <a href="{% url 'core:roster' %}" class="dropdown-item">roster</a> <!-- fleet roster -->
+                            <a href="{% url 'core:stats'  %}" class="dropdown-item">statistics</a> <!-- fleet stats -->
+                        </div>
+                    </li> <!-- roster dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="expeditionDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">the expedition</a>
+                        <div class="dropdown-menu" aria-labelledby="expeditionDropdown">
+                            <a href="#" class="dropdown-item disabled">maps and basecamps</a> <!-- maps/basecamps -->
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item disabled">background</a> <!-- background -->
+                            <a href="#" class="dropdown-item disabled">distant worlds 2</a> <!-- dw2 -->
+                            <a href="#" class="dropdown-item disabled">community goal proposal</a> <!-- cg proposal -->
+                        </div>
+                    </li> <!-- expedition dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="photoDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">photography</a>
+                        <div class="dropdown-menu" aria-labelledby="photoDropdown">
+                            <a href="{% url 'astrophotography:upload-image' %}" class="dropdown-item">upload screenshot</a> <!-- upload -->
+                            <a href="{% url 'core:success' %}" class="dropdown-item disabled">photo gallery</a> <!-- gallery -->
+                            <a href="#" class="dropdown-item disabled">photo contest</a> <!-- contest -->
+                        </div>
+                    </li> <!-- photo dropdown -->
+                    <li class="nav-item">
+                        {% url 'core:success' as scouting %}
+                        <a class="nav-link {% if request.path == scouting %}active{% endif %}"
+                           href="{{ scouting }}">scouting</a>
+                    </li> <!-- scouting -->
+                    <!--<li class="nav-item">
                         {% url 'core:roster' as roster %}
                         <a class="nav-link {% if request.path == roster %}active{% endif %}"
                            href="{{ roster }}">roster</a>
-                    </li>
+                    </li> <!-- fleet roster -->
+                    <!-- <li class="nav-item">
+                        {% url 'core:stats' as stats %}
+                        <a class="nav-link {% if request.path == stats %}active{% endif %}"
+                           href="{{ stats }}">statistics</a>
+                    </li> <!-- fleet stats -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="infoDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">info</a>
+                        <div class="dropdown-menu" aria-labelledby="infoDropdown">
+                            <a href="#" class="dropdown-item disabled">beginner info</a> <!-- beginners -->
+                            <a href="#" class="dropdown-item disabled">order custom embroidered patch</a> <!-- patch -->
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item disabled">contact</a> <!-- contact -->
+                            <a href="#" class="dropdown-item disabled">fleetcomm private group</a> <!-- fleetcomm -->
+                            <a href="#" class="dropdown-item disabled">faq</a> <!-- faq -->
+
+                        </div>
+                    </li> <!-- info dropdown -->
                 </ul>
 
                 <!-- profile section -->

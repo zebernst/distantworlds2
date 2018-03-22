@@ -1,16 +1,21 @@
 from django.contrib.auth import login, authenticate
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import generic
 
 from core.forms import *
 
 
-class IndexView(generic.TemplateView):
-    template_name = 'index.html'
+class HomeView(generic.TemplateView):
+    template_name = 'home.html'
 
 
-class Success(generic.TemplateView):
-    template_name = 'success.html'
+class FleetRegistrationView(generic.TemplateView):
+    template_name = 'core/fleet_registration.html'
+
+
+class NewsView(generic.TemplateView):
+    template_name = 'core/news.html'
 
 
 class RosterView(generic.TemplateView):
@@ -20,6 +25,14 @@ class RosterView(generic.TemplateView):
         context = super().get_context_data(**kwargs)
         context['commanders'] = Commander.objects.all()
         return context
+
+
+class FleetStatsView(generic.TemplateView):
+    template_name = 'core/fleet_stats.html'
+
+
+class FleetShowcaseView(generic.TemplateView):
+    template_name = 'core/showcase.html'
 
 
 class SignUpView(generic.FormView):
@@ -61,3 +74,13 @@ class SignUpView(generic.FormView):
 
         # if both forms are not valid, drop out of if clause and re-render form with errors
         return render(request, self.template_name, {'user_form': user_form, 'cmdr_form': cmdr_form})
+
+
+# todo: make this better and parse the data and figure out the enums!!!!!!!!!
+def RosterDataJSON(request):
+    objects = Commander.objects.all().values()
+    return JsonResponse({'data': list(objects)})
+
+
+class Success(generic.TemplateView):
+    template_name = 'success.html'

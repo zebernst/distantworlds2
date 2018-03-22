@@ -8,6 +8,9 @@ from oauth2client.service_account import ServiceAccountCredentials
 from .utils import ChoiceEnum
 
 
+# todo fixme note: get enums working
+
+
 class Location(models.Model):
     # system
     system = models.CharField(max_length=128, null=False, blank=False)

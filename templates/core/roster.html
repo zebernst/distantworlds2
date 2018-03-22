@@ -7,7 +7,7 @@
 {% block content %}
     <h1 class="mt-5">distant worlds 2 roster</h1>
     <p class="lead">table goes here</p>
-    <table id="roster">
+    <table id="roster" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Roster #</th>
@@ -15,10 +15,10 @@
                 <th>Comms ID</th>
                 <th>Ship Type</th>
                 <th>Ship Name</th>
-                <th>Ship Range</th>
+                <th>Jump Range</th>
                 <th>Paintjob</th>
-                <th>Primary Role</th>
-                <th>Secondary Role</th>
+                <th>Primary</th>
+                <th>Secondary</th>
                 <th>DWE 3302 Veteran</th>
                 <th>Visited Beagle Point</th>
                 <th>Platform</th>
@@ -26,7 +26,7 @@
         </thead>
         <tbody>
             {% for cmdr in commanders %}
-            <tr>
+            <tr> {# todo: change data printing to use ajax instead of pure html #}
                 <td>{{ cmdr.roster_num }}</td>
                 <td>{{ cmdr.cmdr_name }}</td>
                 <td>{{ cmdr.comms_id }}</td>
@@ -41,6 +41,8 @@
                 <td>{{ cmdr.platform }}</td>
             </tr>
             {% endfor %}
+            {# todo: https://datatables.net/examples/api/multi_filter.html #}
+            {# todo: https://datatables.net/examples/api/multi_filter_select.html #}
         </tbody>
     </table>
 
