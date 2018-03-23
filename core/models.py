@@ -460,7 +460,7 @@ class Commander(models.Model):
 
             cmdr.save()
 
-        print("{:>4d} new records created".format(created))
+        print("{:>4d} new commanders created".format(created))
         print("{:>4d} existing records updated".format(updated))
 
         # note: todo: when making profile page, make it READ ONLY - can only make changes via google form
