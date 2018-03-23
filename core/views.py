@@ -8,7 +8,7 @@ from core.forms import *
 
 
 class HomeView(generic.TemplateView):
-    template_name = 'home.html'
+    template_name = 'core/home.html'
 
 
 class FleetRegistrationView(generic.TemplateView):
