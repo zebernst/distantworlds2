@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1 class="mt-5 mb-4">distant worlds 2 roster</h1>
+    <p>last modified: {{ timestamp }}</p>
     <table id="roster" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -28,16 +29,16 @@
             <tr> {# todo: change data printing to use ajax instead of pure html #}
                 <td>{{ cmdr.roster_num }}</td>
                 <td>{{ cmdr.cmdr_name }}</td>
-                <td>{{ cmdr.comms_id }}</td>
-                <td>{{ cmdr.ship_model }}</td>
-                <td>{{ cmdr.ship_name }}</td>
+                <td>{{ cmdr.comms_id|default_if_none:"&nbsp;" }}</td>
+                <td>{{ cmdr.get_ship_model_display }}</td>
+                <td>{{ cmdr.ship_name|default_if_none:"&nbsp;" }}</td>
                 <td>{{ cmdr.ship_range }}</td>
                 <td>{{ cmdr.livery }}</td>
-                <td>{{ cmdr.role1 }}</td>
-                <td>{{ cmdr.role2 }}</td>
+                <td>{{ cmdr.get_role1_display }}</td>
+                <td>{{ cmdr.get_role2_display|default_if_none:"&nbsp;" }}</td>
                 <td>{{ cmdr.dwe_veteran }}</td>
                 <td>{{ cmdr.visited_beagle_point }}</td>
-                <td>{{ cmdr.platform }}</td>
+                <td>{{ cmdr.get_platform_display }}</td>
             </tr>
             {% endfor %}
             {# todo: https://datatables.net/examples/api/multi_filter.html #}

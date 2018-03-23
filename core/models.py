@@ -3,14 +3,11 @@ import gspread
 from dateutil import tz
 from django.contrib.auth.models import User
 from django.db import models
+from djchoices import DjangoChoices, ChoiceItem
 from oauth2client.service_account import ServiceAccountCredentials
 from tqdm import tqdm
 
-from distantworlds2.settings.base import SITE_ROOT
-from .utils import ChoiceEnum
-
-
-# todo fixme note: get enums working
+from distantworlds2.settings.base import SITE_ROOT  # to ensure correct opening of client secret
 
 
 class Location(models.Model):
@@ -70,61 +67,61 @@ class Waypoint(models.Model):
 
 class Commander(models.Model):
 
-    class Role(ChoiceEnum):
-        EXPL = 0
-        RAT = 1
-        MINER = 2
-        MECH = 3
-        GUIDE = 4
-        PHOTO = 5
-        ESCORT = 6
-        GEOL = 7
-        SCI = 8
-        MEDIA = 9
-        MCORP = 10
-        LOGIST = 11
+    class Role(DjangoChoices):
+        explorer = ChoiceItem(0, 'Explorer')
+        fuel_rat = ChoiceItem(1, 'Fuel Rat')
+        miner = ChoiceItem(2, 'Miner')
+        mechanic = ChoiceItem(3, 'Fleet Mechanic')
+        guide = ChoiceItem(4, 'Tour Guide')
+        photo = ChoiceItem(5, 'Photographer')
+        escort = ChoiceItem(6, 'Fighter Escort')
+        geologist = ChoiceItem(7, 'Geologist')
+        scientist = ChoiceItem(8, 'Scientist')
+        media = ChoiceItem(9, 'Media')
+        medicorp = ChoiceItem(10, 'MediCorp')
+        logistics = ChoiceItem(11, 'Fleet Logistics')
 
-    class Platform(ChoiceEnum):
-        PC = 0
-        XBOX = 1
-        PS4 = 2
-        MAC = 3
+    class Platform(DjangoChoices):
+        pc = ChoiceItem('PC', 'PC')
+        xbox = ChoiceItem('XBOne', 'XBox One')
+        ps4 = ChoiceItem('PS4', 'PlayStation 4')
+        mac = ChoiceItem('Mac', 'Mac')
 
-    class Ship(ChoiceEnum):
-        ADDER = 'adder'
-        ANACONDA = 'conda'
-        ASP_EXPLORER = 'aspx'
-        ASP_SCOUT = 'asps'
-        BELUGA = 'beluga'
-        CHIEFTAIN = 'chieftain'
-        COBRA_MK_III = 'cobra3'
-        COBRA_MK_IV = 'cobra4'
-        DIAMONDBACK_EXPLORER = 'dbx'
-        DIAMONDBACK_SCOUT = 'dbs'
-        DOLPHIN = 'dolphin'
-        EAGLE = 'eagle'
-        FEDERAL_ASSAULT_SHIP = 'fas'
-        FEDERAL_CORVETTE = 'corvette'
-        FEDERAL_DROPSHIP = 'dropship'
-        FEDERAL_GUNSHIP = 'gunship'
-        FER_DE_LANCE = 'fdl'
-        HAULER = 'hauler'
-        IMPERIAL_CLIPPER = 'clipper'
-        IMPERIAL_COURIER = 'courier'
-        IMPERIAL_CUTTER = 'cutter'
-        IMPERIAL_EAGLE = 'ieagle'
-        KEELBACK = 'keelback'
-        KRAIT = 'krait'
-        ORCA = 'orca'
-        PYTHON = 'python'
-        SIDEWINDER = 'sidewinder'
-        TYPE_10 = 't10'
-        TYPE_6 = 't6'
-        TYPE_7 = 't7'
-        TYPE_9 = 't9'
-        VIPER_MK_III = 'viper3'
-        VIPER_MK_IV = 'viper4'
-        VULTURE = 'vulture'
+    class Ship(DjangoChoices):
+        adder = ChoiceItem('adder', 'Adder')
+        conda = ChoiceItem('conda', 'Anaconda')
+        aspx = ChoiceItem('aspx', 'Asp Explorer')
+        asps = ChoiceItem('asps', 'Asp Scout')
+        beluga = ChoiceItem('beluga', 'Beluga')
+        chieftain = ChoiceItem('chieftain', 'Alliance Chieftain')
+        cobra3 = ChoiceItem('cobra3', 'Cobra Mk. III')
+        cobra4 = ChoiceItem('cobra4', 'Cobra Mk. IV')
+        dbx = ChoiceItem('dbx', 'Diamondback Explorer')
+        dbs = ChoiceItem('dbs', 'Diamondback Scout')
+        dolphin = ChoiceItem('dolphin', 'Dolphin')
+        eagle = ChoiceItem('eagle', 'Eagle')
+        fas = ChoiceItem('fas', 'Federal Assault Ship')
+        corvette = ChoiceItem('corvette', 'Federal Corvette')
+        dropship = ChoiceItem('dropship', 'Federal Dropship')
+        gunship = ChoiceItem('gunship', 'Federal Gunship')
+        fdl = ChoiceItem('fdl', 'Fer-De-Lance')
+        hauler = ChoiceItem('hauler', 'Hauler')
+        clipper = ChoiceItem('clipper', 'Imperial Clipper')
+        courier = ChoiceItem('courier', 'Imperial Courier')
+        cutter = ChoiceItem('cutter', 'Imperial Cutter')
+        ieagle = ChoiceItem('ieagle', 'Imperial Eagle')
+        keelback = ChoiceItem('keelback', 'Keelback')
+        krait = ChoiceItem('krait', 'Krait')
+        orca = ChoiceItem('orca', 'Orca')
+        python = ChoiceItem('python', 'Python')
+        sidewinder = ChoiceItem('sidewinder', 'Sidewinder')
+        t10 = ChoiceItem('t10', 'Type-10 Defender')
+        t6 = ChoiceItem('t6', 'Type-6 Transporter')
+        t7 = ChoiceItem('t7', 'Type-7 Transporter')
+        t9 = ChoiceItem('t9', 'Type-9 Heavy')
+        viper3 = ChoiceItem('viper3', 'Viper Mk. III')
+        viper4 = ChoiceItem('viper4', 'Viper Mk. IV')
+        vulture = ChoiceItem('vulture', 'Vulture')
 
     # application number (pk)
     app_num = models.PositiveIntegerField('App. #', primary_key=True)
@@ -142,21 +139,20 @@ class Commander(models.Model):
 
     modified = models.DateTimeField()
 
-    ship_model = models.CharField('Ship Model', max_length=16, choices=Ship.choices())
+    ship_model = models.CharField('Ship Model', max_length=16, choices=Ship.choices)
     ship_name = models.CharField('Ship Name', max_length=24, null=True, blank=True)
     call_sign = models.CharField('Ship ID', max_length=6)
     ship_range = models.FloatField('Jump Range (LY)')
     ship_showcase_link = models.CharField('Showcase Image Link', max_length=256, null=True, blank=True)
     livery = models.CharField('ship livery', max_length=48, null=True)
-
     comms_id = models.CharField('Comms Nickname', max_length=15, null=True)
     timezone = models.CharField('Timezone', max_length=8, null=True)
-    platform = models.CharField('Platform', max_length=8, choices=Platform.choices(), default=Platform.PC.value)
+    platform = models.CharField('Platform', max_length=8, choices=Platform.choices, default=Platform.pc)
     dwe_veteran = models.BooleanField('Participated in DWE 3302', default=False)
     visited_beagle_point = models.BooleanField('Has visited Beagle Point', default=False)
 
-    role1 = models.IntegerField('Primary Role', choices=Role.choices(), default=Role.EXPL.value)
-    role2 = models.IntegerField('Secondary Role', choices=Role.choices(), null=True)
+    role1 = models.IntegerField('Primary Role', choices=Role.choices, default=Role.explorer)
+    role2 = models.IntegerField('Secondary Role', choices=Role.choices, null=True)
 
     avg_playtime = models.CharField('Average hours played per week', max_length=16)
 
@@ -240,55 +236,59 @@ class Commander(models.Model):
 
         # helper dicts for switch case statements
         ships = {
-            'Alliance Chieftain':   cls.Ship.CHIEFTAIN.value,
-            'Anaconda':             cls.Ship.ANACONDA.value,
-            'Asp Explorer':         cls.Ship.ASP_EXPLORER.value,
-            'Asp Scout':            cls.Ship.ASP_SCOUT.value,
-            'Beluga Liner':         cls.Ship.BELUGA.value,
-            'Cobra Mk III':         cls.Ship.COBRA_MK_III.value,
-            'Cobra Mk IV':          cls.Ship.COBRA_MK_IV.value,
-            'Diamondback Explorer': cls.Ship.DIAMONDBACK_EXPLORER.value,
-            'Diamondback Scout':    cls.Ship.DIAMONDBACK_SCOUT.value,
-            'Dolphin':              cls.Ship.DOLPHIN.value,
-            'Eagle Mk II':          cls.Ship.EAGLE.value,
-            'Federal Assault Ship': cls.Ship.FEDERAL_ASSAULT_SHIP.value,
-            'Federal Corvette':     cls.Ship.FEDERAL_CORVETTE.value,
-            'Federal Dropship':     cls.Ship.FEDERAL_DROPSHIP.value,
-            'Federal Gunship':      cls.Ship.FEDERAL_GUNSHIP.value,
-            'Fer-De-Lance':         cls.Ship.FER_DE_LANCE.value,
-            'Hauler':               cls.Ship.HAULER.value,
-            'Imperial Clipper':     cls.Ship.IMPERIAL_CLIPPER.value,
-            'Imperial Courier':     cls.Ship.IMPERIAL_COURIER.value,
-            'Imperial Cutter':      cls.Ship.IMPERIAL_CUTTER.value,
-            'Imperial Eagle':       cls.Ship.IMPERIAL_EAGLE.value,
-            'Keelback':             cls.Ship.KEELBACK.value,
-            'Krait':                cls.Ship.KRAIT.value,
-            'Orca':                 cls.Ship.ORCA.value,
-            'Python':               cls.Ship.PYTHON.value,
-            'Sidewinder Mk I':      cls.Ship.SIDEWINDER.value,
-            'Type-10 Defender':     cls.Ship.TYPE_10.value,
-            'Type-6 Transporter':   cls.Ship.TYPE_6.value,
-            'Type-7 Transporter':   cls.Ship.TYPE_7.value,
-            'Type-9 Heavy':         cls.Ship.TYPE_9.value,
-            'Viper Mk III':         cls.Ship.VIPER_MK_III.value,
-            'Viper Mk IV':          cls.Ship.VIPER_MK_IV.value,
-            'Vulture':              cls.Ship.VULTURE.value
+            'Alliance Chieftain':   cls.Ship.chieftain,
+            'Anaconda':             cls.Ship.conda,
+            'Asp Explorer':         cls.Ship.aspx,
+            'Asp Scout':            cls.Ship.asps,
+            'Beluga Liner':         cls.Ship.beluga,
+            'Cobra Mk III':         cls.Ship.cobra3,
+            'Cobra Mk IV':          cls.Ship.cobra4,
+            'Diamondback Explorer': cls.Ship.dbx,
+            'Diamondback Scout':    cls.Ship.dbs,
+            'Dolphin':              cls.Ship.dolphin,
+            'Eagle Mk II':          cls.Ship.eagle,
+            'Federal Assault Ship': cls.Ship.fas,
+            'Federal Corvette':     cls.Ship.corvette,
+            'Federal Dropship':     cls.Ship.dropship,
+            'Federal Gunship':      cls.Ship.gunship,
+            'Fer-De-Lance':         cls.Ship.fdl,
+            'Hauler':               cls.Ship.hauler,
+            'Imperial Clipper':     cls.Ship.clipper,
+            'Imperial Courier':     cls.Ship.courier,
+            'Imperial Cutter':      cls.Ship.cutter,
+            'Imperial Eagle':       cls.Ship.ieagle,
+            'Keelback':             cls.Ship.keelback,
+            'Krait':                cls.Ship.krait,
+            'Orca':                 cls.Ship.orca,
+            'Python':               cls.Ship.python,
+            'Sidewinder Mk I':      cls.Ship.sidewinder,
+            'Type-10 Defender':     cls.Ship.t10,
+            'Type-6 Transporter':   cls.Ship.t6,
+            'Type-7 Transporter':   cls.Ship.t7,
+            'Type-9 Heavy':         cls.Ship.t9,
+            'Viper Mk III':         cls.Ship.viper3,
+            'Viper Mk IV':          cls.Ship.viper4,
+            'Vulture':              cls.Ship.vulture
         }
         roles = {
-            'Explorer':             cls.Role.EXPL.value,
-            'Fuel Rat':             cls.Role.RAT.value,
-            'Miner':                cls.Role.MINER.value,
-            'Fleet Mechanic':       cls.Role.MECH.value,
-            'Tour Guide':           cls.Role.GUIDE.value,
-            'Photographer':         cls.Role.PHOTO.value,
-            'Fighter Escort':       cls.Role.ESCORT.value,
-            'Geologist':            cls.Role.GEOL.value,
-            'Scientist':            cls.Role.SCI.value,
-            'Media':                cls.Role.MEDIA.value,
-            'MediCorp':             cls.Role.MCORP.value,
-            'Fleet Logistics':      cls.Role.LOGIST.value
+            'Explorer':             cls.Role.explorer,
+            'Fuel Rat':             cls.Role.fuel_rat,
+            'Miner':                cls.Role.miner,
+            'Fleet Mechanic':       cls.Role.mechanic,
+            'Tour Guide':           cls.Role.guide,
+            'Photographer':         cls.Role.photo,
+            'Fighter Escort':       cls.Role.escort,
+            'Geologist':            cls.Role.geologist,
+            'Scientist':            cls.Role.scientist,
+            'Media':                cls.Role.media,
+            'MediCorp':             cls.Role.medicorp,
+            'Fleet Logistics':      cls.Role.logistics
         }
 
+        # counters
+        created, updated = 0, 0
+
+        # process roster
         # tqdm preferences
         tqdm_args = {
             'desc': 'Updating database',
@@ -298,11 +298,6 @@ class Commander(models.Model):
             'dynamic_ncols': True,
             'bar_format': '{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}, {rate_fmt}]'
         }
-
-        # counters
-        created, updated = 0, 0
-
-        # process roster
         for entry in tqdm(roster, **tqdm_args):
 
             # skip non-validated entries
@@ -324,7 +319,7 @@ class Commander(models.Model):
                 'call_sign': entry['Call Sign'],
                 'livery': entry['Livery'],
 
-                'role1': roles.get(entry['Primary Role'], cls.Role.EXPL.value),
+                'role1': roles.get(entry['Primary Role'], cls.Role.explorer),
                 'role2': roles.get(entry['Secondary Role'], None),
 
                 'dwe_veteran': True if entry['DWE Veteran'] == 'Yes' else False,

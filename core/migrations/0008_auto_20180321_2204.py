@@ -24,12 +24,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='commander',
             name='platform',
-            field=models.CharField(choices=[('PC', 0), ('XBOX', 1), ('PS4', 2), ('MAC', 3)], default=core.models.Commander.Platform(0), max_length=8, verbose_name='Platform'),
+            field=models.CharField(choices=[('PC', 0), ('XBOX', 1), ('PS4', 2), ('MAC', 3)], default=core.models.Commander.Platform.pc, max_length=8, verbose_name='Platform'),
         ),
         migrations.AlterField(
             model_name='commander',
             name='role1',
-            field=models.IntegerField(choices=[('EXPL', 0), ('RAT', 1), ('MINER', 2), ('MECH', 3), ('GUIDE', 4), ('PHOTO', 5), ('ESCORT', 6), ('GEOL', 7), ('SCI', 8), ('MEDIA', 9), ('MCORP', 10), ('LOGIST', 11)], default=core.models.Commander.Role(0), verbose_name='Primary Role'),
+            field=models.IntegerField(choices=[('EXPL', 0), ('RAT', 1), ('MINER', 2), ('MECH', 3), ('GUIDE', 4), ('PHOTO', 5), ('ESCORT', 6), ('GEOL', 7), ('SCI', 8), ('MEDIA', 9), ('MCORP', 10), ('LOGIST', 11)], default=core.models.Commander.Role.explorer, verbose_name='Primary Role'),
         ),
         migrations.AlterField(
             model_name='commander',

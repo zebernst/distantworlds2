@@ -15,6 +15,7 @@ gspread = "*"
 "oauth2client" = "*"
 python-dateutil = "*"
 tqdm = "*"
+django-choices = "*"
 
 
 [dev-packages]

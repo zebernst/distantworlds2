@@ -23,6 +23,8 @@ class RosterView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        context['timestamp'] = Commander.objects.latest('modified').modified
         context['commanders'] = Commander.objects.all()
         return context
 
