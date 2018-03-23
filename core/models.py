@@ -237,6 +237,7 @@ class Commander(models.Model):
         # helper dicts for switch case statements
         ships = {
             'Alliance Chieftain':   cls.Ship.chieftain,
+            'Adder':                cls.Ship.adder,
             'Anaconda':             cls.Ship.conda,
             'Asp Explorer':         cls.Ship.aspx,
             'Asp Scout':            cls.Ship.asps,
@@ -284,6 +285,13 @@ class Commander(models.Model):
             'MediCorp':             cls.Role.medicorp,
             'Fleet Logistics':      cls.Role.logistics
         }
+        gametime = {
+            '0 > 3': '0 - 3',
+            '3 > 6': '3 - 6',
+            '6 > 12': '6 - 12',
+            '12 > 25': '12 - 25',
+            '> 25': '25+'
+        }
 
         # counters
         created, updated = 0, 0
@@ -322,13 +330,13 @@ class Commander(models.Model):
                 'role1': roles.get(entry['Primary Role'], cls.Role.explorer),
                 'role2': roles.get(entry['Secondary Role'], None),
 
-                'dwe_veteran': True if entry['DWE Veteran'] == 'Yes' else False,
+                'dwe_veteran': True if entry['DWE Veteran'] == 'Yes' or entry['Roster Number'] < 2000 else False,
                 'visited_beagle_point': True if entry['BP Veteran'] == 'Yes' else False,
 
                 'staff': True if entry['Staff'] == 'Yes' else False,
 
                 'platform': entry['Platform'],
-                'avg_playtime': entry['Gametime']
+                'avg_playtime': gametime.get(entry['Gametime'])
             }
 
             expeditions = [e.strip() for e in entry['Expeditions'].split(',')]  # trim whitespace around strings

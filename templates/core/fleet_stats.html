@@ -7,4 +7,11 @@
 {% block content %}
     <h1 class="mt-5">fleet statistics</h1>
     <p>these are some fleet statistics</p>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script>
+        var shipTypes = {{ ship_types|safe }};
+        for (var i in shipTypes) {
+            console.log(shipTypes[i]);
+        }
+    </script>
 {% endblock %}

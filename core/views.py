@@ -1,4 +1,5 @@
 from django.contrib.auth import login, authenticate
+from django.db.models import Count
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import generic
@@ -31,6 +32,20 @@ class RosterView(generic.TemplateView):
 
 class FleetStatsView(generic.TemplateView):
     template_name = 'core/fleet_stats.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        ship_qset = Commander.objects\
+            .exclude(ship_model='INVALID SHIP')\
+            .values('ship_model')\
+            .order_by('ship_model')\
+            .annotate(n=Count('ship_model'))
+
+        # format ship type stats into javascript array (use |safe filter in template)
+        context['ship_types'] = [{'ship': Commander.Ship.values.get(s['ship_model']), 'num': s['n']} for s in ship_qset]
+
+        return context
 
 
 class FleetShowcaseView(generic.TemplateView):
