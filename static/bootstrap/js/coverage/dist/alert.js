@@ -1,11 +1,11 @@
-var cov_zlq9aa2t4 = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\alert.js",
-      hash = "e7fb9fa81ecb6bfb70a2d88ef333bdefd05aa5d8",
+var cov_1wizdcggcj = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/alert.js",
+      hash = "0efcf98742e57bb424918ad298d1f4e349344d0e",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\alert.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/alert.js",
     statementMap: {
       "0": {
         start: {
@@ -1314,29 +1314,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var Alert = (cov_zlq9aa2t4.s[0]++, function ($) {
-  cov_zlq9aa2t4.f[0]++;
+var Alert = (cov_1wizdcggcj.s[0]++, function ($) {
+  cov_1wizdcggcj.f[0]++;
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  var NAME = (cov_zlq9aa2t4.s[1]++, 'alert');
-  var VERSION = (cov_zlq9aa2t4.s[2]++, '4.0.0');
-  var DATA_KEY = (cov_zlq9aa2t4.s[3]++, 'bs.alert');
-  var EVENT_KEY = (cov_zlq9aa2t4.s[4]++, "." + DATA_KEY);
-  var DATA_API_KEY = (cov_zlq9aa2t4.s[5]++, '.data-api');
-  var JQUERY_NO_CONFLICT = (cov_zlq9aa2t4.s[6]++, $.fn[NAME]);
-  var Selector = (cov_zlq9aa2t4.s[7]++, {
+  var NAME = (cov_1wizdcggcj.s[1]++, 'alert');
+  var VERSION = (cov_1wizdcggcj.s[2]++, '4.0.0');
+  var DATA_KEY = (cov_1wizdcggcj.s[3]++, 'bs.alert');
+  var EVENT_KEY = (cov_1wizdcggcj.s[4]++, "." + DATA_KEY);
+  var DATA_API_KEY = (cov_1wizdcggcj.s[5]++, '.data-api');
+  var JQUERY_NO_CONFLICT = (cov_1wizdcggcj.s[6]++, $.fn[NAME]);
+  var Selector = (cov_1wizdcggcj.s[7]++, {
     DISMISS: '[data-dismiss="alert"]'
   });
-  var Event = (cov_zlq9aa2t4.s[8]++, {
+  var Event = (cov_1wizdcggcj.s[8]++, {
     CLOSE: "close" + EVENT_KEY,
     CLOSED: "closed" + EVENT_KEY,
     CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
   });
-  var ClassName = (cov_zlq9aa2t4.s[9]++, {
+  var ClassName = (cov_1wizdcggcj.s[9]++, {
     ALERT: 'alert',
     FADE: 'fade',
     SHOW: 'show'
@@ -1352,8 +1352,8 @@ var Alert = (cov_zlq9aa2t4.s[0]++, function ($) {
   /*#__PURE__*/
   function () {
     function Alert(element) {
-      cov_zlq9aa2t4.f[1]++;
-      cov_zlq9aa2t4.s[10]++;
+      cov_1wizdcggcj.f[1]++;
+      cov_1wizdcggcj.s[10]++;
       this._element = element;
     } // Getters
 
@@ -1362,155 +1362,155 @@ var Alert = (cov_zlq9aa2t4.s[0]++, function ($) {
 
     // Public
     _proto.close = function close(element) {
-      cov_zlq9aa2t4.f[3]++;
-      cov_zlq9aa2t4.s[12]++;
-      element = (cov_zlq9aa2t4.b[0][0]++, element) || (cov_zlq9aa2t4.b[0][1]++, this._element);
-      var rootElement = (cov_zlq9aa2t4.s[13]++, this._getRootElement(element));
-      var customEvent = (cov_zlq9aa2t4.s[14]++, this._triggerCloseEvent(rootElement));
-      cov_zlq9aa2t4.s[15]++;
+      cov_1wizdcggcj.f[3]++;
+      cov_1wizdcggcj.s[12]++;
+      element = (cov_1wizdcggcj.b[0][0]++, element) || (cov_1wizdcggcj.b[0][1]++, this._element);
+      var rootElement = (cov_1wizdcggcj.s[13]++, this._getRootElement(element));
+      var customEvent = (cov_1wizdcggcj.s[14]++, this._triggerCloseEvent(rootElement));
+      cov_1wizdcggcj.s[15]++;
 
       if (customEvent.isDefaultPrevented()) {
-        cov_zlq9aa2t4.b[1][0]++;
-        cov_zlq9aa2t4.s[16]++;
+        cov_1wizdcggcj.b[1][0]++;
+        cov_1wizdcggcj.s[16]++;
         return;
       } else {
-        cov_zlq9aa2t4.b[1][1]++;
+        cov_1wizdcggcj.b[1][1]++;
       }
 
-      cov_zlq9aa2t4.s[17]++;
+      cov_1wizdcggcj.s[17]++;
 
       this._removeElement(rootElement);
     };
 
     _proto.dispose = function dispose() {
-      cov_zlq9aa2t4.f[4]++;
-      cov_zlq9aa2t4.s[18]++;
+      cov_1wizdcggcj.f[4]++;
+      cov_1wizdcggcj.s[18]++;
       $.removeData(this._element, DATA_KEY);
-      cov_zlq9aa2t4.s[19]++;
+      cov_1wizdcggcj.s[19]++;
       this._element = null;
     }; // Private
 
 
     _proto._getRootElement = function _getRootElement(element) {
-      cov_zlq9aa2t4.f[5]++;
-      var selector = (cov_zlq9aa2t4.s[20]++, Util.getSelectorFromElement(element));
-      var parent = (cov_zlq9aa2t4.s[21]++, false);
-      cov_zlq9aa2t4.s[22]++;
+      cov_1wizdcggcj.f[5]++;
+      var selector = (cov_1wizdcggcj.s[20]++, Util.getSelectorFromElement(element));
+      var parent = (cov_1wizdcggcj.s[21]++, false);
+      cov_1wizdcggcj.s[22]++;
 
       if (selector) {
-        cov_zlq9aa2t4.b[2][0]++;
-        cov_zlq9aa2t4.s[23]++;
+        cov_1wizdcggcj.b[2][0]++;
+        cov_1wizdcggcj.s[23]++;
         parent = $(selector)[0];
       } else {
-        cov_zlq9aa2t4.b[2][1]++;
+        cov_1wizdcggcj.b[2][1]++;
       }
 
-      cov_zlq9aa2t4.s[24]++;
+      cov_1wizdcggcj.s[24]++;
 
       if (!parent) {
-        cov_zlq9aa2t4.b[3][0]++;
-        cov_zlq9aa2t4.s[25]++;
+        cov_1wizdcggcj.b[3][0]++;
+        cov_1wizdcggcj.s[25]++;
         parent = $(element).closest("." + ClassName.ALERT)[0];
       } else {
-        cov_zlq9aa2t4.b[3][1]++;
+        cov_1wizdcggcj.b[3][1]++;
       }
 
-      cov_zlq9aa2t4.s[26]++;
+      cov_1wizdcggcj.s[26]++;
       return parent;
     };
 
     _proto._triggerCloseEvent = function _triggerCloseEvent(element) {
-      cov_zlq9aa2t4.f[6]++;
-      var closeEvent = (cov_zlq9aa2t4.s[27]++, $.Event(Event.CLOSE));
-      cov_zlq9aa2t4.s[28]++;
+      cov_1wizdcggcj.f[6]++;
+      var closeEvent = (cov_1wizdcggcj.s[27]++, $.Event(Event.CLOSE));
+      cov_1wizdcggcj.s[28]++;
       $(element).trigger(closeEvent);
-      cov_zlq9aa2t4.s[29]++;
+      cov_1wizdcggcj.s[29]++;
       return closeEvent;
     };
 
     _proto._removeElement = function _removeElement(element) {
       var _this = this;
 
-      cov_zlq9aa2t4.f[7]++;
-      cov_zlq9aa2t4.s[30]++;
+      cov_1wizdcggcj.f[7]++;
+      cov_1wizdcggcj.s[30]++;
       $(element).removeClass(ClassName.SHOW);
-      cov_zlq9aa2t4.s[31]++;
+      cov_1wizdcggcj.s[31]++;
 
       if (!$(element).hasClass(ClassName.FADE)) {
-        cov_zlq9aa2t4.b[4][0]++;
-        cov_zlq9aa2t4.s[32]++;
+        cov_1wizdcggcj.b[4][0]++;
+        cov_1wizdcggcj.s[32]++;
 
         this._destroyElement(element);
 
-        cov_zlq9aa2t4.s[33]++;
+        cov_1wizdcggcj.s[33]++;
         return;
       } else {
-        cov_zlq9aa2t4.b[4][1]++;
+        cov_1wizdcggcj.b[4][1]++;
       }
 
-      var transitionDuration = (cov_zlq9aa2t4.s[34]++, Util.getTransitionDurationFromElement(element));
-      cov_zlq9aa2t4.s[35]++;
+      var transitionDuration = (cov_1wizdcggcj.s[34]++, Util.getTransitionDurationFromElement(element));
+      cov_1wizdcggcj.s[35]++;
       $(element).one(Util.TRANSITION_END, function (event) {
-        cov_zlq9aa2t4.f[8]++;
-        cov_zlq9aa2t4.s[36]++;
+        cov_1wizdcggcj.f[8]++;
+        cov_1wizdcggcj.s[36]++;
         return _this._destroyElement(element, event);
       }).emulateTransitionEnd(transitionDuration);
     };
 
     _proto._destroyElement = function _destroyElement(element) {
-      cov_zlq9aa2t4.f[9]++;
-      cov_zlq9aa2t4.s[37]++;
+      cov_1wizdcggcj.f[9]++;
+      cov_1wizdcggcj.s[37]++;
       $(element).detach().trigger(Event.CLOSED).remove();
     }; // Static
 
 
     Alert._jQueryInterface = function _jQueryInterface(config) {
-      cov_zlq9aa2t4.f[10]++;
-      cov_zlq9aa2t4.s[38]++;
+      cov_1wizdcggcj.f[10]++;
+      cov_1wizdcggcj.s[38]++;
       return this.each(function () {
-        cov_zlq9aa2t4.f[11]++;
-        var $element = (cov_zlq9aa2t4.s[39]++, $(this));
-        var data = (cov_zlq9aa2t4.s[40]++, $element.data(DATA_KEY));
-        cov_zlq9aa2t4.s[41]++;
+        cov_1wizdcggcj.f[11]++;
+        var $element = (cov_1wizdcggcj.s[39]++, $(this));
+        var data = (cov_1wizdcggcj.s[40]++, $element.data(DATA_KEY));
+        cov_1wizdcggcj.s[41]++;
 
         if (!data) {
-          cov_zlq9aa2t4.b[5][0]++;
-          cov_zlq9aa2t4.s[42]++;
+          cov_1wizdcggcj.b[5][0]++;
+          cov_1wizdcggcj.s[42]++;
           data = new Alert(this);
-          cov_zlq9aa2t4.s[43]++;
+          cov_1wizdcggcj.s[43]++;
           $element.data(DATA_KEY, data);
         } else {
-          cov_zlq9aa2t4.b[5][1]++;
+          cov_1wizdcggcj.b[5][1]++;
         }
 
-        cov_zlq9aa2t4.s[44]++;
+        cov_1wizdcggcj.s[44]++;
 
         if (config === 'close') {
-          cov_zlq9aa2t4.b[6][0]++;
-          cov_zlq9aa2t4.s[45]++;
+          cov_1wizdcggcj.b[6][0]++;
+          cov_1wizdcggcj.s[45]++;
           data[config](this);
         } else {
-          cov_zlq9aa2t4.b[6][1]++;
+          cov_1wizdcggcj.b[6][1]++;
         }
       });
     };
 
     Alert._handleDismiss = function _handleDismiss(alertInstance) {
-      cov_zlq9aa2t4.f[12]++;
-      cov_zlq9aa2t4.s[46]++;
+      cov_1wizdcggcj.f[12]++;
+      cov_1wizdcggcj.s[46]++;
       return function (event) {
-        cov_zlq9aa2t4.f[13]++;
-        cov_zlq9aa2t4.s[47]++;
+        cov_1wizdcggcj.f[13]++;
+        cov_1wizdcggcj.s[47]++;
 
         if (event) {
-          cov_zlq9aa2t4.b[7][0]++;
-          cov_zlq9aa2t4.s[48]++;
+          cov_1wizdcggcj.b[7][0]++;
+          cov_1wizdcggcj.s[48]++;
           event.preventDefault();
         } else {
-          cov_zlq9aa2t4.b[7][1]++;
+          cov_1wizdcggcj.b[7][1]++;
         }
 
-        cov_zlq9aa2t4.s[49]++;
+        cov_1wizdcggcj.s[49]++;
         alertInstance.close(this);
       };
     };
@@ -1518,8 +1518,8 @@ var Alert = (cov_zlq9aa2t4.s[0]++, function ($) {
     _createClass(Alert, null, [{
       key: "VERSION",
       get: function get() {
-        cov_zlq9aa2t4.f[2]++;
-        cov_zlq9aa2t4.s[11]++;
+        cov_1wizdcggcj.f[2]++;
+        cov_1wizdcggcj.s[11]++;
         return VERSION;
       }
     }]);
@@ -1533,7 +1533,7 @@ var Alert = (cov_zlq9aa2t4.s[0]++, function ($) {
    */
 
 
-  cov_zlq9aa2t4.s[50]++;
+  cov_1wizdcggcj.s[50]++;
   $(document).on(Event.CLICK_DATA_API, Selector.DISMISS, Alert._handleDismiss(new Alert()));
   /**
    * ------------------------------------------------------------------------
@@ -1541,21 +1541,21 @@ var Alert = (cov_zlq9aa2t4.s[0]++, function ($) {
    * ------------------------------------------------------------------------
    */
 
-  cov_zlq9aa2t4.s[51]++;
+  cov_1wizdcggcj.s[51]++;
   $.fn[NAME] = Alert._jQueryInterface;
-  cov_zlq9aa2t4.s[52]++;
+  cov_1wizdcggcj.s[52]++;
   $.fn[NAME].Constructor = Alert;
-  cov_zlq9aa2t4.s[53]++;
+  cov_1wizdcggcj.s[53]++;
 
   $.fn[NAME].noConflict = function () {
-    cov_zlq9aa2t4.f[14]++;
-    cov_zlq9aa2t4.s[54]++;
+    cov_1wizdcggcj.f[14]++;
+    cov_1wizdcggcj.s[54]++;
     $.fn[NAME] = JQUERY_NO_CONFLICT;
-    cov_zlq9aa2t4.s[55]++;
+    cov_1wizdcggcj.s[55]++;
     return Alert._jQueryInterface;
   };
 
-  cov_zlq9aa2t4.s[56]++;
+  cov_1wizdcggcj.s[56]++;
   return Alert;
 }($));
 //# sourceMappingURL=alert.js.map

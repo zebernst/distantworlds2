@@ -1,11 +1,11 @@
-var cov_cwzxyf3el = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\scrollspy.js",
-      hash = "3323ffdba1d9eff3f363afcdc392433f818dfc64",
+var cov_1g9c3nysaz = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/scrollspy.js",
+      hash = "a7c5d1be505909fe7d9a66c979546d56e27be36d",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\scrollspy.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/scrollspy.js",
     statementMap: {
       "0": {
         start: {
@@ -2838,41 +2838,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
-  cov_cwzxyf3el.f[0]++;
+var ScrollSpy = (cov_1g9c3nysaz.s[0]++, function ($) {
+  cov_1g9c3nysaz.f[0]++;
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  var NAME = (cov_cwzxyf3el.s[1]++, 'scrollspy');
-  var VERSION = (cov_cwzxyf3el.s[2]++, '4.0.0');
-  var DATA_KEY = (cov_cwzxyf3el.s[3]++, 'bs.scrollspy');
-  var EVENT_KEY = (cov_cwzxyf3el.s[4]++, "." + DATA_KEY);
-  var DATA_API_KEY = (cov_cwzxyf3el.s[5]++, '.data-api');
-  var JQUERY_NO_CONFLICT = (cov_cwzxyf3el.s[6]++, $.fn[NAME]);
-  var Default = (cov_cwzxyf3el.s[7]++, {
+  var NAME = (cov_1g9c3nysaz.s[1]++, 'scrollspy');
+  var VERSION = (cov_1g9c3nysaz.s[2]++, '4.0.0');
+  var DATA_KEY = (cov_1g9c3nysaz.s[3]++, 'bs.scrollspy');
+  var EVENT_KEY = (cov_1g9c3nysaz.s[4]++, "." + DATA_KEY);
+  var DATA_API_KEY = (cov_1g9c3nysaz.s[5]++, '.data-api');
+  var JQUERY_NO_CONFLICT = (cov_1g9c3nysaz.s[6]++, $.fn[NAME]);
+  var Default = (cov_1g9c3nysaz.s[7]++, {
     offset: 10,
     method: 'auto',
     target: ''
   });
-  var DefaultType = (cov_cwzxyf3el.s[8]++, {
+  var DefaultType = (cov_1g9c3nysaz.s[8]++, {
     offset: 'number',
     method: 'string',
     target: '(string|element)'
   });
-  var Event = (cov_cwzxyf3el.s[9]++, {
+  var Event = (cov_1g9c3nysaz.s[9]++, {
     ACTIVATE: "activate" + EVENT_KEY,
     SCROLL: "scroll" + EVENT_KEY,
     LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
   });
-  var ClassName = (cov_cwzxyf3el.s[10]++, {
+  var ClassName = (cov_1g9c3nysaz.s[10]++, {
     DROPDOWN_ITEM: 'dropdown-item',
     DROPDOWN_MENU: 'dropdown-menu',
     ACTIVE: 'active'
   });
-  var Selector = (cov_cwzxyf3el.s[11]++, {
+  var Selector = (cov_1g9c3nysaz.s[11]++, {
     DATA_SPY: '[data-spy="scroll"]',
     ACTIVE: '.active',
     NAV_LIST_GROUP: '.nav, .list-group',
@@ -2883,7 +2883,7 @@ var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
     DROPDOWN_ITEMS: '.dropdown-item',
     DROPDOWN_TOGGLE: '.dropdown-toggle'
   });
-  var OffsetMethod = (cov_cwzxyf3el.s[12]++, {
+  var OffsetMethod = (cov_1g9c3nysaz.s[12]++, {
     OFFSET: 'offset',
     POSITION: 'position'
     /**
@@ -2900,32 +2900,32 @@ var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
     function ScrollSpy(element, config) {
       var _this = this;
 
-      cov_cwzxyf3el.f[1]++;
-      cov_cwzxyf3el.s[13]++;
+      cov_1g9c3nysaz.f[1]++;
+      cov_1g9c3nysaz.s[13]++;
       this._element = element;
-      cov_cwzxyf3el.s[14]++;
-      this._scrollElement = element.tagName === 'BODY' ? (cov_cwzxyf3el.b[0][0]++, window) : (cov_cwzxyf3el.b[0][1]++, element);
-      cov_cwzxyf3el.s[15]++;
+      cov_1g9c3nysaz.s[14]++;
+      this._scrollElement = element.tagName === 'BODY' ? (cov_1g9c3nysaz.b[0][0]++, window) : (cov_1g9c3nysaz.b[0][1]++, element);
+      cov_1g9c3nysaz.s[15]++;
       this._config = this._getConfig(config);
-      cov_cwzxyf3el.s[16]++;
+      cov_1g9c3nysaz.s[16]++;
       this._selector = this._config.target + " " + Selector.NAV_LINKS + "," + (this._config.target + " " + Selector.LIST_ITEMS + ",") + (this._config.target + " " + Selector.DROPDOWN_ITEMS);
-      cov_cwzxyf3el.s[17]++;
+      cov_1g9c3nysaz.s[17]++;
       this._offsets = [];
-      cov_cwzxyf3el.s[18]++;
+      cov_1g9c3nysaz.s[18]++;
       this._targets = [];
-      cov_cwzxyf3el.s[19]++;
+      cov_1g9c3nysaz.s[19]++;
       this._activeTarget = null;
-      cov_cwzxyf3el.s[20]++;
+      cov_1g9c3nysaz.s[20]++;
       this._scrollHeight = 0;
-      cov_cwzxyf3el.s[21]++;
+      cov_1g9c3nysaz.s[21]++;
       $(this._scrollElement).on(Event.SCROLL, function (event) {
-        cov_cwzxyf3el.f[2]++;
-        cov_cwzxyf3el.s[22]++;
+        cov_1g9c3nysaz.f[2]++;
+        cov_1g9c3nysaz.s[22]++;
         return _this._process(event);
       });
-      cov_cwzxyf3el.s[23]++;
+      cov_1g9c3nysaz.s[23]++;
       this.refresh();
-      cov_cwzxyf3el.s[24]++;
+      cov_1g9c3nysaz.s[24]++;
 
       this._process();
     } // Getters
@@ -2937,310 +2937,310 @@ var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
     _proto.refresh = function refresh() {
       var _this2 = this;
 
-      cov_cwzxyf3el.f[5]++;
-      var autoMethod = (cov_cwzxyf3el.s[27]++, this._scrollElement === this._scrollElement.window ? (cov_cwzxyf3el.b[1][0]++, OffsetMethod.OFFSET) : (cov_cwzxyf3el.b[1][1]++, OffsetMethod.POSITION));
-      var offsetMethod = (cov_cwzxyf3el.s[28]++, this._config.method === 'auto' ? (cov_cwzxyf3el.b[2][0]++, autoMethod) : (cov_cwzxyf3el.b[2][1]++, this._config.method));
-      var offsetBase = (cov_cwzxyf3el.s[29]++, offsetMethod === OffsetMethod.POSITION ? (cov_cwzxyf3el.b[3][0]++, this._getScrollTop()) : (cov_cwzxyf3el.b[3][1]++, 0));
-      cov_cwzxyf3el.s[30]++;
+      cov_1g9c3nysaz.f[5]++;
+      var autoMethod = (cov_1g9c3nysaz.s[27]++, this._scrollElement === this._scrollElement.window ? (cov_1g9c3nysaz.b[1][0]++, OffsetMethod.OFFSET) : (cov_1g9c3nysaz.b[1][1]++, OffsetMethod.POSITION));
+      var offsetMethod = (cov_1g9c3nysaz.s[28]++, this._config.method === 'auto' ? (cov_1g9c3nysaz.b[2][0]++, autoMethod) : (cov_1g9c3nysaz.b[2][1]++, this._config.method));
+      var offsetBase = (cov_1g9c3nysaz.s[29]++, offsetMethod === OffsetMethod.POSITION ? (cov_1g9c3nysaz.b[3][0]++, this._getScrollTop()) : (cov_1g9c3nysaz.b[3][1]++, 0));
+      cov_1g9c3nysaz.s[30]++;
       this._offsets = [];
-      cov_cwzxyf3el.s[31]++;
+      cov_1g9c3nysaz.s[31]++;
       this._targets = [];
-      cov_cwzxyf3el.s[32]++;
+      cov_1g9c3nysaz.s[32]++;
       this._scrollHeight = this._getScrollHeight();
-      var targets = (cov_cwzxyf3el.s[33]++, $.makeArray($(this._selector)));
-      cov_cwzxyf3el.s[34]++;
+      var targets = (cov_1g9c3nysaz.s[33]++, $.makeArray($(this._selector)));
+      cov_1g9c3nysaz.s[34]++;
       targets.map(function (element) {
-        cov_cwzxyf3el.f[6]++;
+        cov_1g9c3nysaz.f[6]++;
         var target;
-        var targetSelector = (cov_cwzxyf3el.s[35]++, Util.getSelectorFromElement(element));
-        cov_cwzxyf3el.s[36]++;
+        var targetSelector = (cov_1g9c3nysaz.s[35]++, Util.getSelectorFromElement(element));
+        cov_1g9c3nysaz.s[36]++;
 
         if (targetSelector) {
-          cov_cwzxyf3el.b[4][0]++;
-          cov_cwzxyf3el.s[37]++;
+          cov_1g9c3nysaz.b[4][0]++;
+          cov_1g9c3nysaz.s[37]++;
           target = $(targetSelector)[0];
         } else {
-          cov_cwzxyf3el.b[4][1]++;
+          cov_1g9c3nysaz.b[4][1]++;
         }
 
-        cov_cwzxyf3el.s[38]++;
+        cov_1g9c3nysaz.s[38]++;
 
         if (target) {
-          cov_cwzxyf3el.b[5][0]++;
-          var targetBCR = (cov_cwzxyf3el.s[39]++, target.getBoundingClientRect());
-          cov_cwzxyf3el.s[40]++;
+          cov_1g9c3nysaz.b[5][0]++;
+          var targetBCR = (cov_1g9c3nysaz.s[39]++, target.getBoundingClientRect());
+          cov_1g9c3nysaz.s[40]++;
 
-          if ((cov_cwzxyf3el.b[7][0]++, targetBCR.width) || (cov_cwzxyf3el.b[7][1]++, targetBCR.height)) {
-            cov_cwzxyf3el.b[6][0]++;
-            cov_cwzxyf3el.s[41]++;
+          if ((cov_1g9c3nysaz.b[7][0]++, targetBCR.width) || (cov_1g9c3nysaz.b[7][1]++, targetBCR.height)) {
+            cov_1g9c3nysaz.b[6][0]++;
+            cov_1g9c3nysaz.s[41]++;
             // TODO (fat): remove sketch reliance on jQuery position/offset
             return [$(target)[offsetMethod]().top + offsetBase, targetSelector];
           } else {
-            cov_cwzxyf3el.b[6][1]++;
+            cov_1g9c3nysaz.b[6][1]++;
           }
         } else {
-          cov_cwzxyf3el.b[5][1]++;
+          cov_1g9c3nysaz.b[5][1]++;
         }
 
-        cov_cwzxyf3el.s[42]++;
+        cov_1g9c3nysaz.s[42]++;
         return null;
       }).filter(function (item) {
-        cov_cwzxyf3el.f[7]++;
-        cov_cwzxyf3el.s[43]++;
+        cov_1g9c3nysaz.f[7]++;
+        cov_1g9c3nysaz.s[43]++;
         return item;
       }).sort(function (a, b) {
-        cov_cwzxyf3el.f[8]++;
-        cov_cwzxyf3el.s[44]++;
+        cov_1g9c3nysaz.f[8]++;
+        cov_1g9c3nysaz.s[44]++;
         return a[0] - b[0];
       }).forEach(function (item) {
-        cov_cwzxyf3el.f[9]++;
-        cov_cwzxyf3el.s[45]++;
+        cov_1g9c3nysaz.f[9]++;
+        cov_1g9c3nysaz.s[45]++;
 
         _this2._offsets.push(item[0]);
 
-        cov_cwzxyf3el.s[46]++;
+        cov_1g9c3nysaz.s[46]++;
 
         _this2._targets.push(item[1]);
       });
     };
 
     _proto.dispose = function dispose() {
-      cov_cwzxyf3el.f[10]++;
-      cov_cwzxyf3el.s[47]++;
+      cov_1g9c3nysaz.f[10]++;
+      cov_1g9c3nysaz.s[47]++;
       $.removeData(this._element, DATA_KEY);
-      cov_cwzxyf3el.s[48]++;
+      cov_1g9c3nysaz.s[48]++;
       $(this._scrollElement).off(EVENT_KEY);
-      cov_cwzxyf3el.s[49]++;
+      cov_1g9c3nysaz.s[49]++;
       this._element = null;
-      cov_cwzxyf3el.s[50]++;
+      cov_1g9c3nysaz.s[50]++;
       this._scrollElement = null;
-      cov_cwzxyf3el.s[51]++;
+      cov_1g9c3nysaz.s[51]++;
       this._config = null;
-      cov_cwzxyf3el.s[52]++;
+      cov_1g9c3nysaz.s[52]++;
       this._selector = null;
-      cov_cwzxyf3el.s[53]++;
+      cov_1g9c3nysaz.s[53]++;
       this._offsets = null;
-      cov_cwzxyf3el.s[54]++;
+      cov_1g9c3nysaz.s[54]++;
       this._targets = null;
-      cov_cwzxyf3el.s[55]++;
+      cov_1g9c3nysaz.s[55]++;
       this._activeTarget = null;
-      cov_cwzxyf3el.s[56]++;
+      cov_1g9c3nysaz.s[56]++;
       this._scrollHeight = null;
     }; // Private
 
 
     _proto._getConfig = function _getConfig(config) {
-      cov_cwzxyf3el.f[11]++;
-      cov_cwzxyf3el.s[57]++;
+      cov_1g9c3nysaz.f[11]++;
+      cov_1g9c3nysaz.s[57]++;
       config = _objectSpread({}, Default, config);
-      cov_cwzxyf3el.s[58]++;
+      cov_1g9c3nysaz.s[58]++;
 
       if (typeof config.target !== 'string') {
-        cov_cwzxyf3el.b[8][0]++;
-        var id = (cov_cwzxyf3el.s[59]++, $(config.target).attr('id'));
-        cov_cwzxyf3el.s[60]++;
+        cov_1g9c3nysaz.b[8][0]++;
+        var id = (cov_1g9c3nysaz.s[59]++, $(config.target).attr('id'));
+        cov_1g9c3nysaz.s[60]++;
 
         if (!id) {
-          cov_cwzxyf3el.b[9][0]++;
-          cov_cwzxyf3el.s[61]++;
+          cov_1g9c3nysaz.b[9][0]++;
+          cov_1g9c3nysaz.s[61]++;
           id = Util.getUID(NAME);
-          cov_cwzxyf3el.s[62]++;
+          cov_1g9c3nysaz.s[62]++;
           $(config.target).attr('id', id);
         } else {
-          cov_cwzxyf3el.b[9][1]++;
+          cov_1g9c3nysaz.b[9][1]++;
         }
 
-        cov_cwzxyf3el.s[63]++;
+        cov_1g9c3nysaz.s[63]++;
         config.target = "#" + id;
       } else {
-        cov_cwzxyf3el.b[8][1]++;
+        cov_1g9c3nysaz.b[8][1]++;
       }
 
-      cov_cwzxyf3el.s[64]++;
+      cov_1g9c3nysaz.s[64]++;
       Util.typeCheckConfig(NAME, config, DefaultType);
-      cov_cwzxyf3el.s[65]++;
+      cov_1g9c3nysaz.s[65]++;
       return config;
     };
 
     _proto._getScrollTop = function _getScrollTop() {
-      cov_cwzxyf3el.f[12]++;
-      cov_cwzxyf3el.s[66]++;
-      return this._scrollElement === window ? (cov_cwzxyf3el.b[10][0]++, this._scrollElement.pageYOffset) : (cov_cwzxyf3el.b[10][1]++, this._scrollElement.scrollTop);
+      cov_1g9c3nysaz.f[12]++;
+      cov_1g9c3nysaz.s[66]++;
+      return this._scrollElement === window ? (cov_1g9c3nysaz.b[10][0]++, this._scrollElement.pageYOffset) : (cov_1g9c3nysaz.b[10][1]++, this._scrollElement.scrollTop);
     };
 
     _proto._getScrollHeight = function _getScrollHeight() {
-      cov_cwzxyf3el.f[13]++;
-      cov_cwzxyf3el.s[67]++;
-      return (cov_cwzxyf3el.b[11][0]++, this._scrollElement.scrollHeight) || (cov_cwzxyf3el.b[11][1]++, Math.max(document.body.scrollHeight, document.documentElement.scrollHeight));
+      cov_1g9c3nysaz.f[13]++;
+      cov_1g9c3nysaz.s[67]++;
+      return (cov_1g9c3nysaz.b[11][0]++, this._scrollElement.scrollHeight) || (cov_1g9c3nysaz.b[11][1]++, Math.max(document.body.scrollHeight, document.documentElement.scrollHeight));
     };
 
     _proto._getOffsetHeight = function _getOffsetHeight() {
-      cov_cwzxyf3el.f[14]++;
-      cov_cwzxyf3el.s[68]++;
-      return this._scrollElement === window ? (cov_cwzxyf3el.b[12][0]++, window.innerHeight) : (cov_cwzxyf3el.b[12][1]++, this._scrollElement.getBoundingClientRect().height);
+      cov_1g9c3nysaz.f[14]++;
+      cov_1g9c3nysaz.s[68]++;
+      return this._scrollElement === window ? (cov_1g9c3nysaz.b[12][0]++, window.innerHeight) : (cov_1g9c3nysaz.b[12][1]++, this._scrollElement.getBoundingClientRect().height);
     };
 
     _proto._process = function _process() {
-      cov_cwzxyf3el.f[15]++;
-      var scrollTop = (cov_cwzxyf3el.s[69]++, this._getScrollTop() + this._config.offset);
-      var scrollHeight = (cov_cwzxyf3el.s[70]++, this._getScrollHeight());
-      var maxScroll = (cov_cwzxyf3el.s[71]++, this._config.offset + scrollHeight - this._getOffsetHeight());
-      cov_cwzxyf3el.s[72]++;
+      cov_1g9c3nysaz.f[15]++;
+      var scrollTop = (cov_1g9c3nysaz.s[69]++, this._getScrollTop() + this._config.offset);
+      var scrollHeight = (cov_1g9c3nysaz.s[70]++, this._getScrollHeight());
+      var maxScroll = (cov_1g9c3nysaz.s[71]++, this._config.offset + scrollHeight - this._getOffsetHeight());
+      cov_1g9c3nysaz.s[72]++;
 
       if (this._scrollHeight !== scrollHeight) {
-        cov_cwzxyf3el.b[13][0]++;
-        cov_cwzxyf3el.s[73]++;
+        cov_1g9c3nysaz.b[13][0]++;
+        cov_1g9c3nysaz.s[73]++;
         this.refresh();
       } else {
-        cov_cwzxyf3el.b[13][1]++;
+        cov_1g9c3nysaz.b[13][1]++;
       }
 
-      cov_cwzxyf3el.s[74]++;
+      cov_1g9c3nysaz.s[74]++;
 
       if (scrollTop >= maxScroll) {
-        cov_cwzxyf3el.b[14][0]++;
-        var target = (cov_cwzxyf3el.s[75]++, this._targets[this._targets.length - 1]);
-        cov_cwzxyf3el.s[76]++;
+        cov_1g9c3nysaz.b[14][0]++;
+        var target = (cov_1g9c3nysaz.s[75]++, this._targets[this._targets.length - 1]);
+        cov_1g9c3nysaz.s[76]++;
 
         if (this._activeTarget !== target) {
-          cov_cwzxyf3el.b[15][0]++;
-          cov_cwzxyf3el.s[77]++;
+          cov_1g9c3nysaz.b[15][0]++;
+          cov_1g9c3nysaz.s[77]++;
 
           this._activate(target);
         } else {
-          cov_cwzxyf3el.b[15][1]++;
+          cov_1g9c3nysaz.b[15][1]++;
         }
 
-        cov_cwzxyf3el.s[78]++;
+        cov_1g9c3nysaz.s[78]++;
         return;
       } else {
-        cov_cwzxyf3el.b[14][1]++;
+        cov_1g9c3nysaz.b[14][1]++;
       }
 
-      cov_cwzxyf3el.s[79]++;
+      cov_1g9c3nysaz.s[79]++;
 
-      if ((cov_cwzxyf3el.b[17][0]++, this._activeTarget) && (cov_cwzxyf3el.b[17][1]++, scrollTop < this._offsets[0]) && (cov_cwzxyf3el.b[17][2]++, this._offsets[0] > 0)) {
-        cov_cwzxyf3el.b[16][0]++;
-        cov_cwzxyf3el.s[80]++;
+      if ((cov_1g9c3nysaz.b[17][0]++, this._activeTarget) && (cov_1g9c3nysaz.b[17][1]++, scrollTop < this._offsets[0]) && (cov_1g9c3nysaz.b[17][2]++, this._offsets[0] > 0)) {
+        cov_1g9c3nysaz.b[16][0]++;
+        cov_1g9c3nysaz.s[80]++;
         this._activeTarget = null;
-        cov_cwzxyf3el.s[81]++;
+        cov_1g9c3nysaz.s[81]++;
 
         this._clear();
 
-        cov_cwzxyf3el.s[82]++;
+        cov_1g9c3nysaz.s[82]++;
         return;
       } else {
-        cov_cwzxyf3el.b[16][1]++;
+        cov_1g9c3nysaz.b[16][1]++;
       }
 
-      cov_cwzxyf3el.s[83]++;
+      cov_1g9c3nysaz.s[83]++;
 
       for (var i = this._offsets.length; i--;) {
-        var isActiveTarget = (cov_cwzxyf3el.s[84]++, (cov_cwzxyf3el.b[18][0]++, this._activeTarget !== this._targets[i]) && (cov_cwzxyf3el.b[18][1]++, scrollTop >= this._offsets[i]) && ((cov_cwzxyf3el.b[18][2]++, typeof this._offsets[i + 1] === 'undefined') || (cov_cwzxyf3el.b[18][3]++, scrollTop < this._offsets[i + 1])));
-        cov_cwzxyf3el.s[85]++;
+        var isActiveTarget = (cov_1g9c3nysaz.s[84]++, (cov_1g9c3nysaz.b[18][0]++, this._activeTarget !== this._targets[i]) && (cov_1g9c3nysaz.b[18][1]++, scrollTop >= this._offsets[i]) && ((cov_1g9c3nysaz.b[18][2]++, typeof this._offsets[i + 1] === 'undefined') || (cov_1g9c3nysaz.b[18][3]++, scrollTop < this._offsets[i + 1])));
+        cov_1g9c3nysaz.s[85]++;
 
         if (isActiveTarget) {
-          cov_cwzxyf3el.b[19][0]++;
-          cov_cwzxyf3el.s[86]++;
+          cov_1g9c3nysaz.b[19][0]++;
+          cov_1g9c3nysaz.s[86]++;
 
           this._activate(this._targets[i]);
         } else {
-          cov_cwzxyf3el.b[19][1]++;
+          cov_1g9c3nysaz.b[19][1]++;
         }
       }
     };
 
     _proto._activate = function _activate(target) {
-      cov_cwzxyf3el.f[16]++;
-      cov_cwzxyf3el.s[87]++;
+      cov_1g9c3nysaz.f[16]++;
+      cov_1g9c3nysaz.s[87]++;
       this._activeTarget = target;
-      cov_cwzxyf3el.s[88]++;
+      cov_1g9c3nysaz.s[88]++;
 
       this._clear();
 
-      var queries = (cov_cwzxyf3el.s[89]++, this._selector.split(',')); // eslint-disable-next-line arrow-body-style
+      var queries = (cov_1g9c3nysaz.s[89]++, this._selector.split(',')); // eslint-disable-next-line arrow-body-style
 
-      cov_cwzxyf3el.s[90]++;
+      cov_1g9c3nysaz.s[90]++;
       queries = queries.map(function (selector) {
-        cov_cwzxyf3el.f[17]++;
-        cov_cwzxyf3el.s[91]++;
+        cov_1g9c3nysaz.f[17]++;
+        cov_1g9c3nysaz.s[91]++;
         return selector + "[data-target=\"" + target + "\"]," + (selector + "[href=\"" + target + "\"]");
       });
-      var $link = (cov_cwzxyf3el.s[92]++, $(queries.join(',')));
-      cov_cwzxyf3el.s[93]++;
+      var $link = (cov_1g9c3nysaz.s[92]++, $(queries.join(',')));
+      cov_1g9c3nysaz.s[93]++;
 
       if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
-        cov_cwzxyf3el.b[20][0]++;
-        cov_cwzxyf3el.s[94]++;
+        cov_1g9c3nysaz.b[20][0]++;
+        cov_1g9c3nysaz.s[94]++;
         $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
-        cov_cwzxyf3el.s[95]++;
+        cov_1g9c3nysaz.s[95]++;
         $link.addClass(ClassName.ACTIVE);
       } else {
-        cov_cwzxyf3el.b[20][1]++;
-        cov_cwzxyf3el.s[96]++;
+        cov_1g9c3nysaz.b[20][1]++;
+        cov_1g9c3nysaz.s[96]++;
         // Set triggered link as active
         $link.addClass(ClassName.ACTIVE); // Set triggered links parents as active
         // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
 
-        cov_cwzxyf3el.s[97]++;
+        cov_1g9c3nysaz.s[97]++;
         $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS).addClass(ClassName.ACTIVE); // Handle special case when .nav-link is inside .nav-item
 
-        cov_cwzxyf3el.s[98]++;
+        cov_1g9c3nysaz.s[98]++;
         $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.ACTIVE);
       }
 
-      cov_cwzxyf3el.s[99]++;
+      cov_1g9c3nysaz.s[99]++;
       $(this._scrollElement).trigger(Event.ACTIVATE, {
         relatedTarget: target
       });
     };
 
     _proto._clear = function _clear() {
-      cov_cwzxyf3el.f[18]++;
-      cov_cwzxyf3el.s[100]++;
+      cov_1g9c3nysaz.f[18]++;
+      cov_1g9c3nysaz.s[100]++;
       $(this._selector).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
     }; // Static
 
 
     ScrollSpy._jQueryInterface = function _jQueryInterface(config) {
-      cov_cwzxyf3el.f[19]++;
-      cov_cwzxyf3el.s[101]++;
+      cov_1g9c3nysaz.f[19]++;
+      cov_1g9c3nysaz.s[101]++;
       return this.each(function () {
-        cov_cwzxyf3el.f[20]++;
-        var data = (cov_cwzxyf3el.s[102]++, $(this).data(DATA_KEY));
+        cov_1g9c3nysaz.f[20]++;
+        var data = (cov_1g9c3nysaz.s[102]++, $(this).data(DATA_KEY));
 
-        var _config = (cov_cwzxyf3el.s[103]++, (cov_cwzxyf3el.b[21][0]++, typeof config === 'object') && (cov_cwzxyf3el.b[21][1]++, config));
+        var _config = (cov_1g9c3nysaz.s[103]++, (cov_1g9c3nysaz.b[21][0]++, typeof config === 'object') && (cov_1g9c3nysaz.b[21][1]++, config));
 
-        cov_cwzxyf3el.s[104]++;
+        cov_1g9c3nysaz.s[104]++;
 
         if (!data) {
-          cov_cwzxyf3el.b[22][0]++;
-          cov_cwzxyf3el.s[105]++;
+          cov_1g9c3nysaz.b[22][0]++;
+          cov_1g9c3nysaz.s[105]++;
           data = new ScrollSpy(this, _config);
-          cov_cwzxyf3el.s[106]++;
+          cov_1g9c3nysaz.s[106]++;
           $(this).data(DATA_KEY, data);
         } else {
-          cov_cwzxyf3el.b[22][1]++;
+          cov_1g9c3nysaz.b[22][1]++;
         }
 
-        cov_cwzxyf3el.s[107]++;
+        cov_1g9c3nysaz.s[107]++;
 
         if (typeof config === 'string') {
-          cov_cwzxyf3el.b[23][0]++;
-          cov_cwzxyf3el.s[108]++;
+          cov_1g9c3nysaz.b[23][0]++;
+          cov_1g9c3nysaz.s[108]++;
 
           if (typeof data[config] === 'undefined') {
-            cov_cwzxyf3el.b[24][0]++;
-            cov_cwzxyf3el.s[109]++;
+            cov_1g9c3nysaz.b[24][0]++;
+            cov_1g9c3nysaz.s[109]++;
             throw new TypeError("No method named \"" + config + "\"");
           } else {
-            cov_cwzxyf3el.b[24][1]++;
+            cov_1g9c3nysaz.b[24][1]++;
           }
 
-          cov_cwzxyf3el.s[110]++;
+          cov_1g9c3nysaz.s[110]++;
           data[config]();
         } else {
-          cov_cwzxyf3el.b[23][1]++;
+          cov_1g9c3nysaz.b[23][1]++;
         }
       });
     };
@@ -3248,15 +3248,15 @@ var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
     _createClass(ScrollSpy, null, [{
       key: "VERSION",
       get: function get() {
-        cov_cwzxyf3el.f[3]++;
-        cov_cwzxyf3el.s[25]++;
+        cov_1g9c3nysaz.f[3]++;
+        cov_1g9c3nysaz.s[25]++;
         return VERSION;
       }
     }, {
       key: "Default",
       get: function get() {
-        cov_cwzxyf3el.f[4]++;
-        cov_cwzxyf3el.s[26]++;
+        cov_1g9c3nysaz.f[4]++;
+        cov_1g9c3nysaz.s[26]++;
         return Default;
       }
     }]);
@@ -3270,15 +3270,15 @@ var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
    */
 
 
-  cov_cwzxyf3el.s[111]++;
+  cov_1g9c3nysaz.s[111]++;
   $(window).on(Event.LOAD_DATA_API, function () {
-    cov_cwzxyf3el.f[21]++;
-    var scrollSpys = (cov_cwzxyf3el.s[112]++, $.makeArray($(Selector.DATA_SPY)));
-    cov_cwzxyf3el.s[113]++;
+    cov_1g9c3nysaz.f[21]++;
+    var scrollSpys = (cov_1g9c3nysaz.s[112]++, $.makeArray($(Selector.DATA_SPY)));
+    cov_1g9c3nysaz.s[113]++;
 
     for (var i = scrollSpys.length; i--;) {
-      var $spy = (cov_cwzxyf3el.s[114]++, $(scrollSpys[i]));
-      cov_cwzxyf3el.s[115]++;
+      var $spy = (cov_1g9c3nysaz.s[114]++, $(scrollSpys[i]));
+      cov_1g9c3nysaz.s[115]++;
 
       ScrollSpy._jQueryInterface.call($spy, $spy.data());
     }
@@ -3289,21 +3289,21 @@ var ScrollSpy = (cov_cwzxyf3el.s[0]++, function ($) {
    * ------------------------------------------------------------------------
    */
 
-  cov_cwzxyf3el.s[116]++;
+  cov_1g9c3nysaz.s[116]++;
   $.fn[NAME] = ScrollSpy._jQueryInterface;
-  cov_cwzxyf3el.s[117]++;
+  cov_1g9c3nysaz.s[117]++;
   $.fn[NAME].Constructor = ScrollSpy;
-  cov_cwzxyf3el.s[118]++;
+  cov_1g9c3nysaz.s[118]++;
 
   $.fn[NAME].noConflict = function () {
-    cov_cwzxyf3el.f[22]++;
-    cov_cwzxyf3el.s[119]++;
+    cov_1g9c3nysaz.f[22]++;
+    cov_1g9c3nysaz.s[119]++;
     $.fn[NAME] = JQUERY_NO_CONFLICT;
-    cov_cwzxyf3el.s[120]++;
+    cov_1g9c3nysaz.s[120]++;
     return ScrollSpy._jQueryInterface;
   };
 
-  cov_cwzxyf3el.s[121]++;
+  cov_1g9c3nysaz.s[121]++;
   return ScrollSpy;
 }($));
 //# sourceMappingURL=scrollspy.js.map

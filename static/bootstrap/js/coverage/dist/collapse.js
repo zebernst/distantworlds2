@@ -1,11 +1,11 @@
-var cov_1ituabqrzr = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\collapse.js",
-      hash = "85d7b883eb37e415e05e037d309bb5c8ffccf5e4",
+var cov_29wyhwxch = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/collapse.js",
+      hash = "3155fe3a3a6a1224a913e2954443d9918351294f",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\collapse.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/collapse.js",
     statementMap: {
       "0": {
         start: {
@@ -3522,46 +3522,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
-  cov_1ituabqrzr.f[0]++;
+var Collapse = (cov_29wyhwxch.s[0]++, function ($) {
+  cov_29wyhwxch.f[0]++;
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  var NAME = (cov_1ituabqrzr.s[1]++, 'collapse');
-  var VERSION = (cov_1ituabqrzr.s[2]++, '4.0.0');
-  var DATA_KEY = (cov_1ituabqrzr.s[3]++, 'bs.collapse');
-  var EVENT_KEY = (cov_1ituabqrzr.s[4]++, "." + DATA_KEY);
-  var DATA_API_KEY = (cov_1ituabqrzr.s[5]++, '.data-api');
-  var JQUERY_NO_CONFLICT = (cov_1ituabqrzr.s[6]++, $.fn[NAME]);
-  var Default = (cov_1ituabqrzr.s[7]++, {
+  var NAME = (cov_29wyhwxch.s[1]++, 'collapse');
+  var VERSION = (cov_29wyhwxch.s[2]++, '4.0.0');
+  var DATA_KEY = (cov_29wyhwxch.s[3]++, 'bs.collapse');
+  var EVENT_KEY = (cov_29wyhwxch.s[4]++, "." + DATA_KEY);
+  var DATA_API_KEY = (cov_29wyhwxch.s[5]++, '.data-api');
+  var JQUERY_NO_CONFLICT = (cov_29wyhwxch.s[6]++, $.fn[NAME]);
+  var Default = (cov_29wyhwxch.s[7]++, {
     toggle: true,
     parent: ''
   });
-  var DefaultType = (cov_1ituabqrzr.s[8]++, {
+  var DefaultType = (cov_29wyhwxch.s[8]++, {
     toggle: 'boolean',
     parent: '(string|element)'
   });
-  var Event = (cov_1ituabqrzr.s[9]++, {
+  var Event = (cov_29wyhwxch.s[9]++, {
     SHOW: "show" + EVENT_KEY,
     SHOWN: "shown" + EVENT_KEY,
     HIDE: "hide" + EVENT_KEY,
     HIDDEN: "hidden" + EVENT_KEY,
     CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
   });
-  var ClassName = (cov_1ituabqrzr.s[10]++, {
+  var ClassName = (cov_29wyhwxch.s[10]++, {
     SHOW: 'show',
     COLLAPSE: 'collapse',
     COLLAPSING: 'collapsing',
     COLLAPSED: 'collapsed'
   });
-  var Dimension = (cov_1ituabqrzr.s[11]++, {
+  var Dimension = (cov_29wyhwxch.s[11]++, {
     WIDTH: 'width',
     HEIGHT: 'height'
   });
-  var Selector = (cov_1ituabqrzr.s[12]++, {
+  var Selector = (cov_29wyhwxch.s[12]++, {
     ACTIVES: '.show, .collapsing',
     DATA_TOGGLE: '[data-toggle="collapse"]'
     /**
@@ -3576,56 +3576,56 @@ var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
   /*#__PURE__*/
   function () {
     function Collapse(element, config) {
-      cov_1ituabqrzr.f[1]++;
-      cov_1ituabqrzr.s[13]++;
+      cov_29wyhwxch.f[1]++;
+      cov_29wyhwxch.s[13]++;
       this._isTransitioning = false;
-      cov_1ituabqrzr.s[14]++;
+      cov_29wyhwxch.s[14]++;
       this._element = element;
-      cov_1ituabqrzr.s[15]++;
+      cov_29wyhwxch.s[15]++;
       this._config = this._getConfig(config);
-      cov_1ituabqrzr.s[16]++;
+      cov_29wyhwxch.s[16]++;
       this._triggerArray = $.makeArray($("[data-toggle=\"collapse\"][href=\"#" + element.id + "\"]," + ("[data-toggle=\"collapse\"][data-target=\"#" + element.id + "\"]")));
-      var tabToggles = (cov_1ituabqrzr.s[17]++, $(Selector.DATA_TOGGLE));
-      cov_1ituabqrzr.s[18]++;
+      var tabToggles = (cov_29wyhwxch.s[17]++, $(Selector.DATA_TOGGLE));
+      cov_29wyhwxch.s[18]++;
 
       for (var i = 0; i < tabToggles.length; i++) {
-        var elem = (cov_1ituabqrzr.s[19]++, tabToggles[i]);
-        var selector = (cov_1ituabqrzr.s[20]++, Util.getSelectorFromElement(elem));
-        cov_1ituabqrzr.s[21]++;
+        var elem = (cov_29wyhwxch.s[19]++, tabToggles[i]);
+        var selector = (cov_29wyhwxch.s[20]++, Util.getSelectorFromElement(elem));
+        cov_29wyhwxch.s[21]++;
 
-        if ((cov_1ituabqrzr.b[1][0]++, selector !== null) && (cov_1ituabqrzr.b[1][1]++, $(selector).filter(element).length > 0)) {
-          cov_1ituabqrzr.b[0][0]++;
-          cov_1ituabqrzr.s[22]++;
+        if ((cov_29wyhwxch.b[1][0]++, selector !== null) && (cov_29wyhwxch.b[1][1]++, $(selector).filter(element).length > 0)) {
+          cov_29wyhwxch.b[0][0]++;
+          cov_29wyhwxch.s[22]++;
           this._selector = selector;
-          cov_1ituabqrzr.s[23]++;
+          cov_29wyhwxch.s[23]++;
 
           this._triggerArray.push(elem);
         } else {
-          cov_1ituabqrzr.b[0][1]++;
+          cov_29wyhwxch.b[0][1]++;
         }
       }
 
-      cov_1ituabqrzr.s[24]++;
-      this._parent = this._config.parent ? (cov_1ituabqrzr.b[2][0]++, this._getParent()) : (cov_1ituabqrzr.b[2][1]++, null);
-      cov_1ituabqrzr.s[25]++;
+      cov_29wyhwxch.s[24]++;
+      this._parent = this._config.parent ? (cov_29wyhwxch.b[2][0]++, this._getParent()) : (cov_29wyhwxch.b[2][1]++, null);
+      cov_29wyhwxch.s[25]++;
 
       if (!this._config.parent) {
-        cov_1ituabqrzr.b[3][0]++;
-        cov_1ituabqrzr.s[26]++;
+        cov_29wyhwxch.b[3][0]++;
+        cov_29wyhwxch.s[26]++;
 
         this._addAriaAndCollapsedClass(this._element, this._triggerArray);
       } else {
-        cov_1ituabqrzr.b[3][1]++;
+        cov_29wyhwxch.b[3][1]++;
       }
 
-      cov_1ituabqrzr.s[27]++;
+      cov_29wyhwxch.s[27]++;
 
       if (this._config.toggle) {
-        cov_1ituabqrzr.b[4][0]++;
-        cov_1ituabqrzr.s[28]++;
+        cov_29wyhwxch.b[4][0]++;
+        cov_29wyhwxch.s[28]++;
         this.toggle();
       } else {
-        cov_1ituabqrzr.b[4][1]++;
+        cov_29wyhwxch.b[4][1]++;
       }
     } // Getters
 
@@ -3634,16 +3634,16 @@ var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
 
     // Public
     _proto.toggle = function toggle() {
-      cov_1ituabqrzr.f[4]++;
-      cov_1ituabqrzr.s[31]++;
+      cov_29wyhwxch.f[4]++;
+      cov_29wyhwxch.s[31]++;
 
       if ($(this._element).hasClass(ClassName.SHOW)) {
-        cov_1ituabqrzr.b[5][0]++;
-        cov_1ituabqrzr.s[32]++;
+        cov_29wyhwxch.b[5][0]++;
+        cov_29wyhwxch.s[32]++;
         this.hide();
       } else {
-        cov_1ituabqrzr.b[5][1]++;
-        cov_1ituabqrzr.s[33]++;
+        cov_29wyhwxch.b[5][1]++;
+        cov_29wyhwxch.s[33]++;
         this.show();
       }
     };
@@ -3651,380 +3651,380 @@ var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
     _proto.show = function show() {
       var _this = this;
 
-      cov_1ituabqrzr.f[5]++;
-      cov_1ituabqrzr.s[34]++;
+      cov_29wyhwxch.f[5]++;
+      cov_29wyhwxch.s[34]++;
 
-      if ((cov_1ituabqrzr.b[7][0]++, this._isTransitioning) || (cov_1ituabqrzr.b[7][1]++, $(this._element).hasClass(ClassName.SHOW))) {
-        cov_1ituabqrzr.b[6][0]++;
-        cov_1ituabqrzr.s[35]++;
+      if ((cov_29wyhwxch.b[7][0]++, this._isTransitioning) || (cov_29wyhwxch.b[7][1]++, $(this._element).hasClass(ClassName.SHOW))) {
+        cov_29wyhwxch.b[6][0]++;
+        cov_29wyhwxch.s[35]++;
         return;
       } else {
-        cov_1ituabqrzr.b[6][1]++;
+        cov_29wyhwxch.b[6][1]++;
       }
 
       var actives;
       var activesData;
-      cov_1ituabqrzr.s[36]++;
+      cov_29wyhwxch.s[36]++;
 
       if (this._parent) {
-        cov_1ituabqrzr.b[8][0]++;
-        cov_1ituabqrzr.s[37]++;
+        cov_29wyhwxch.b[8][0]++;
+        cov_29wyhwxch.s[37]++;
         actives = $.makeArray($(this._parent).find(Selector.ACTIVES).filter("[data-parent=\"" + this._config.parent + "\"]"));
-        cov_1ituabqrzr.s[38]++;
+        cov_29wyhwxch.s[38]++;
 
         if (actives.length === 0) {
-          cov_1ituabqrzr.b[9][0]++;
-          cov_1ituabqrzr.s[39]++;
+          cov_29wyhwxch.b[9][0]++;
+          cov_29wyhwxch.s[39]++;
           actives = null;
         } else {
-          cov_1ituabqrzr.b[9][1]++;
+          cov_29wyhwxch.b[9][1]++;
         }
       } else {
-        cov_1ituabqrzr.b[8][1]++;
+        cov_29wyhwxch.b[8][1]++;
       }
 
-      cov_1ituabqrzr.s[40]++;
+      cov_29wyhwxch.s[40]++;
 
       if (actives) {
-        cov_1ituabqrzr.b[10][0]++;
-        cov_1ituabqrzr.s[41]++;
+        cov_29wyhwxch.b[10][0]++;
+        cov_29wyhwxch.s[41]++;
         activesData = $(actives).not(this._selector).data(DATA_KEY);
-        cov_1ituabqrzr.s[42]++;
+        cov_29wyhwxch.s[42]++;
 
-        if ((cov_1ituabqrzr.b[12][0]++, activesData) && (cov_1ituabqrzr.b[12][1]++, activesData._isTransitioning)) {
-          cov_1ituabqrzr.b[11][0]++;
-          cov_1ituabqrzr.s[43]++;
+        if ((cov_29wyhwxch.b[12][0]++, activesData) && (cov_29wyhwxch.b[12][1]++, activesData._isTransitioning)) {
+          cov_29wyhwxch.b[11][0]++;
+          cov_29wyhwxch.s[43]++;
           return;
         } else {
-          cov_1ituabqrzr.b[11][1]++;
+          cov_29wyhwxch.b[11][1]++;
         }
       } else {
-        cov_1ituabqrzr.b[10][1]++;
+        cov_29wyhwxch.b[10][1]++;
       }
 
-      var startEvent = (cov_1ituabqrzr.s[44]++, $.Event(Event.SHOW));
-      cov_1ituabqrzr.s[45]++;
+      var startEvent = (cov_29wyhwxch.s[44]++, $.Event(Event.SHOW));
+      cov_29wyhwxch.s[45]++;
       $(this._element).trigger(startEvent);
-      cov_1ituabqrzr.s[46]++;
+      cov_29wyhwxch.s[46]++;
 
       if (startEvent.isDefaultPrevented()) {
-        cov_1ituabqrzr.b[13][0]++;
-        cov_1ituabqrzr.s[47]++;
+        cov_29wyhwxch.b[13][0]++;
+        cov_29wyhwxch.s[47]++;
         return;
       } else {
-        cov_1ituabqrzr.b[13][1]++;
+        cov_29wyhwxch.b[13][1]++;
       }
 
-      cov_1ituabqrzr.s[48]++;
+      cov_29wyhwxch.s[48]++;
 
       if (actives) {
-        cov_1ituabqrzr.b[14][0]++;
-        cov_1ituabqrzr.s[49]++;
+        cov_29wyhwxch.b[14][0]++;
+        cov_29wyhwxch.s[49]++;
 
         Collapse._jQueryInterface.call($(actives).not(this._selector), 'hide');
 
-        cov_1ituabqrzr.s[50]++;
+        cov_29wyhwxch.s[50]++;
 
         if (!activesData) {
-          cov_1ituabqrzr.b[15][0]++;
-          cov_1ituabqrzr.s[51]++;
+          cov_29wyhwxch.b[15][0]++;
+          cov_29wyhwxch.s[51]++;
           $(actives).data(DATA_KEY, null);
         } else {
-          cov_1ituabqrzr.b[15][1]++;
+          cov_29wyhwxch.b[15][1]++;
         }
       } else {
-        cov_1ituabqrzr.b[14][1]++;
+        cov_29wyhwxch.b[14][1]++;
       }
 
-      var dimension = (cov_1ituabqrzr.s[52]++, this._getDimension());
-      cov_1ituabqrzr.s[53]++;
+      var dimension = (cov_29wyhwxch.s[52]++, this._getDimension());
+      cov_29wyhwxch.s[53]++;
       $(this._element).removeClass(ClassName.COLLAPSE).addClass(ClassName.COLLAPSING);
-      cov_1ituabqrzr.s[54]++;
+      cov_29wyhwxch.s[54]++;
       this._element.style[dimension] = 0;
-      cov_1ituabqrzr.s[55]++;
+      cov_29wyhwxch.s[55]++;
 
       if (this._triggerArray.length > 0) {
-        cov_1ituabqrzr.b[16][0]++;
-        cov_1ituabqrzr.s[56]++;
+        cov_29wyhwxch.b[16][0]++;
+        cov_29wyhwxch.s[56]++;
         $(this._triggerArray).removeClass(ClassName.COLLAPSED).attr('aria-expanded', true);
       } else {
-        cov_1ituabqrzr.b[16][1]++;
+        cov_29wyhwxch.b[16][1]++;
       }
 
-      cov_1ituabqrzr.s[57]++;
+      cov_29wyhwxch.s[57]++;
       this.setTransitioning(true);
-      cov_1ituabqrzr.s[58]++;
+      cov_29wyhwxch.s[58]++;
 
       var complete = function complete() {
-        cov_1ituabqrzr.f[6]++;
-        cov_1ituabqrzr.s[59]++;
+        cov_29wyhwxch.f[6]++;
+        cov_29wyhwxch.s[59]++;
         $(_this._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).addClass(ClassName.SHOW);
-        cov_1ituabqrzr.s[60]++;
+        cov_29wyhwxch.s[60]++;
         _this._element.style[dimension] = '';
-        cov_1ituabqrzr.s[61]++;
+        cov_29wyhwxch.s[61]++;
 
         _this.setTransitioning(false);
 
-        cov_1ituabqrzr.s[62]++;
+        cov_29wyhwxch.s[62]++;
         $(_this._element).trigger(Event.SHOWN);
       };
 
-      var capitalizedDimension = (cov_1ituabqrzr.s[63]++, dimension[0].toUpperCase() + dimension.slice(1));
-      var scrollSize = (cov_1ituabqrzr.s[64]++, "scroll" + capitalizedDimension);
-      var transitionDuration = (cov_1ituabqrzr.s[65]++, Util.getTransitionDurationFromElement(this._element));
-      cov_1ituabqrzr.s[66]++;
+      var capitalizedDimension = (cov_29wyhwxch.s[63]++, dimension[0].toUpperCase() + dimension.slice(1));
+      var scrollSize = (cov_29wyhwxch.s[64]++, "scroll" + capitalizedDimension);
+      var transitionDuration = (cov_29wyhwxch.s[65]++, Util.getTransitionDurationFromElement(this._element));
+      cov_29wyhwxch.s[66]++;
       $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
-      cov_1ituabqrzr.s[67]++;
+      cov_29wyhwxch.s[67]++;
       this._element.style[dimension] = this._element[scrollSize] + "px";
     };
 
     _proto.hide = function hide() {
       var _this2 = this;
 
-      cov_1ituabqrzr.f[7]++;
-      cov_1ituabqrzr.s[68]++;
+      cov_29wyhwxch.f[7]++;
+      cov_29wyhwxch.s[68]++;
 
-      if ((cov_1ituabqrzr.b[18][0]++, this._isTransitioning) || (cov_1ituabqrzr.b[18][1]++, !$(this._element).hasClass(ClassName.SHOW))) {
-        cov_1ituabqrzr.b[17][0]++;
-        cov_1ituabqrzr.s[69]++;
+      if ((cov_29wyhwxch.b[18][0]++, this._isTransitioning) || (cov_29wyhwxch.b[18][1]++, !$(this._element).hasClass(ClassName.SHOW))) {
+        cov_29wyhwxch.b[17][0]++;
+        cov_29wyhwxch.s[69]++;
         return;
       } else {
-        cov_1ituabqrzr.b[17][1]++;
+        cov_29wyhwxch.b[17][1]++;
       }
 
-      var startEvent = (cov_1ituabqrzr.s[70]++, $.Event(Event.HIDE));
-      cov_1ituabqrzr.s[71]++;
+      var startEvent = (cov_29wyhwxch.s[70]++, $.Event(Event.HIDE));
+      cov_29wyhwxch.s[71]++;
       $(this._element).trigger(startEvent);
-      cov_1ituabqrzr.s[72]++;
+      cov_29wyhwxch.s[72]++;
 
       if (startEvent.isDefaultPrevented()) {
-        cov_1ituabqrzr.b[19][0]++;
-        cov_1ituabqrzr.s[73]++;
+        cov_29wyhwxch.b[19][0]++;
+        cov_29wyhwxch.s[73]++;
         return;
       } else {
-        cov_1ituabqrzr.b[19][1]++;
+        cov_29wyhwxch.b[19][1]++;
       }
 
-      var dimension = (cov_1ituabqrzr.s[74]++, this._getDimension());
-      cov_1ituabqrzr.s[75]++;
+      var dimension = (cov_29wyhwxch.s[74]++, this._getDimension());
+      cov_29wyhwxch.s[75]++;
       this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
-      cov_1ituabqrzr.s[76]++;
+      cov_29wyhwxch.s[76]++;
       Util.reflow(this._element);
-      cov_1ituabqrzr.s[77]++;
+      cov_29wyhwxch.s[77]++;
       $(this._element).addClass(ClassName.COLLAPSING).removeClass(ClassName.COLLAPSE).removeClass(ClassName.SHOW);
-      cov_1ituabqrzr.s[78]++;
+      cov_29wyhwxch.s[78]++;
 
       if (this._triggerArray.length > 0) {
-        cov_1ituabqrzr.b[20][0]++;
-        cov_1ituabqrzr.s[79]++;
+        cov_29wyhwxch.b[20][0]++;
+        cov_29wyhwxch.s[79]++;
 
         for (var i = 0; i < this._triggerArray.length; i++) {
-          var trigger = (cov_1ituabqrzr.s[80]++, this._triggerArray[i]);
-          var selector = (cov_1ituabqrzr.s[81]++, Util.getSelectorFromElement(trigger));
-          cov_1ituabqrzr.s[82]++;
+          var trigger = (cov_29wyhwxch.s[80]++, this._triggerArray[i]);
+          var selector = (cov_29wyhwxch.s[81]++, Util.getSelectorFromElement(trigger));
+          cov_29wyhwxch.s[82]++;
 
           if (selector !== null) {
-            cov_1ituabqrzr.b[21][0]++;
-            var $elem = (cov_1ituabqrzr.s[83]++, $(selector));
-            cov_1ituabqrzr.s[84]++;
+            cov_29wyhwxch.b[21][0]++;
+            var $elem = (cov_29wyhwxch.s[83]++, $(selector));
+            cov_29wyhwxch.s[84]++;
 
             if (!$elem.hasClass(ClassName.SHOW)) {
-              cov_1ituabqrzr.b[22][0]++;
-              cov_1ituabqrzr.s[85]++;
+              cov_29wyhwxch.b[22][0]++;
+              cov_29wyhwxch.s[85]++;
               $(trigger).addClass(ClassName.COLLAPSED).attr('aria-expanded', false);
             } else {
-              cov_1ituabqrzr.b[22][1]++;
+              cov_29wyhwxch.b[22][1]++;
             }
           } else {
-            cov_1ituabqrzr.b[21][1]++;
+            cov_29wyhwxch.b[21][1]++;
           }
         }
       } else {
-        cov_1ituabqrzr.b[20][1]++;
+        cov_29wyhwxch.b[20][1]++;
       }
 
-      cov_1ituabqrzr.s[86]++;
+      cov_29wyhwxch.s[86]++;
       this.setTransitioning(true);
-      cov_1ituabqrzr.s[87]++;
+      cov_29wyhwxch.s[87]++;
 
       var complete = function complete() {
-        cov_1ituabqrzr.f[8]++;
-        cov_1ituabqrzr.s[88]++;
+        cov_29wyhwxch.f[8]++;
+        cov_29wyhwxch.s[88]++;
 
         _this2.setTransitioning(false);
 
-        cov_1ituabqrzr.s[89]++;
+        cov_29wyhwxch.s[89]++;
         $(_this2._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIDDEN);
       };
 
-      cov_1ituabqrzr.s[90]++;
+      cov_29wyhwxch.s[90]++;
       this._element.style[dimension] = '';
-      var transitionDuration = (cov_1ituabqrzr.s[91]++, Util.getTransitionDurationFromElement(this._element));
-      cov_1ituabqrzr.s[92]++;
+      var transitionDuration = (cov_29wyhwxch.s[91]++, Util.getTransitionDurationFromElement(this._element));
+      cov_29wyhwxch.s[92]++;
       $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
     };
 
     _proto.setTransitioning = function setTransitioning(isTransitioning) {
-      cov_1ituabqrzr.f[9]++;
-      cov_1ituabqrzr.s[93]++;
+      cov_29wyhwxch.f[9]++;
+      cov_29wyhwxch.s[93]++;
       this._isTransitioning = isTransitioning;
     };
 
     _proto.dispose = function dispose() {
-      cov_1ituabqrzr.f[10]++;
-      cov_1ituabqrzr.s[94]++;
+      cov_29wyhwxch.f[10]++;
+      cov_29wyhwxch.s[94]++;
       $.removeData(this._element, DATA_KEY);
-      cov_1ituabqrzr.s[95]++;
+      cov_29wyhwxch.s[95]++;
       this._config = null;
-      cov_1ituabqrzr.s[96]++;
+      cov_29wyhwxch.s[96]++;
       this._parent = null;
-      cov_1ituabqrzr.s[97]++;
+      cov_29wyhwxch.s[97]++;
       this._element = null;
-      cov_1ituabqrzr.s[98]++;
+      cov_29wyhwxch.s[98]++;
       this._triggerArray = null;
-      cov_1ituabqrzr.s[99]++;
+      cov_29wyhwxch.s[99]++;
       this._isTransitioning = null;
     }; // Private
 
 
     _proto._getConfig = function _getConfig(config) {
-      cov_1ituabqrzr.f[11]++;
-      cov_1ituabqrzr.s[100]++;
+      cov_29wyhwxch.f[11]++;
+      cov_29wyhwxch.s[100]++;
       config = _objectSpread({}, Default, config);
-      cov_1ituabqrzr.s[101]++;
+      cov_29wyhwxch.s[101]++;
       config.toggle = Boolean(config.toggle); // Coerce string values
 
-      cov_1ituabqrzr.s[102]++;
+      cov_29wyhwxch.s[102]++;
       Util.typeCheckConfig(NAME, config, DefaultType);
-      cov_1ituabqrzr.s[103]++;
+      cov_29wyhwxch.s[103]++;
       return config;
     };
 
     _proto._getDimension = function _getDimension() {
-      cov_1ituabqrzr.f[12]++;
-      var hasWidth = (cov_1ituabqrzr.s[104]++, $(this._element).hasClass(Dimension.WIDTH));
-      cov_1ituabqrzr.s[105]++;
-      return hasWidth ? (cov_1ituabqrzr.b[23][0]++, Dimension.WIDTH) : (cov_1ituabqrzr.b[23][1]++, Dimension.HEIGHT);
+      cov_29wyhwxch.f[12]++;
+      var hasWidth = (cov_29wyhwxch.s[104]++, $(this._element).hasClass(Dimension.WIDTH));
+      cov_29wyhwxch.s[105]++;
+      return hasWidth ? (cov_29wyhwxch.b[23][0]++, Dimension.WIDTH) : (cov_29wyhwxch.b[23][1]++, Dimension.HEIGHT);
     };
 
     _proto._getParent = function _getParent() {
       var _this3 = this;
 
-      cov_1ituabqrzr.f[13]++;
-      var parent = (cov_1ituabqrzr.s[106]++, null);
-      cov_1ituabqrzr.s[107]++;
+      cov_29wyhwxch.f[13]++;
+      var parent = (cov_29wyhwxch.s[106]++, null);
+      cov_29wyhwxch.s[107]++;
 
       if (Util.isElement(this._config.parent)) {
-        cov_1ituabqrzr.b[24][0]++;
-        cov_1ituabqrzr.s[108]++;
+        cov_29wyhwxch.b[24][0]++;
+        cov_29wyhwxch.s[108]++;
         parent = this._config.parent; // It's a jQuery object
 
-        cov_1ituabqrzr.s[109]++;
+        cov_29wyhwxch.s[109]++;
 
         if (typeof this._config.parent.jquery !== 'undefined') {
-          cov_1ituabqrzr.b[25][0]++;
-          cov_1ituabqrzr.s[110]++;
+          cov_29wyhwxch.b[25][0]++;
+          cov_29wyhwxch.s[110]++;
           parent = this._config.parent[0];
         } else {
-          cov_1ituabqrzr.b[25][1]++;
+          cov_29wyhwxch.b[25][1]++;
         }
       } else {
-        cov_1ituabqrzr.b[24][1]++;
-        cov_1ituabqrzr.s[111]++;
+        cov_29wyhwxch.b[24][1]++;
+        cov_29wyhwxch.s[111]++;
         parent = $(this._config.parent)[0];
       }
 
-      var selector = (cov_1ituabqrzr.s[112]++, "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]");
-      cov_1ituabqrzr.s[113]++;
+      var selector = (cov_29wyhwxch.s[112]++, "[data-toggle=\"collapse\"][data-parent=\"" + this._config.parent + "\"]");
+      cov_29wyhwxch.s[113]++;
       $(parent).find(selector).each(function (i, element) {
-        cov_1ituabqrzr.f[14]++;
-        cov_1ituabqrzr.s[114]++;
+        cov_29wyhwxch.f[14]++;
+        cov_29wyhwxch.s[114]++;
 
         _this3._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
       });
-      cov_1ituabqrzr.s[115]++;
+      cov_29wyhwxch.s[115]++;
       return parent;
     };
 
     _proto._addAriaAndCollapsedClass = function _addAriaAndCollapsedClass(element, triggerArray) {
-      cov_1ituabqrzr.f[15]++;
-      cov_1ituabqrzr.s[116]++;
+      cov_29wyhwxch.f[15]++;
+      cov_29wyhwxch.s[116]++;
 
       if (element) {
-        cov_1ituabqrzr.b[26][0]++;
-        var isOpen = (cov_1ituabqrzr.s[117]++, $(element).hasClass(ClassName.SHOW));
-        cov_1ituabqrzr.s[118]++;
+        cov_29wyhwxch.b[26][0]++;
+        var isOpen = (cov_29wyhwxch.s[117]++, $(element).hasClass(ClassName.SHOW));
+        cov_29wyhwxch.s[118]++;
 
         if (triggerArray.length > 0) {
-          cov_1ituabqrzr.b[27][0]++;
-          cov_1ituabqrzr.s[119]++;
+          cov_29wyhwxch.b[27][0]++;
+          cov_29wyhwxch.s[119]++;
           $(triggerArray).toggleClass(ClassName.COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
         } else {
-          cov_1ituabqrzr.b[27][1]++;
+          cov_29wyhwxch.b[27][1]++;
         }
       } else {
-        cov_1ituabqrzr.b[26][1]++;
+        cov_29wyhwxch.b[26][1]++;
       }
     }; // Static
 
 
     Collapse._getTargetFromElement = function _getTargetFromElement(element) {
-      cov_1ituabqrzr.f[16]++;
-      var selector = (cov_1ituabqrzr.s[120]++, Util.getSelectorFromElement(element));
-      cov_1ituabqrzr.s[121]++;
-      return selector ? (cov_1ituabqrzr.b[28][0]++, $(selector)[0]) : (cov_1ituabqrzr.b[28][1]++, null);
+      cov_29wyhwxch.f[16]++;
+      var selector = (cov_29wyhwxch.s[120]++, Util.getSelectorFromElement(element));
+      cov_29wyhwxch.s[121]++;
+      return selector ? (cov_29wyhwxch.b[28][0]++, $(selector)[0]) : (cov_29wyhwxch.b[28][1]++, null);
     };
 
     Collapse._jQueryInterface = function _jQueryInterface(config) {
-      cov_1ituabqrzr.f[17]++;
-      cov_1ituabqrzr.s[122]++;
+      cov_29wyhwxch.f[17]++;
+      cov_29wyhwxch.s[122]++;
       return this.each(function () {
-        cov_1ituabqrzr.f[18]++;
-        var $this = (cov_1ituabqrzr.s[123]++, $(this));
-        var data = (cov_1ituabqrzr.s[124]++, $this.data(DATA_KEY));
+        cov_29wyhwxch.f[18]++;
+        var $this = (cov_29wyhwxch.s[123]++, $(this));
+        var data = (cov_29wyhwxch.s[124]++, $this.data(DATA_KEY));
 
-        var _config = (cov_1ituabqrzr.s[125]++, _objectSpread({}, Default, $this.data(), (cov_1ituabqrzr.b[29][0]++, typeof config === 'object') && (cov_1ituabqrzr.b[29][1]++, config)));
+        var _config = (cov_29wyhwxch.s[125]++, _objectSpread({}, Default, $this.data(), (cov_29wyhwxch.b[29][0]++, typeof config === 'object') && (cov_29wyhwxch.b[29][1]++, config)));
 
-        cov_1ituabqrzr.s[126]++;
+        cov_29wyhwxch.s[126]++;
 
-        if ((cov_1ituabqrzr.b[31][0]++, !data) && (cov_1ituabqrzr.b[31][1]++, _config.toggle) && (cov_1ituabqrzr.b[31][2]++, /show|hide/.test(config))) {
-          cov_1ituabqrzr.b[30][0]++;
-          cov_1ituabqrzr.s[127]++;
+        if ((cov_29wyhwxch.b[31][0]++, !data) && (cov_29wyhwxch.b[31][1]++, _config.toggle) && (cov_29wyhwxch.b[31][2]++, /show|hide/.test(config))) {
+          cov_29wyhwxch.b[30][0]++;
+          cov_29wyhwxch.s[127]++;
           _config.toggle = false;
         } else {
-          cov_1ituabqrzr.b[30][1]++;
+          cov_29wyhwxch.b[30][1]++;
         }
 
-        cov_1ituabqrzr.s[128]++;
+        cov_29wyhwxch.s[128]++;
 
         if (!data) {
-          cov_1ituabqrzr.b[32][0]++;
-          cov_1ituabqrzr.s[129]++;
+          cov_29wyhwxch.b[32][0]++;
+          cov_29wyhwxch.s[129]++;
           data = new Collapse(this, _config);
-          cov_1ituabqrzr.s[130]++;
+          cov_29wyhwxch.s[130]++;
           $this.data(DATA_KEY, data);
         } else {
-          cov_1ituabqrzr.b[32][1]++;
+          cov_29wyhwxch.b[32][1]++;
         }
 
-        cov_1ituabqrzr.s[131]++;
+        cov_29wyhwxch.s[131]++;
 
         if (typeof config === 'string') {
-          cov_1ituabqrzr.b[33][0]++;
-          cov_1ituabqrzr.s[132]++;
+          cov_29wyhwxch.b[33][0]++;
+          cov_29wyhwxch.s[132]++;
 
           if (typeof data[config] === 'undefined') {
-            cov_1ituabqrzr.b[34][0]++;
-            cov_1ituabqrzr.s[133]++;
+            cov_29wyhwxch.b[34][0]++;
+            cov_29wyhwxch.s[133]++;
             throw new TypeError("No method named \"" + config + "\"");
           } else {
-            cov_1ituabqrzr.b[34][1]++;
+            cov_29wyhwxch.b[34][1]++;
           }
 
-          cov_1ituabqrzr.s[134]++;
+          cov_29wyhwxch.s[134]++;
           data[config]();
         } else {
-          cov_1ituabqrzr.b[33][1]++;
+          cov_29wyhwxch.b[33][1]++;
         }
       });
     };
@@ -4032,15 +4032,15 @@ var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
     _createClass(Collapse, null, [{
       key: "VERSION",
       get: function get() {
-        cov_1ituabqrzr.f[2]++;
-        cov_1ituabqrzr.s[29]++;
+        cov_29wyhwxch.f[2]++;
+        cov_29wyhwxch.s[29]++;
         return VERSION;
       }
     }, {
       key: "Default",
       get: function get() {
-        cov_1ituabqrzr.f[3]++;
-        cov_1ituabqrzr.s[30]++;
+        cov_29wyhwxch.f[3]++;
+        cov_29wyhwxch.s[30]++;
         return Default;
       }
     }]);
@@ -4054,29 +4054,29 @@ var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
    */
 
 
-  cov_1ituabqrzr.s[135]++;
+  cov_29wyhwxch.s[135]++;
   $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-    cov_1ituabqrzr.f[19]++;
-    cov_1ituabqrzr.s[136]++;
+    cov_29wyhwxch.f[19]++;
+    cov_29wyhwxch.s[136]++;
 
     // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
     if (event.currentTarget.tagName === 'A') {
-      cov_1ituabqrzr.b[35][0]++;
-      cov_1ituabqrzr.s[137]++;
+      cov_29wyhwxch.b[35][0]++;
+      cov_29wyhwxch.s[137]++;
       event.preventDefault();
     } else {
-      cov_1ituabqrzr.b[35][1]++;
+      cov_29wyhwxch.b[35][1]++;
     }
 
-    var $trigger = (cov_1ituabqrzr.s[138]++, $(this));
-    var selector = (cov_1ituabqrzr.s[139]++, Util.getSelectorFromElement(this));
-    cov_1ituabqrzr.s[140]++;
+    var $trigger = (cov_29wyhwxch.s[138]++, $(this));
+    var selector = (cov_29wyhwxch.s[139]++, Util.getSelectorFromElement(this));
+    cov_29wyhwxch.s[140]++;
     $(selector).each(function () {
-      cov_1ituabqrzr.f[20]++;
-      var $target = (cov_1ituabqrzr.s[141]++, $(this));
-      var data = (cov_1ituabqrzr.s[142]++, $target.data(DATA_KEY));
-      var config = (cov_1ituabqrzr.s[143]++, data ? (cov_1ituabqrzr.b[36][0]++, 'toggle') : (cov_1ituabqrzr.b[36][1]++, $trigger.data()));
-      cov_1ituabqrzr.s[144]++;
+      cov_29wyhwxch.f[20]++;
+      var $target = (cov_29wyhwxch.s[141]++, $(this));
+      var data = (cov_29wyhwxch.s[142]++, $target.data(DATA_KEY));
+      var config = (cov_29wyhwxch.s[143]++, data ? (cov_29wyhwxch.b[36][0]++, 'toggle') : (cov_29wyhwxch.b[36][1]++, $trigger.data()));
+      cov_29wyhwxch.s[144]++;
 
       Collapse._jQueryInterface.call($target, config);
     });
@@ -4087,21 +4087,21 @@ var Collapse = (cov_1ituabqrzr.s[0]++, function ($) {
    * ------------------------------------------------------------------------
    */
 
-  cov_1ituabqrzr.s[145]++;
+  cov_29wyhwxch.s[145]++;
   $.fn[NAME] = Collapse._jQueryInterface;
-  cov_1ituabqrzr.s[146]++;
+  cov_29wyhwxch.s[146]++;
   $.fn[NAME].Constructor = Collapse;
-  cov_1ituabqrzr.s[147]++;
+  cov_29wyhwxch.s[147]++;
 
   $.fn[NAME].noConflict = function () {
-    cov_1ituabqrzr.f[21]++;
-    cov_1ituabqrzr.s[148]++;
+    cov_29wyhwxch.f[21]++;
+    cov_29wyhwxch.s[148]++;
     $.fn[NAME] = JQUERY_NO_CONFLICT;
-    cov_1ituabqrzr.s[149]++;
+    cov_29wyhwxch.s[149]++;
     return Collapse._jQueryInterface;
   };
 
-  cov_1ituabqrzr.s[150]++;
+  cov_29wyhwxch.s[150]++;
   return Collapse;
 }($));
 //# sourceMappingURL=collapse.js.map

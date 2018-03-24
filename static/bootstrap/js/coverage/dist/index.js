@@ -1,11 +1,11 @@
-var cov_i26ot0irz = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\index.js",
-      hash = "7f17fd950a2c1feb2547b82d2ddbb47edcdfc82b",
+var cov_1xhapmoapr = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/index.js",
+      hash = "a48a2e5b99edb843a3774261a2618b1e9462a7ee",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\index.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/index.js",
     statementMap: {
       "0": {
         start: {
@@ -314,7 +314,7 @@ var cov_i26ot0irz = function () {
   return coverage[path] = coverageData;
 }();
 
-cov_i26ot0irz.s[0]++;
+cov_1xhapmoapr.s[0]++;
 
 /**
  * --------------------------------------------------------------------------
@@ -323,31 +323,31 @@ cov_i26ot0irz.s[0]++;
  * --------------------------------------------------------------------------
  */
 (function ($) {
-  cov_i26ot0irz.f[0]++;
-  cov_i26ot0irz.s[1]++;
+  cov_1xhapmoapr.f[0]++;
+  cov_1xhapmoapr.s[1]++;
 
   if (typeof $ === 'undefined') {
-    cov_i26ot0irz.b[0][0]++;
-    cov_i26ot0irz.s[2]++;
+    cov_1xhapmoapr.b[0][0]++;
+    cov_1xhapmoapr.s[2]++;
     throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
   } else {
-    cov_i26ot0irz.b[0][1]++;
+    cov_1xhapmoapr.b[0][1]++;
   }
 
-  var version = (cov_i26ot0irz.s[3]++, $.fn.jquery.split(' ')[0].split('.'));
-  var minMajor = (cov_i26ot0irz.s[4]++, 1);
-  var ltMajor = (cov_i26ot0irz.s[5]++, 2);
-  var minMinor = (cov_i26ot0irz.s[6]++, 9);
-  var minPatch = (cov_i26ot0irz.s[7]++, 1);
-  var maxMajor = (cov_i26ot0irz.s[8]++, 4);
-  cov_i26ot0irz.s[9]++;
+  var version = (cov_1xhapmoapr.s[3]++, $.fn.jquery.split(' ')[0].split('.'));
+  var minMajor = (cov_1xhapmoapr.s[4]++, 1);
+  var ltMajor = (cov_1xhapmoapr.s[5]++, 2);
+  var minMinor = (cov_1xhapmoapr.s[6]++, 9);
+  var minPatch = (cov_1xhapmoapr.s[7]++, 1);
+  var maxMajor = (cov_1xhapmoapr.s[8]++, 4);
+  cov_1xhapmoapr.s[9]++;
 
-  if ((cov_i26ot0irz.b[2][0]++, version[0] < ltMajor) && (cov_i26ot0irz.b[2][1]++, version[1] < minMinor) || (cov_i26ot0irz.b[2][2]++, version[0] === minMajor) && (cov_i26ot0irz.b[2][3]++, version[1] === minMinor) && (cov_i26ot0irz.b[2][4]++, version[2] < minPatch) || (cov_i26ot0irz.b[2][5]++, version[0] >= maxMajor)) {
-    cov_i26ot0irz.b[1][0]++;
-    cov_i26ot0irz.s[10]++;
+  if ((cov_1xhapmoapr.b[2][0]++, version[0] < ltMajor) && (cov_1xhapmoapr.b[2][1]++, version[1] < minMinor) || (cov_1xhapmoapr.b[2][2]++, version[0] === minMajor) && (cov_1xhapmoapr.b[2][3]++, version[1] === minMinor) && (cov_1xhapmoapr.b[2][4]++, version[2] < minPatch) || (cov_1xhapmoapr.b[2][5]++, version[0] >= maxMajor)) {
+    cov_1xhapmoapr.b[1][0]++;
+    cov_1xhapmoapr.s[10]++;
     throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
   } else {
-    cov_i26ot0irz.b[1][1]++;
+    cov_1xhapmoapr.b[1][1]++;
   }
 })($);
 //# sourceMappingURL=index.js.map

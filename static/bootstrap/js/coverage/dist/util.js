@@ -1,11 +1,11 @@
-var cov_1g82tyglr2 = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\util.js",
-      hash = "b26402b45b3cb636794b698fb5cced8bca1b28c4",
+var cov_1xh8rq8en8 = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/util.js",
+      hash = "19698a2e009fc5d116c6d750fdedbd69c2580690",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\util.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/util.js",
     statementMap: {
       "0": {
         start: {
@@ -1203,42 +1203,42 @@ var cov_1g82tyglr2 = function () {
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var Util = (cov_1g82tyglr2.s[0]++, function ($) {
-  cov_1g82tyglr2.f[0]++;
+var Util = (cov_1xh8rq8en8.s[0]++, function ($) {
+  cov_1xh8rq8en8.f[0]++;
 
   /**
    * ------------------------------------------------------------------------
    * Private TransitionEnd Helpers
    * ------------------------------------------------------------------------
    */
-  var TRANSITION_END = (cov_1g82tyglr2.s[1]++, 'transitionend');
-  var MAX_UID = (cov_1g82tyglr2.s[2]++, 1000000);
-  var MILLISECONDS_MULTIPLIER = (cov_1g82tyglr2.s[3]++, 1000); // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  var TRANSITION_END = (cov_1xh8rq8en8.s[1]++, 'transitionend');
+  var MAX_UID = (cov_1xh8rq8en8.s[2]++, 1000000);
+  var MILLISECONDS_MULTIPLIER = (cov_1xh8rq8en8.s[3]++, 1000); // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   function toType(obj) {
-    cov_1g82tyglr2.f[1]++;
-    cov_1g82tyglr2.s[4]++;
+    cov_1xh8rq8en8.f[1]++;
+    cov_1xh8rq8en8.s[4]++;
     return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
   }
 
   function getSpecialTransitionEndEvent() {
-    cov_1g82tyglr2.f[2]++;
-    cov_1g82tyglr2.s[5]++;
+    cov_1xh8rq8en8.f[2]++;
+    cov_1xh8rq8en8.s[5]++;
     return {
       bindType: TRANSITION_END,
       delegateType: TRANSITION_END,
       handle: function handle(event) {
-        cov_1g82tyglr2.s[6]++;
+        cov_1xh8rq8en8.s[6]++;
 
         if ($(event.target).is(this)) {
-          cov_1g82tyglr2.b[0][0]++;
-          cov_1g82tyglr2.s[7]++;
+          cov_1xh8rq8en8.b[0][0]++;
+          cov_1xh8rq8en8.s[7]++;
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         } else {
-          cov_1g82tyglr2.b[0][1]++;
+          cov_1xh8rq8en8.b[0][1]++;
         }
 
-        cov_1g82tyglr2.s[8]++;
+        cov_1xh8rq8en8.s[8]++;
         return undefined; // eslint-disable-line no-undefined
       }
     };
@@ -1247,36 +1247,36 @@ var Util = (cov_1g82tyglr2.s[0]++, function ($) {
   function transitionEndEmulator(duration) {
     var _this = this;
 
-    cov_1g82tyglr2.f[3]++;
-    var called = (cov_1g82tyglr2.s[9]++, false);
-    cov_1g82tyglr2.s[10]++;
+    cov_1xh8rq8en8.f[3]++;
+    var called = (cov_1xh8rq8en8.s[9]++, false);
+    cov_1xh8rq8en8.s[10]++;
     $(this).one(Util.TRANSITION_END, function () {
-      cov_1g82tyglr2.f[4]++;
-      cov_1g82tyglr2.s[11]++;
+      cov_1xh8rq8en8.f[4]++;
+      cov_1xh8rq8en8.s[11]++;
       called = true;
     });
-    cov_1g82tyglr2.s[12]++;
+    cov_1xh8rq8en8.s[12]++;
     setTimeout(function () {
-      cov_1g82tyglr2.f[5]++;
-      cov_1g82tyglr2.s[13]++;
+      cov_1xh8rq8en8.f[5]++;
+      cov_1xh8rq8en8.s[13]++;
 
       if (!called) {
-        cov_1g82tyglr2.b[1][0]++;
-        cov_1g82tyglr2.s[14]++;
+        cov_1xh8rq8en8.b[1][0]++;
+        cov_1xh8rq8en8.s[14]++;
         Util.triggerTransitionEnd(_this);
       } else {
-        cov_1g82tyglr2.b[1][1]++;
+        cov_1xh8rq8en8.b[1][1]++;
       }
     }, duration);
-    cov_1g82tyglr2.s[15]++;
+    cov_1xh8rq8en8.s[15]++;
     return this;
   }
 
   function setTransitionEndSupport() {
-    cov_1g82tyglr2.f[6]++;
-    cov_1g82tyglr2.s[16]++;
+    cov_1xh8rq8en8.f[6]++;
+    cov_1xh8rq8en8.s[16]++;
     $.fn.emulateTransitionEnd = transitionEndEmulator;
-    cov_1g82tyglr2.s[17]++;
+    cov_1xh8rq8en8.s[17]++;
     $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
   }
   /**
@@ -1286,120 +1286,120 @@ var Util = (cov_1g82tyglr2.s[0]++, function ($) {
    */
 
 
-  var Util = (cov_1g82tyglr2.s[18]++, {
+  var Util = (cov_1xh8rq8en8.s[18]++, {
     TRANSITION_END: 'bsTransitionEnd',
     getUID: function getUID(prefix) {
-      cov_1g82tyglr2.s[19]++;
+      cov_1xh8rq8en8.s[19]++;
 
       do {
-        cov_1g82tyglr2.s[20]++;
+        cov_1xh8rq8en8.s[20]++;
         // eslint-disable-next-line no-bitwise
         prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
       } while (document.getElementById(prefix));
 
-      cov_1g82tyglr2.s[21]++;
+      cov_1xh8rq8en8.s[21]++;
       return prefix;
     },
     getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = (cov_1g82tyglr2.s[22]++, element.getAttribute('data-target'));
-      cov_1g82tyglr2.s[23]++;
+      var selector = (cov_1xh8rq8en8.s[22]++, element.getAttribute('data-target'));
+      cov_1xh8rq8en8.s[23]++;
 
-      if ((cov_1g82tyglr2.b[3][0]++, !selector) || (cov_1g82tyglr2.b[3][1]++, selector === '#')) {
-        cov_1g82tyglr2.b[2][0]++;
-        cov_1g82tyglr2.s[24]++;
-        selector = (cov_1g82tyglr2.b[4][0]++, element.getAttribute('href')) || (cov_1g82tyglr2.b[4][1]++, '');
+      if ((cov_1xh8rq8en8.b[3][0]++, !selector) || (cov_1xh8rq8en8.b[3][1]++, selector === '#')) {
+        cov_1xh8rq8en8.b[2][0]++;
+        cov_1xh8rq8en8.s[24]++;
+        selector = (cov_1xh8rq8en8.b[4][0]++, element.getAttribute('href')) || (cov_1xh8rq8en8.b[4][1]++, '');
       } else {
-        cov_1g82tyglr2.b[2][1]++;
+        cov_1xh8rq8en8.b[2][1]++;
       }
 
-      cov_1g82tyglr2.s[25]++;
+      cov_1xh8rq8en8.s[25]++;
 
       try {
-        var $selector = (cov_1g82tyglr2.s[26]++, $(document).find(selector));
-        cov_1g82tyglr2.s[27]++;
-        return $selector.length > 0 ? (cov_1g82tyglr2.b[5][0]++, selector) : (cov_1g82tyglr2.b[5][1]++, null);
+        var $selector = (cov_1xh8rq8en8.s[26]++, $(document).find(selector));
+        cov_1xh8rq8en8.s[27]++;
+        return $selector.length > 0 ? (cov_1xh8rq8en8.b[5][0]++, selector) : (cov_1xh8rq8en8.b[5][1]++, null);
       } catch (err) {
-        cov_1g82tyglr2.s[28]++;
+        cov_1xh8rq8en8.s[28]++;
         return null;
       }
     },
     getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
-      cov_1g82tyglr2.s[29]++;
+      cov_1xh8rq8en8.s[29]++;
 
       if (!element) {
-        cov_1g82tyglr2.b[6][0]++;
-        cov_1g82tyglr2.s[30]++;
+        cov_1xh8rq8en8.b[6][0]++;
+        cov_1xh8rq8en8.s[30]++;
         return 0;
       } else {
-        cov_1g82tyglr2.b[6][1]++;
+        cov_1xh8rq8en8.b[6][1]++;
       } // Get transition-duration of the element
 
 
-      var transitionDuration = (cov_1g82tyglr2.s[31]++, $(element).css('transition-duration'));
-      var floatTransitionDuration = (cov_1g82tyglr2.s[32]++, parseFloat(transitionDuration)); // Return 0 if element or transition duration is not found
+      var transitionDuration = (cov_1xh8rq8en8.s[31]++, $(element).css('transition-duration'));
+      var floatTransitionDuration = (cov_1xh8rq8en8.s[32]++, parseFloat(transitionDuration)); // Return 0 if element or transition duration is not found
 
-      cov_1g82tyglr2.s[33]++;
+      cov_1xh8rq8en8.s[33]++;
 
       if (!floatTransitionDuration) {
-        cov_1g82tyglr2.b[7][0]++;
-        cov_1g82tyglr2.s[34]++;
+        cov_1xh8rq8en8.b[7][0]++;
+        cov_1xh8rq8en8.s[34]++;
         return 0;
       } else {
-        cov_1g82tyglr2.b[7][1]++;
+        cov_1xh8rq8en8.b[7][1]++;
       } // If multiple durations are defined, take the first
 
 
-      cov_1g82tyglr2.s[35]++;
+      cov_1xh8rq8en8.s[35]++;
       transitionDuration = transitionDuration.split(',')[0];
-      cov_1g82tyglr2.s[36]++;
+      cov_1xh8rq8en8.s[36]++;
       return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER;
     },
     reflow: function reflow(element) {
-      cov_1g82tyglr2.s[37]++;
+      cov_1xh8rq8en8.s[37]++;
       return element.offsetHeight;
     },
     triggerTransitionEnd: function triggerTransitionEnd(element) {
-      cov_1g82tyglr2.s[38]++;
+      cov_1xh8rq8en8.s[38]++;
       $(element).trigger(TRANSITION_END);
     },
     // TODO: Remove in v5
     supportsTransitionEnd: function supportsTransitionEnd() {
-      cov_1g82tyglr2.s[39]++;
+      cov_1xh8rq8en8.s[39]++;
       return Boolean(TRANSITION_END);
     },
     isElement: function isElement(obj) {
-      cov_1g82tyglr2.s[40]++;
-      return ((cov_1g82tyglr2.b[8][0]++, obj[0]) || (cov_1g82tyglr2.b[8][1]++, obj)).nodeType;
+      cov_1xh8rq8en8.s[40]++;
+      return ((cov_1xh8rq8en8.b[8][0]++, obj[0]) || (cov_1xh8rq8en8.b[8][1]++, obj)).nodeType;
     },
     typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-      cov_1g82tyglr2.s[41]++;
+      cov_1xh8rq8en8.s[41]++;
 
       for (var property in configTypes) {
-        cov_1g82tyglr2.s[42]++;
+        cov_1xh8rq8en8.s[42]++;
 
         if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
-          cov_1g82tyglr2.b[9][0]++;
-          var expectedTypes = (cov_1g82tyglr2.s[43]++, configTypes[property]);
-          var value = (cov_1g82tyglr2.s[44]++, config[property]);
-          var valueType = (cov_1g82tyglr2.s[45]++, (cov_1g82tyglr2.b[11][0]++, value) && (cov_1g82tyglr2.b[11][1]++, Util.isElement(value)) ? (cov_1g82tyglr2.b[10][0]++, 'element') : (cov_1g82tyglr2.b[10][1]++, toType(value)));
-          cov_1g82tyglr2.s[46]++;
+          cov_1xh8rq8en8.b[9][0]++;
+          var expectedTypes = (cov_1xh8rq8en8.s[43]++, configTypes[property]);
+          var value = (cov_1xh8rq8en8.s[44]++, config[property]);
+          var valueType = (cov_1xh8rq8en8.s[45]++, (cov_1xh8rq8en8.b[11][0]++, value) && (cov_1xh8rq8en8.b[11][1]++, Util.isElement(value)) ? (cov_1xh8rq8en8.b[10][0]++, 'element') : (cov_1xh8rq8en8.b[10][1]++, toType(value)));
+          cov_1xh8rq8en8.s[46]++;
 
           if (!new RegExp(expectedTypes).test(valueType)) {
-            cov_1g82tyglr2.b[12][0]++;
-            cov_1g82tyglr2.s[47]++;
+            cov_1xh8rq8en8.b[12][0]++;
+            cov_1xh8rq8en8.s[47]++;
             throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
           } else {
-            cov_1g82tyglr2.b[12][1]++;
+            cov_1xh8rq8en8.b[12][1]++;
           }
         } else {
-          cov_1g82tyglr2.b[9][1]++;
+          cov_1xh8rq8en8.b[9][1]++;
         }
       }
     }
   });
-  cov_1g82tyglr2.s[48]++;
+  cov_1xh8rq8en8.s[48]++;
   setTransitionEndSupport();
-  cov_1g82tyglr2.s[49]++;
+  cov_1xh8rq8en8.s[49]++;
   return Util;
 }($));
 //# sourceMappingURL=util.js.map

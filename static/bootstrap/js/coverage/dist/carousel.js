@@ -1,11 +1,11 @@
-var cov_4ujrvtkth = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\carousel.js",
-      hash = "c3ec4da91b97be0e01a36a55d798b20dcc0fcccd",
+var cov_18euoep3ft = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/carousel.js",
+      hash = "7f037cceef612c0ac5c1c5a36c8ad303dbcb1419",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\carousel.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/carousel.js",
     statementMap: {
       "0": {
         start: {
@@ -4914,47 +4914,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
-  cov_4ujrvtkth.f[0]++;
+var Carousel = (cov_18euoep3ft.s[0]++, function ($) {
+  cov_18euoep3ft.f[0]++;
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  var NAME = (cov_4ujrvtkth.s[1]++, 'carousel');
-  var VERSION = (cov_4ujrvtkth.s[2]++, '4.0.0');
-  var DATA_KEY = (cov_4ujrvtkth.s[3]++, 'bs.carousel');
-  var EVENT_KEY = (cov_4ujrvtkth.s[4]++, "." + DATA_KEY);
-  var DATA_API_KEY = (cov_4ujrvtkth.s[5]++, '.data-api');
-  var JQUERY_NO_CONFLICT = (cov_4ujrvtkth.s[6]++, $.fn[NAME]);
-  var ARROW_LEFT_KEYCODE = (cov_4ujrvtkth.s[7]++, 37); // KeyboardEvent.which value for left arrow key
+  var NAME = (cov_18euoep3ft.s[1]++, 'carousel');
+  var VERSION = (cov_18euoep3ft.s[2]++, '4.0.0');
+  var DATA_KEY = (cov_18euoep3ft.s[3]++, 'bs.carousel');
+  var EVENT_KEY = (cov_18euoep3ft.s[4]++, "." + DATA_KEY);
+  var DATA_API_KEY = (cov_18euoep3ft.s[5]++, '.data-api');
+  var JQUERY_NO_CONFLICT = (cov_18euoep3ft.s[6]++, $.fn[NAME]);
+  var ARROW_LEFT_KEYCODE = (cov_18euoep3ft.s[7]++, 37); // KeyboardEvent.which value for left arrow key
 
-  var ARROW_RIGHT_KEYCODE = (cov_4ujrvtkth.s[8]++, 39); // KeyboardEvent.which value for right arrow key
+  var ARROW_RIGHT_KEYCODE = (cov_18euoep3ft.s[8]++, 39); // KeyboardEvent.which value for right arrow key
 
-  var TOUCHEVENT_COMPAT_WAIT = (cov_4ujrvtkth.s[9]++, 500); // Time for mouse compat events to fire after touch
+  var TOUCHEVENT_COMPAT_WAIT = (cov_18euoep3ft.s[9]++, 500); // Time for mouse compat events to fire after touch
 
-  var Default = (cov_4ujrvtkth.s[10]++, {
+  var Default = (cov_18euoep3ft.s[10]++, {
     interval: 5000,
     keyboard: true,
     slide: false,
     pause: 'hover',
     wrap: true
   });
-  var DefaultType = (cov_4ujrvtkth.s[11]++, {
+  var DefaultType = (cov_18euoep3ft.s[11]++, {
     interval: '(number|boolean)',
     keyboard: 'boolean',
     slide: '(boolean|string)',
     pause: '(string|boolean)',
     wrap: 'boolean'
   });
-  var Direction = (cov_4ujrvtkth.s[12]++, {
+  var Direction = (cov_18euoep3ft.s[12]++, {
     NEXT: 'next',
     PREV: 'prev',
     LEFT: 'left',
     RIGHT: 'right'
   });
-  var Event = (cov_4ujrvtkth.s[13]++, {
+  var Event = (cov_18euoep3ft.s[13]++, {
     SLIDE: "slide" + EVENT_KEY,
     SLID: "slid" + EVENT_KEY,
     KEYDOWN: "keydown" + EVENT_KEY,
@@ -4964,7 +4964,7 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
     LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
     CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
   });
-  var ClassName = (cov_4ujrvtkth.s[14]++, {
+  var ClassName = (cov_18euoep3ft.s[14]++, {
     CAROUSEL: 'carousel',
     ACTIVE: 'active',
     SLIDE: 'slide',
@@ -4974,7 +4974,7 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
     PREV: 'carousel-item-prev',
     ITEM: 'carousel-item'
   });
-  var Selector = (cov_4ujrvtkth.s[15]++, {
+  var Selector = (cov_18euoep3ft.s[15]++, {
     ACTIVE: '.active',
     ACTIVE_ITEM: '.active.carousel-item',
     ITEM: '.carousel-item',
@@ -4994,26 +4994,26 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
   /*#__PURE__*/
   function () {
     function Carousel(element, config) {
-      cov_4ujrvtkth.f[1]++;
-      cov_4ujrvtkth.s[16]++;
+      cov_18euoep3ft.f[1]++;
+      cov_18euoep3ft.s[16]++;
       this._items = null;
-      cov_4ujrvtkth.s[17]++;
+      cov_18euoep3ft.s[17]++;
       this._interval = null;
-      cov_4ujrvtkth.s[18]++;
+      cov_18euoep3ft.s[18]++;
       this._activeElement = null;
-      cov_4ujrvtkth.s[19]++;
+      cov_18euoep3ft.s[19]++;
       this._isPaused = false;
-      cov_4ujrvtkth.s[20]++;
+      cov_18euoep3ft.s[20]++;
       this._isSliding = false;
-      cov_4ujrvtkth.s[21]++;
+      cov_18euoep3ft.s[21]++;
       this.touchTimeout = null;
-      cov_4ujrvtkth.s[22]++;
+      cov_18euoep3ft.s[22]++;
       this._config = this._getConfig(config);
-      cov_4ujrvtkth.s[23]++;
+      cov_18euoep3ft.s[23]++;
       this._element = $(element)[0];
-      cov_4ujrvtkth.s[24]++;
+      cov_18euoep3ft.s[24]++;
       this._indicatorsElement = $(this._element).find(Selector.INDICATORS)[0];
-      cov_4ujrvtkth.s[25]++;
+      cov_18euoep3ft.s[25]++;
 
       this._addEventListeners();
     } // Getters
@@ -5023,238 +5023,238 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
 
     // Public
     _proto.next = function next() {
-      cov_4ujrvtkth.f[4]++;
-      cov_4ujrvtkth.s[28]++;
+      cov_18euoep3ft.f[4]++;
+      cov_18euoep3ft.s[28]++;
 
       if (!this._isSliding) {
-        cov_4ujrvtkth.b[0][0]++;
-        cov_4ujrvtkth.s[29]++;
+        cov_18euoep3ft.b[0][0]++;
+        cov_18euoep3ft.s[29]++;
 
         this._slide(Direction.NEXT);
       } else {
-        cov_4ujrvtkth.b[0][1]++;
+        cov_18euoep3ft.b[0][1]++;
       }
     };
 
     _proto.nextWhenVisible = function nextWhenVisible() {
-      cov_4ujrvtkth.f[5]++;
-      cov_4ujrvtkth.s[30]++;
+      cov_18euoep3ft.f[5]++;
+      cov_18euoep3ft.s[30]++;
 
       // Don't call next when the page isn't visible
       // or the carousel or its parent isn't visible
-      if ((cov_4ujrvtkth.b[2][0]++, !document.hidden) && (cov_4ujrvtkth.b[2][1]++, $(this._element).is(':visible')) && (cov_4ujrvtkth.b[2][2]++, $(this._element).css('visibility') !== 'hidden')) {
-        cov_4ujrvtkth.b[1][0]++;
-        cov_4ujrvtkth.s[31]++;
+      if ((cov_18euoep3ft.b[2][0]++, !document.hidden) && (cov_18euoep3ft.b[2][1]++, $(this._element).is(':visible')) && (cov_18euoep3ft.b[2][2]++, $(this._element).css('visibility') !== 'hidden')) {
+        cov_18euoep3ft.b[1][0]++;
+        cov_18euoep3ft.s[31]++;
         this.next();
       } else {
-        cov_4ujrvtkth.b[1][1]++;
+        cov_18euoep3ft.b[1][1]++;
       }
     };
 
     _proto.prev = function prev() {
-      cov_4ujrvtkth.f[6]++;
-      cov_4ujrvtkth.s[32]++;
+      cov_18euoep3ft.f[6]++;
+      cov_18euoep3ft.s[32]++;
 
       if (!this._isSliding) {
-        cov_4ujrvtkth.b[3][0]++;
-        cov_4ujrvtkth.s[33]++;
+        cov_18euoep3ft.b[3][0]++;
+        cov_18euoep3ft.s[33]++;
 
         this._slide(Direction.PREV);
       } else {
-        cov_4ujrvtkth.b[3][1]++;
+        cov_18euoep3ft.b[3][1]++;
       }
     };
 
     _proto.pause = function pause(event) {
-      cov_4ujrvtkth.f[7]++;
-      cov_4ujrvtkth.s[34]++;
+      cov_18euoep3ft.f[7]++;
+      cov_18euoep3ft.s[34]++;
 
       if (!event) {
-        cov_4ujrvtkth.b[4][0]++;
-        cov_4ujrvtkth.s[35]++;
+        cov_18euoep3ft.b[4][0]++;
+        cov_18euoep3ft.s[35]++;
         this._isPaused = true;
       } else {
-        cov_4ujrvtkth.b[4][1]++;
+        cov_18euoep3ft.b[4][1]++;
       }
 
-      cov_4ujrvtkth.s[36]++;
+      cov_18euoep3ft.s[36]++;
 
       if ($(this._element).find(Selector.NEXT_PREV)[0]) {
-        cov_4ujrvtkth.b[5][0]++;
-        cov_4ujrvtkth.s[37]++;
+        cov_18euoep3ft.b[5][0]++;
+        cov_18euoep3ft.s[37]++;
         Util.triggerTransitionEnd(this._element);
-        cov_4ujrvtkth.s[38]++;
+        cov_18euoep3ft.s[38]++;
         this.cycle(true);
       } else {
-        cov_4ujrvtkth.b[5][1]++;
+        cov_18euoep3ft.b[5][1]++;
       }
 
-      cov_4ujrvtkth.s[39]++;
+      cov_18euoep3ft.s[39]++;
       clearInterval(this._interval);
-      cov_4ujrvtkth.s[40]++;
+      cov_18euoep3ft.s[40]++;
       this._interval = null;
     };
 
     _proto.cycle = function cycle(event) {
-      cov_4ujrvtkth.f[8]++;
-      cov_4ujrvtkth.s[41]++;
+      cov_18euoep3ft.f[8]++;
+      cov_18euoep3ft.s[41]++;
 
       if (!event) {
-        cov_4ujrvtkth.b[6][0]++;
-        cov_4ujrvtkth.s[42]++;
+        cov_18euoep3ft.b[6][0]++;
+        cov_18euoep3ft.s[42]++;
         this._isPaused = false;
       } else {
-        cov_4ujrvtkth.b[6][1]++;
+        cov_18euoep3ft.b[6][1]++;
       }
 
-      cov_4ujrvtkth.s[43]++;
+      cov_18euoep3ft.s[43]++;
 
       if (this._interval) {
-        cov_4ujrvtkth.b[7][0]++;
-        cov_4ujrvtkth.s[44]++;
+        cov_18euoep3ft.b[7][0]++;
+        cov_18euoep3ft.s[44]++;
         clearInterval(this._interval);
-        cov_4ujrvtkth.s[45]++;
+        cov_18euoep3ft.s[45]++;
         this._interval = null;
       } else {
-        cov_4ujrvtkth.b[7][1]++;
+        cov_18euoep3ft.b[7][1]++;
       }
 
-      cov_4ujrvtkth.s[46]++;
+      cov_18euoep3ft.s[46]++;
 
-      if ((cov_4ujrvtkth.b[9][0]++, this._config.interval) && (cov_4ujrvtkth.b[9][1]++, !this._isPaused)) {
-        cov_4ujrvtkth.b[8][0]++;
-        cov_4ujrvtkth.s[47]++;
-        this._interval = setInterval((document.visibilityState ? (cov_4ujrvtkth.b[10][0]++, this.nextWhenVisible) : (cov_4ujrvtkth.b[10][1]++, this.next)).bind(this), this._config.interval);
+      if ((cov_18euoep3ft.b[9][0]++, this._config.interval) && (cov_18euoep3ft.b[9][1]++, !this._isPaused)) {
+        cov_18euoep3ft.b[8][0]++;
+        cov_18euoep3ft.s[47]++;
+        this._interval = setInterval((document.visibilityState ? (cov_18euoep3ft.b[10][0]++, this.nextWhenVisible) : (cov_18euoep3ft.b[10][1]++, this.next)).bind(this), this._config.interval);
       } else {
-        cov_4ujrvtkth.b[8][1]++;
+        cov_18euoep3ft.b[8][1]++;
       }
     };
 
     _proto.to = function to(index) {
       var _this = this;
 
-      cov_4ujrvtkth.f[9]++;
-      cov_4ujrvtkth.s[48]++;
+      cov_18euoep3ft.f[9]++;
+      cov_18euoep3ft.s[48]++;
       this._activeElement = $(this._element).find(Selector.ACTIVE_ITEM)[0];
-      var activeIndex = (cov_4ujrvtkth.s[49]++, this._getItemIndex(this._activeElement));
-      cov_4ujrvtkth.s[50]++;
+      var activeIndex = (cov_18euoep3ft.s[49]++, this._getItemIndex(this._activeElement));
+      cov_18euoep3ft.s[50]++;
 
-      if ((cov_4ujrvtkth.b[12][0]++, index > this._items.length - 1) || (cov_4ujrvtkth.b[12][1]++, index < 0)) {
-        cov_4ujrvtkth.b[11][0]++;
-        cov_4ujrvtkth.s[51]++;
+      if ((cov_18euoep3ft.b[12][0]++, index > this._items.length - 1) || (cov_18euoep3ft.b[12][1]++, index < 0)) {
+        cov_18euoep3ft.b[11][0]++;
+        cov_18euoep3ft.s[51]++;
         return;
       } else {
-        cov_4ujrvtkth.b[11][1]++;
+        cov_18euoep3ft.b[11][1]++;
       }
 
-      cov_4ujrvtkth.s[52]++;
+      cov_18euoep3ft.s[52]++;
 
       if (this._isSliding) {
-        cov_4ujrvtkth.b[13][0]++;
-        cov_4ujrvtkth.s[53]++;
+        cov_18euoep3ft.b[13][0]++;
+        cov_18euoep3ft.s[53]++;
         $(this._element).one(Event.SLID, function () {
-          cov_4ujrvtkth.f[10]++;
-          cov_4ujrvtkth.s[54]++;
+          cov_18euoep3ft.f[10]++;
+          cov_18euoep3ft.s[54]++;
           return _this.to(index);
         });
-        cov_4ujrvtkth.s[55]++;
+        cov_18euoep3ft.s[55]++;
         return;
       } else {
-        cov_4ujrvtkth.b[13][1]++;
+        cov_18euoep3ft.b[13][1]++;
       }
 
-      cov_4ujrvtkth.s[56]++;
+      cov_18euoep3ft.s[56]++;
 
       if (activeIndex === index) {
-        cov_4ujrvtkth.b[14][0]++;
-        cov_4ujrvtkth.s[57]++;
+        cov_18euoep3ft.b[14][0]++;
+        cov_18euoep3ft.s[57]++;
         this.pause();
-        cov_4ujrvtkth.s[58]++;
+        cov_18euoep3ft.s[58]++;
         this.cycle();
-        cov_4ujrvtkth.s[59]++;
+        cov_18euoep3ft.s[59]++;
         return;
       } else {
-        cov_4ujrvtkth.b[14][1]++;
+        cov_18euoep3ft.b[14][1]++;
       }
 
-      var direction = (cov_4ujrvtkth.s[60]++, index > activeIndex ? (cov_4ujrvtkth.b[15][0]++, Direction.NEXT) : (cov_4ujrvtkth.b[15][1]++, Direction.PREV));
-      cov_4ujrvtkth.s[61]++;
+      var direction = (cov_18euoep3ft.s[60]++, index > activeIndex ? (cov_18euoep3ft.b[15][0]++, Direction.NEXT) : (cov_18euoep3ft.b[15][1]++, Direction.PREV));
+      cov_18euoep3ft.s[61]++;
 
       this._slide(direction, this._items[index]);
     };
 
     _proto.dispose = function dispose() {
-      cov_4ujrvtkth.f[11]++;
-      cov_4ujrvtkth.s[62]++;
+      cov_18euoep3ft.f[11]++;
+      cov_18euoep3ft.s[62]++;
       $(this._element).off(EVENT_KEY);
-      cov_4ujrvtkth.s[63]++;
+      cov_18euoep3ft.s[63]++;
       $.removeData(this._element, DATA_KEY);
-      cov_4ujrvtkth.s[64]++;
+      cov_18euoep3ft.s[64]++;
       this._items = null;
-      cov_4ujrvtkth.s[65]++;
+      cov_18euoep3ft.s[65]++;
       this._config = null;
-      cov_4ujrvtkth.s[66]++;
+      cov_18euoep3ft.s[66]++;
       this._element = null;
-      cov_4ujrvtkth.s[67]++;
+      cov_18euoep3ft.s[67]++;
       this._interval = null;
-      cov_4ujrvtkth.s[68]++;
+      cov_18euoep3ft.s[68]++;
       this._isPaused = null;
-      cov_4ujrvtkth.s[69]++;
+      cov_18euoep3ft.s[69]++;
       this._isSliding = null;
-      cov_4ujrvtkth.s[70]++;
+      cov_18euoep3ft.s[70]++;
       this._activeElement = null;
-      cov_4ujrvtkth.s[71]++;
+      cov_18euoep3ft.s[71]++;
       this._indicatorsElement = null;
     }; // Private
 
 
     _proto._getConfig = function _getConfig(config) {
-      cov_4ujrvtkth.f[12]++;
-      cov_4ujrvtkth.s[72]++;
+      cov_18euoep3ft.f[12]++;
+      cov_18euoep3ft.s[72]++;
       config = _objectSpread({}, Default, config);
-      cov_4ujrvtkth.s[73]++;
+      cov_18euoep3ft.s[73]++;
       Util.typeCheckConfig(NAME, config, DefaultType);
-      cov_4ujrvtkth.s[74]++;
+      cov_18euoep3ft.s[74]++;
       return config;
     };
 
     _proto._addEventListeners = function _addEventListeners() {
       var _this2 = this;
 
-      cov_4ujrvtkth.f[13]++;
-      cov_4ujrvtkth.s[75]++;
+      cov_18euoep3ft.f[13]++;
+      cov_18euoep3ft.s[75]++;
 
       if (this._config.keyboard) {
-        cov_4ujrvtkth.b[16][0]++;
-        cov_4ujrvtkth.s[76]++;
+        cov_18euoep3ft.b[16][0]++;
+        cov_18euoep3ft.s[76]++;
         $(this._element).on(Event.KEYDOWN, function (event) {
-          cov_4ujrvtkth.f[14]++;
-          cov_4ujrvtkth.s[77]++;
+          cov_18euoep3ft.f[14]++;
+          cov_18euoep3ft.s[77]++;
           return _this2._keydown(event);
         });
       } else {
-        cov_4ujrvtkth.b[16][1]++;
+        cov_18euoep3ft.b[16][1]++;
       }
 
-      cov_4ujrvtkth.s[78]++;
+      cov_18euoep3ft.s[78]++;
 
       if (this._config.pause === 'hover') {
-        cov_4ujrvtkth.b[17][0]++;
-        cov_4ujrvtkth.s[79]++;
+        cov_18euoep3ft.b[17][0]++;
+        cov_18euoep3ft.s[79]++;
         $(this._element).on(Event.MOUSEENTER, function (event) {
-          cov_4ujrvtkth.f[15]++;
-          cov_4ujrvtkth.s[80]++;
+          cov_18euoep3ft.f[15]++;
+          cov_18euoep3ft.s[80]++;
           return _this2.pause(event);
         }).on(Event.MOUSELEAVE, function (event) {
-          cov_4ujrvtkth.f[16]++;
-          cov_4ujrvtkth.s[81]++;
+          cov_18euoep3ft.f[16]++;
+          cov_18euoep3ft.s[81]++;
           return _this2.cycle(event);
         });
-        cov_4ujrvtkth.s[82]++;
+        cov_18euoep3ft.s[82]++;
 
         if ('ontouchstart' in document.documentElement) {
-          cov_4ujrvtkth.b[18][0]++;
-          cov_4ujrvtkth.s[83]++;
+          cov_18euoep3ft.b[18][0]++;
+          cov_18euoep3ft.s[83]++;
           // If it's a touch-enabled device, mouseenter/leave are fired as
           // part of the mouse compatibility events on first tap - the carousel
           // would stop cycling until user tapped out of it;
@@ -5263,353 +5263,353 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
           // is NOT fired) and after a timeout (to allow for mouse compatibility
           // events to fire) we explicitly restart cycling
           $(this._element).on(Event.TOUCHEND, function () {
-            cov_4ujrvtkth.f[17]++;
-            cov_4ujrvtkth.s[84]++;
+            cov_18euoep3ft.f[17]++;
+            cov_18euoep3ft.s[84]++;
 
             _this2.pause();
 
-            cov_4ujrvtkth.s[85]++;
+            cov_18euoep3ft.s[85]++;
 
             if (_this2.touchTimeout) {
-              cov_4ujrvtkth.b[19][0]++;
-              cov_4ujrvtkth.s[86]++;
+              cov_18euoep3ft.b[19][0]++;
+              cov_18euoep3ft.s[86]++;
               clearTimeout(_this2.touchTimeout);
             } else {
-              cov_4ujrvtkth.b[19][1]++;
+              cov_18euoep3ft.b[19][1]++;
             }
 
-            cov_4ujrvtkth.s[87]++;
+            cov_18euoep3ft.s[87]++;
             _this2.touchTimeout = setTimeout(function (event) {
-              cov_4ujrvtkth.f[18]++;
-              cov_4ujrvtkth.s[88]++;
+              cov_18euoep3ft.f[18]++;
+              cov_18euoep3ft.s[88]++;
               return _this2.cycle(event);
             }, TOUCHEVENT_COMPAT_WAIT + _this2._config.interval);
           });
         } else {
-          cov_4ujrvtkth.b[18][1]++;
+          cov_18euoep3ft.b[18][1]++;
         }
       } else {
-        cov_4ujrvtkth.b[17][1]++;
+        cov_18euoep3ft.b[17][1]++;
       }
     };
 
     _proto._keydown = function _keydown(event) {
-      cov_4ujrvtkth.f[19]++;
-      cov_4ujrvtkth.s[89]++;
+      cov_18euoep3ft.f[19]++;
+      cov_18euoep3ft.s[89]++;
 
       if (/input|textarea/i.test(event.target.tagName)) {
-        cov_4ujrvtkth.b[20][0]++;
-        cov_4ujrvtkth.s[90]++;
+        cov_18euoep3ft.b[20][0]++;
+        cov_18euoep3ft.s[90]++;
         return;
       } else {
-        cov_4ujrvtkth.b[20][1]++;
+        cov_18euoep3ft.b[20][1]++;
       }
 
-      cov_4ujrvtkth.s[91]++;
+      cov_18euoep3ft.s[91]++;
 
       switch (event.which) {
         case ARROW_LEFT_KEYCODE:
-          cov_4ujrvtkth.b[21][0]++;
-          cov_4ujrvtkth.s[92]++;
+          cov_18euoep3ft.b[21][0]++;
+          cov_18euoep3ft.s[92]++;
           event.preventDefault();
-          cov_4ujrvtkth.s[93]++;
+          cov_18euoep3ft.s[93]++;
           this.prev();
-          cov_4ujrvtkth.s[94]++;
+          cov_18euoep3ft.s[94]++;
           break;
 
         case ARROW_RIGHT_KEYCODE:
-          cov_4ujrvtkth.b[21][1]++;
-          cov_4ujrvtkth.s[95]++;
+          cov_18euoep3ft.b[21][1]++;
+          cov_18euoep3ft.s[95]++;
           event.preventDefault();
-          cov_4ujrvtkth.s[96]++;
+          cov_18euoep3ft.s[96]++;
           this.next();
-          cov_4ujrvtkth.s[97]++;
+          cov_18euoep3ft.s[97]++;
           break;
 
         default:
-          cov_4ujrvtkth.b[21][2]++;
+          cov_18euoep3ft.b[21][2]++;
       }
     };
 
     _proto._getItemIndex = function _getItemIndex(element) {
-      cov_4ujrvtkth.f[20]++;
-      cov_4ujrvtkth.s[98]++;
+      cov_18euoep3ft.f[20]++;
+      cov_18euoep3ft.s[98]++;
       this._items = $.makeArray($(element).parent().find(Selector.ITEM));
-      cov_4ujrvtkth.s[99]++;
+      cov_18euoep3ft.s[99]++;
       return this._items.indexOf(element);
     };
 
     _proto._getItemByDirection = function _getItemByDirection(direction, activeElement) {
-      cov_4ujrvtkth.f[21]++;
-      var isNextDirection = (cov_4ujrvtkth.s[100]++, direction === Direction.NEXT);
-      var isPrevDirection = (cov_4ujrvtkth.s[101]++, direction === Direction.PREV);
-      var activeIndex = (cov_4ujrvtkth.s[102]++, this._getItemIndex(activeElement));
-      var lastItemIndex = (cov_4ujrvtkth.s[103]++, this._items.length - 1);
-      var isGoingToWrap = (cov_4ujrvtkth.s[104]++, (cov_4ujrvtkth.b[22][0]++, isPrevDirection) && (cov_4ujrvtkth.b[22][1]++, activeIndex === 0) || (cov_4ujrvtkth.b[22][2]++, isNextDirection) && (cov_4ujrvtkth.b[22][3]++, activeIndex === lastItemIndex));
-      cov_4ujrvtkth.s[105]++;
+      cov_18euoep3ft.f[21]++;
+      var isNextDirection = (cov_18euoep3ft.s[100]++, direction === Direction.NEXT);
+      var isPrevDirection = (cov_18euoep3ft.s[101]++, direction === Direction.PREV);
+      var activeIndex = (cov_18euoep3ft.s[102]++, this._getItemIndex(activeElement));
+      var lastItemIndex = (cov_18euoep3ft.s[103]++, this._items.length - 1);
+      var isGoingToWrap = (cov_18euoep3ft.s[104]++, (cov_18euoep3ft.b[22][0]++, isPrevDirection) && (cov_18euoep3ft.b[22][1]++, activeIndex === 0) || (cov_18euoep3ft.b[22][2]++, isNextDirection) && (cov_18euoep3ft.b[22][3]++, activeIndex === lastItemIndex));
+      cov_18euoep3ft.s[105]++;
 
-      if ((cov_4ujrvtkth.b[24][0]++, isGoingToWrap) && (cov_4ujrvtkth.b[24][1]++, !this._config.wrap)) {
-        cov_4ujrvtkth.b[23][0]++;
-        cov_4ujrvtkth.s[106]++;
+      if ((cov_18euoep3ft.b[24][0]++, isGoingToWrap) && (cov_18euoep3ft.b[24][1]++, !this._config.wrap)) {
+        cov_18euoep3ft.b[23][0]++;
+        cov_18euoep3ft.s[106]++;
         return activeElement;
       } else {
-        cov_4ujrvtkth.b[23][1]++;
+        cov_18euoep3ft.b[23][1]++;
       }
 
-      var delta = (cov_4ujrvtkth.s[107]++, direction === Direction.PREV ? (cov_4ujrvtkth.b[25][0]++, -1) : (cov_4ujrvtkth.b[25][1]++, 1));
-      var itemIndex = (cov_4ujrvtkth.s[108]++, (activeIndex + delta) % this._items.length);
-      cov_4ujrvtkth.s[109]++;
-      return itemIndex === -1 ? (cov_4ujrvtkth.b[26][0]++, this._items[this._items.length - 1]) : (cov_4ujrvtkth.b[26][1]++, this._items[itemIndex]);
+      var delta = (cov_18euoep3ft.s[107]++, direction === Direction.PREV ? (cov_18euoep3ft.b[25][0]++, -1) : (cov_18euoep3ft.b[25][1]++, 1));
+      var itemIndex = (cov_18euoep3ft.s[108]++, (activeIndex + delta) % this._items.length);
+      cov_18euoep3ft.s[109]++;
+      return itemIndex === -1 ? (cov_18euoep3ft.b[26][0]++, this._items[this._items.length - 1]) : (cov_18euoep3ft.b[26][1]++, this._items[itemIndex]);
     };
 
     _proto._triggerSlideEvent = function _triggerSlideEvent(relatedTarget, eventDirectionName) {
-      cov_4ujrvtkth.f[22]++;
-      var targetIndex = (cov_4ujrvtkth.s[110]++, this._getItemIndex(relatedTarget));
-      var fromIndex = (cov_4ujrvtkth.s[111]++, this._getItemIndex($(this._element).find(Selector.ACTIVE_ITEM)[0]));
-      var slideEvent = (cov_4ujrvtkth.s[112]++, $.Event(Event.SLIDE, {
+      cov_18euoep3ft.f[22]++;
+      var targetIndex = (cov_18euoep3ft.s[110]++, this._getItemIndex(relatedTarget));
+      var fromIndex = (cov_18euoep3ft.s[111]++, this._getItemIndex($(this._element).find(Selector.ACTIVE_ITEM)[0]));
+      var slideEvent = (cov_18euoep3ft.s[112]++, $.Event(Event.SLIDE, {
         relatedTarget: relatedTarget,
         direction: eventDirectionName,
         from: fromIndex,
         to: targetIndex
       }));
-      cov_4ujrvtkth.s[113]++;
+      cov_18euoep3ft.s[113]++;
       $(this._element).trigger(slideEvent);
-      cov_4ujrvtkth.s[114]++;
+      cov_18euoep3ft.s[114]++;
       return slideEvent;
     };
 
     _proto._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
-      cov_4ujrvtkth.f[23]++;
-      cov_4ujrvtkth.s[115]++;
+      cov_18euoep3ft.f[23]++;
+      cov_18euoep3ft.s[115]++;
 
       if (this._indicatorsElement) {
-        cov_4ujrvtkth.b[27][0]++;
-        cov_4ujrvtkth.s[116]++;
+        cov_18euoep3ft.b[27][0]++;
+        cov_18euoep3ft.s[116]++;
         $(this._indicatorsElement).find(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
-        var nextIndicator = (cov_4ujrvtkth.s[117]++, this._indicatorsElement.children[this._getItemIndex(element)]);
-        cov_4ujrvtkth.s[118]++;
+        var nextIndicator = (cov_18euoep3ft.s[117]++, this._indicatorsElement.children[this._getItemIndex(element)]);
+        cov_18euoep3ft.s[118]++;
 
         if (nextIndicator) {
-          cov_4ujrvtkth.b[28][0]++;
-          cov_4ujrvtkth.s[119]++;
+          cov_18euoep3ft.b[28][0]++;
+          cov_18euoep3ft.s[119]++;
           $(nextIndicator).addClass(ClassName.ACTIVE);
         } else {
-          cov_4ujrvtkth.b[28][1]++;
+          cov_18euoep3ft.b[28][1]++;
         }
       } else {
-        cov_4ujrvtkth.b[27][1]++;
+        cov_18euoep3ft.b[27][1]++;
       }
     };
 
     _proto._slide = function _slide(direction, element) {
       var _this3 = this;
 
-      cov_4ujrvtkth.f[24]++;
-      var activeElement = (cov_4ujrvtkth.s[120]++, $(this._element).find(Selector.ACTIVE_ITEM)[0]);
-      var activeElementIndex = (cov_4ujrvtkth.s[121]++, this._getItemIndex(activeElement));
-      var nextElement = (cov_4ujrvtkth.s[122]++, (cov_4ujrvtkth.b[29][0]++, element) || (cov_4ujrvtkth.b[29][1]++, activeElement) && (cov_4ujrvtkth.b[29][2]++, this._getItemByDirection(direction, activeElement)));
-      var nextElementIndex = (cov_4ujrvtkth.s[123]++, this._getItemIndex(nextElement));
-      var isCycling = (cov_4ujrvtkth.s[124]++, Boolean(this._interval));
+      cov_18euoep3ft.f[24]++;
+      var activeElement = (cov_18euoep3ft.s[120]++, $(this._element).find(Selector.ACTIVE_ITEM)[0]);
+      var activeElementIndex = (cov_18euoep3ft.s[121]++, this._getItemIndex(activeElement));
+      var nextElement = (cov_18euoep3ft.s[122]++, (cov_18euoep3ft.b[29][0]++, element) || (cov_18euoep3ft.b[29][1]++, activeElement) && (cov_18euoep3ft.b[29][2]++, this._getItemByDirection(direction, activeElement)));
+      var nextElementIndex = (cov_18euoep3ft.s[123]++, this._getItemIndex(nextElement));
+      var isCycling = (cov_18euoep3ft.s[124]++, Boolean(this._interval));
       var directionalClassName;
       var orderClassName;
       var eventDirectionName;
-      cov_4ujrvtkth.s[125]++;
+      cov_18euoep3ft.s[125]++;
 
       if (direction === Direction.NEXT) {
-        cov_4ujrvtkth.b[30][0]++;
-        cov_4ujrvtkth.s[126]++;
+        cov_18euoep3ft.b[30][0]++;
+        cov_18euoep3ft.s[126]++;
         directionalClassName = ClassName.LEFT;
-        cov_4ujrvtkth.s[127]++;
+        cov_18euoep3ft.s[127]++;
         orderClassName = ClassName.NEXT;
-        cov_4ujrvtkth.s[128]++;
+        cov_18euoep3ft.s[128]++;
         eventDirectionName = Direction.LEFT;
       } else {
-        cov_4ujrvtkth.b[30][1]++;
-        cov_4ujrvtkth.s[129]++;
+        cov_18euoep3ft.b[30][1]++;
+        cov_18euoep3ft.s[129]++;
         directionalClassName = ClassName.RIGHT;
-        cov_4ujrvtkth.s[130]++;
+        cov_18euoep3ft.s[130]++;
         orderClassName = ClassName.PREV;
-        cov_4ujrvtkth.s[131]++;
+        cov_18euoep3ft.s[131]++;
         eventDirectionName = Direction.RIGHT;
       }
 
-      cov_4ujrvtkth.s[132]++;
+      cov_18euoep3ft.s[132]++;
 
-      if ((cov_4ujrvtkth.b[32][0]++, nextElement) && (cov_4ujrvtkth.b[32][1]++, $(nextElement).hasClass(ClassName.ACTIVE))) {
-        cov_4ujrvtkth.b[31][0]++;
-        cov_4ujrvtkth.s[133]++;
+      if ((cov_18euoep3ft.b[32][0]++, nextElement) && (cov_18euoep3ft.b[32][1]++, $(nextElement).hasClass(ClassName.ACTIVE))) {
+        cov_18euoep3ft.b[31][0]++;
+        cov_18euoep3ft.s[133]++;
         this._isSliding = false;
-        cov_4ujrvtkth.s[134]++;
+        cov_18euoep3ft.s[134]++;
         return;
       } else {
-        cov_4ujrvtkth.b[31][1]++;
+        cov_18euoep3ft.b[31][1]++;
       }
 
-      var slideEvent = (cov_4ujrvtkth.s[135]++, this._triggerSlideEvent(nextElement, eventDirectionName));
-      cov_4ujrvtkth.s[136]++;
+      var slideEvent = (cov_18euoep3ft.s[135]++, this._triggerSlideEvent(nextElement, eventDirectionName));
+      cov_18euoep3ft.s[136]++;
 
       if (slideEvent.isDefaultPrevented()) {
-        cov_4ujrvtkth.b[33][0]++;
-        cov_4ujrvtkth.s[137]++;
+        cov_18euoep3ft.b[33][0]++;
+        cov_18euoep3ft.s[137]++;
         return;
       } else {
-        cov_4ujrvtkth.b[33][1]++;
+        cov_18euoep3ft.b[33][1]++;
       }
 
-      cov_4ujrvtkth.s[138]++;
+      cov_18euoep3ft.s[138]++;
 
-      if ((cov_4ujrvtkth.b[35][0]++, !activeElement) || (cov_4ujrvtkth.b[35][1]++, !nextElement)) {
-        cov_4ujrvtkth.b[34][0]++;
-        cov_4ujrvtkth.s[139]++;
+      if ((cov_18euoep3ft.b[35][0]++, !activeElement) || (cov_18euoep3ft.b[35][1]++, !nextElement)) {
+        cov_18euoep3ft.b[34][0]++;
+        cov_18euoep3ft.s[139]++;
         // Some weirdness is happening, so we bail
         return;
       } else {
-        cov_4ujrvtkth.b[34][1]++;
+        cov_18euoep3ft.b[34][1]++;
       }
 
-      cov_4ujrvtkth.s[140]++;
+      cov_18euoep3ft.s[140]++;
       this._isSliding = true;
-      cov_4ujrvtkth.s[141]++;
+      cov_18euoep3ft.s[141]++;
 
       if (isCycling) {
-        cov_4ujrvtkth.b[36][0]++;
-        cov_4ujrvtkth.s[142]++;
+        cov_18euoep3ft.b[36][0]++;
+        cov_18euoep3ft.s[142]++;
         this.pause();
       } else {
-        cov_4ujrvtkth.b[36][1]++;
+        cov_18euoep3ft.b[36][1]++;
       }
 
-      cov_4ujrvtkth.s[143]++;
+      cov_18euoep3ft.s[143]++;
 
       this._setActiveIndicatorElement(nextElement);
 
-      var slidEvent = (cov_4ujrvtkth.s[144]++, $.Event(Event.SLID, {
+      var slidEvent = (cov_18euoep3ft.s[144]++, $.Event(Event.SLID, {
         relatedTarget: nextElement,
         direction: eventDirectionName,
         from: activeElementIndex,
         to: nextElementIndex
       }));
-      cov_4ujrvtkth.s[145]++;
+      cov_18euoep3ft.s[145]++;
 
       if ($(this._element).hasClass(ClassName.SLIDE)) {
-        cov_4ujrvtkth.b[37][0]++;
-        cov_4ujrvtkth.s[146]++;
+        cov_18euoep3ft.b[37][0]++;
+        cov_18euoep3ft.s[146]++;
         $(nextElement).addClass(orderClassName);
-        cov_4ujrvtkth.s[147]++;
+        cov_18euoep3ft.s[147]++;
         Util.reflow(nextElement);
-        cov_4ujrvtkth.s[148]++;
+        cov_18euoep3ft.s[148]++;
         $(activeElement).addClass(directionalClassName);
-        cov_4ujrvtkth.s[149]++;
+        cov_18euoep3ft.s[149]++;
         $(nextElement).addClass(directionalClassName);
-        var transitionDuration = (cov_4ujrvtkth.s[150]++, Util.getTransitionDurationFromElement(activeElement));
-        cov_4ujrvtkth.s[151]++;
+        var transitionDuration = (cov_18euoep3ft.s[150]++, Util.getTransitionDurationFromElement(activeElement));
+        cov_18euoep3ft.s[151]++;
         $(activeElement).one(Util.TRANSITION_END, function () {
-          cov_4ujrvtkth.f[25]++;
-          cov_4ujrvtkth.s[152]++;
+          cov_18euoep3ft.f[25]++;
+          cov_18euoep3ft.s[152]++;
           $(nextElement).removeClass(directionalClassName + " " + orderClassName).addClass(ClassName.ACTIVE);
-          cov_4ujrvtkth.s[153]++;
+          cov_18euoep3ft.s[153]++;
           $(activeElement).removeClass(ClassName.ACTIVE + " " + orderClassName + " " + directionalClassName);
-          cov_4ujrvtkth.s[154]++;
+          cov_18euoep3ft.s[154]++;
           _this3._isSliding = false;
-          cov_4ujrvtkth.s[155]++;
+          cov_18euoep3ft.s[155]++;
           setTimeout(function () {
-            cov_4ujrvtkth.f[26]++;
-            cov_4ujrvtkth.s[156]++;
+            cov_18euoep3ft.f[26]++;
+            cov_18euoep3ft.s[156]++;
             return $(_this3._element).trigger(slidEvent);
           }, 0);
         }).emulateTransitionEnd(transitionDuration);
       } else {
-        cov_4ujrvtkth.b[37][1]++;
-        cov_4ujrvtkth.s[157]++;
+        cov_18euoep3ft.b[37][1]++;
+        cov_18euoep3ft.s[157]++;
         $(activeElement).removeClass(ClassName.ACTIVE);
-        cov_4ujrvtkth.s[158]++;
+        cov_18euoep3ft.s[158]++;
         $(nextElement).addClass(ClassName.ACTIVE);
-        cov_4ujrvtkth.s[159]++;
+        cov_18euoep3ft.s[159]++;
         this._isSliding = false;
-        cov_4ujrvtkth.s[160]++;
+        cov_18euoep3ft.s[160]++;
         $(this._element).trigger(slidEvent);
       }
 
-      cov_4ujrvtkth.s[161]++;
+      cov_18euoep3ft.s[161]++;
 
       if (isCycling) {
-        cov_4ujrvtkth.b[38][0]++;
-        cov_4ujrvtkth.s[162]++;
+        cov_18euoep3ft.b[38][0]++;
+        cov_18euoep3ft.s[162]++;
         this.cycle();
       } else {
-        cov_4ujrvtkth.b[38][1]++;
+        cov_18euoep3ft.b[38][1]++;
       }
     }; // Static
 
 
     Carousel._jQueryInterface = function _jQueryInterface(config) {
-      cov_4ujrvtkth.f[27]++;
-      cov_4ujrvtkth.s[163]++;
+      cov_18euoep3ft.f[27]++;
+      cov_18euoep3ft.s[163]++;
       return this.each(function () {
-        cov_4ujrvtkth.f[28]++;
-        var data = (cov_4ujrvtkth.s[164]++, $(this).data(DATA_KEY));
+        cov_18euoep3ft.f[28]++;
+        var data = (cov_18euoep3ft.s[164]++, $(this).data(DATA_KEY));
 
-        var _config = (cov_4ujrvtkth.s[165]++, _objectSpread({}, Default, $(this).data()));
+        var _config = (cov_18euoep3ft.s[165]++, _objectSpread({}, Default, $(this).data()));
 
-        cov_4ujrvtkth.s[166]++;
+        cov_18euoep3ft.s[166]++;
 
         if (typeof config === 'object') {
-          cov_4ujrvtkth.b[39][0]++;
-          cov_4ujrvtkth.s[167]++;
+          cov_18euoep3ft.b[39][0]++;
+          cov_18euoep3ft.s[167]++;
           _config = _objectSpread({}, _config, config);
         } else {
-          cov_4ujrvtkth.b[39][1]++;
+          cov_18euoep3ft.b[39][1]++;
         }
 
-        var action = (cov_4ujrvtkth.s[168]++, typeof config === 'string' ? (cov_4ujrvtkth.b[40][0]++, config) : (cov_4ujrvtkth.b[40][1]++, _config.slide));
-        cov_4ujrvtkth.s[169]++;
+        var action = (cov_18euoep3ft.s[168]++, typeof config === 'string' ? (cov_18euoep3ft.b[40][0]++, config) : (cov_18euoep3ft.b[40][1]++, _config.slide));
+        cov_18euoep3ft.s[169]++;
 
         if (!data) {
-          cov_4ujrvtkth.b[41][0]++;
-          cov_4ujrvtkth.s[170]++;
+          cov_18euoep3ft.b[41][0]++;
+          cov_18euoep3ft.s[170]++;
           data = new Carousel(this, _config);
-          cov_4ujrvtkth.s[171]++;
+          cov_18euoep3ft.s[171]++;
           $(this).data(DATA_KEY, data);
         } else {
-          cov_4ujrvtkth.b[41][1]++;
+          cov_18euoep3ft.b[41][1]++;
         }
 
-        cov_4ujrvtkth.s[172]++;
+        cov_18euoep3ft.s[172]++;
 
         if (typeof config === 'number') {
-          cov_4ujrvtkth.b[42][0]++;
-          cov_4ujrvtkth.s[173]++;
+          cov_18euoep3ft.b[42][0]++;
+          cov_18euoep3ft.s[173]++;
           data.to(config);
         } else {
-          cov_4ujrvtkth.b[42][1]++;
-          cov_4ujrvtkth.s[174]++;
+          cov_18euoep3ft.b[42][1]++;
+          cov_18euoep3ft.s[174]++;
 
           if (typeof action === 'string') {
-            cov_4ujrvtkth.b[43][0]++;
-            cov_4ujrvtkth.s[175]++;
+            cov_18euoep3ft.b[43][0]++;
+            cov_18euoep3ft.s[175]++;
 
             if (typeof data[action] === 'undefined') {
-              cov_4ujrvtkth.b[44][0]++;
-              cov_4ujrvtkth.s[176]++;
+              cov_18euoep3ft.b[44][0]++;
+              cov_18euoep3ft.s[176]++;
               throw new TypeError("No method named \"" + action + "\"");
             } else {
-              cov_4ujrvtkth.b[44][1]++;
+              cov_18euoep3ft.b[44][1]++;
             }
 
-            cov_4ujrvtkth.s[177]++;
+            cov_18euoep3ft.s[177]++;
             data[action]();
           } else {
-            cov_4ujrvtkth.b[43][1]++;
-            cov_4ujrvtkth.s[178]++;
+            cov_18euoep3ft.b[43][1]++;
+            cov_18euoep3ft.s[178]++;
 
             if (_config.interval) {
-              cov_4ujrvtkth.b[45][0]++;
-              cov_4ujrvtkth.s[179]++;
+              cov_18euoep3ft.b[45][0]++;
+              cov_18euoep3ft.s[179]++;
               data.pause();
-              cov_4ujrvtkth.s[180]++;
+              cov_18euoep3ft.s[180]++;
               data.cycle();
             } else {
-              cov_4ujrvtkth.b[45][1]++;
+              cov_18euoep3ft.b[45][1]++;
             }
           }
         }
@@ -5617,71 +5617,71 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
     };
 
     Carousel._dataApiClickHandler = function _dataApiClickHandler(event) {
-      cov_4ujrvtkth.f[29]++;
-      var selector = (cov_4ujrvtkth.s[181]++, Util.getSelectorFromElement(this));
-      cov_4ujrvtkth.s[182]++;
+      cov_18euoep3ft.f[29]++;
+      var selector = (cov_18euoep3ft.s[181]++, Util.getSelectorFromElement(this));
+      cov_18euoep3ft.s[182]++;
 
       if (!selector) {
-        cov_4ujrvtkth.b[46][0]++;
-        cov_4ujrvtkth.s[183]++;
+        cov_18euoep3ft.b[46][0]++;
+        cov_18euoep3ft.s[183]++;
         return;
       } else {
-        cov_4ujrvtkth.b[46][1]++;
+        cov_18euoep3ft.b[46][1]++;
       }
 
-      var target = (cov_4ujrvtkth.s[184]++, $(selector)[0]);
-      cov_4ujrvtkth.s[185]++;
+      var target = (cov_18euoep3ft.s[184]++, $(selector)[0]);
+      cov_18euoep3ft.s[185]++;
 
-      if ((cov_4ujrvtkth.b[48][0]++, !target) || (cov_4ujrvtkth.b[48][1]++, !$(target).hasClass(ClassName.CAROUSEL))) {
-        cov_4ujrvtkth.b[47][0]++;
-        cov_4ujrvtkth.s[186]++;
+      if ((cov_18euoep3ft.b[48][0]++, !target) || (cov_18euoep3ft.b[48][1]++, !$(target).hasClass(ClassName.CAROUSEL))) {
+        cov_18euoep3ft.b[47][0]++;
+        cov_18euoep3ft.s[186]++;
         return;
       } else {
-        cov_4ujrvtkth.b[47][1]++;
+        cov_18euoep3ft.b[47][1]++;
       }
 
-      var config = (cov_4ujrvtkth.s[187]++, _objectSpread({}, $(target).data(), $(this).data()));
-      var slideIndex = (cov_4ujrvtkth.s[188]++, this.getAttribute('data-slide-to'));
-      cov_4ujrvtkth.s[189]++;
+      var config = (cov_18euoep3ft.s[187]++, _objectSpread({}, $(target).data(), $(this).data()));
+      var slideIndex = (cov_18euoep3ft.s[188]++, this.getAttribute('data-slide-to'));
+      cov_18euoep3ft.s[189]++;
 
       if (slideIndex) {
-        cov_4ujrvtkth.b[49][0]++;
-        cov_4ujrvtkth.s[190]++;
+        cov_18euoep3ft.b[49][0]++;
+        cov_18euoep3ft.s[190]++;
         config.interval = false;
       } else {
-        cov_4ujrvtkth.b[49][1]++;
+        cov_18euoep3ft.b[49][1]++;
       }
 
-      cov_4ujrvtkth.s[191]++;
+      cov_18euoep3ft.s[191]++;
 
       Carousel._jQueryInterface.call($(target), config);
 
-      cov_4ujrvtkth.s[192]++;
+      cov_18euoep3ft.s[192]++;
 
       if (slideIndex) {
-        cov_4ujrvtkth.b[50][0]++;
-        cov_4ujrvtkth.s[193]++;
+        cov_18euoep3ft.b[50][0]++;
+        cov_18euoep3ft.s[193]++;
         $(target).data(DATA_KEY).to(slideIndex);
       } else {
-        cov_4ujrvtkth.b[50][1]++;
+        cov_18euoep3ft.b[50][1]++;
       }
 
-      cov_4ujrvtkth.s[194]++;
+      cov_18euoep3ft.s[194]++;
       event.preventDefault();
     };
 
     _createClass(Carousel, null, [{
       key: "VERSION",
       get: function get() {
-        cov_4ujrvtkth.f[2]++;
-        cov_4ujrvtkth.s[26]++;
+        cov_18euoep3ft.f[2]++;
+        cov_18euoep3ft.s[26]++;
         return VERSION;
       }
     }, {
       key: "Default",
       get: function get() {
-        cov_4ujrvtkth.f[3]++;
-        cov_4ujrvtkth.s[27]++;
+        cov_18euoep3ft.f[3]++;
+        cov_18euoep3ft.s[27]++;
         return Default;
       }
     }]);
@@ -5695,16 +5695,16 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
    */
 
 
-  cov_4ujrvtkth.s[195]++;
+  cov_18euoep3ft.s[195]++;
   $(document).on(Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler);
-  cov_4ujrvtkth.s[196]++;
+  cov_18euoep3ft.s[196]++;
   $(window).on(Event.LOAD_DATA_API, function () {
-    cov_4ujrvtkth.f[30]++;
-    cov_4ujrvtkth.s[197]++;
+    cov_18euoep3ft.f[30]++;
+    cov_18euoep3ft.s[197]++;
     $(Selector.DATA_RIDE).each(function () {
-      cov_4ujrvtkth.f[31]++;
-      var $carousel = (cov_4ujrvtkth.s[198]++, $(this));
-      cov_4ujrvtkth.s[199]++;
+      cov_18euoep3ft.f[31]++;
+      var $carousel = (cov_18euoep3ft.s[198]++, $(this));
+      cov_18euoep3ft.s[199]++;
 
       Carousel._jQueryInterface.call($carousel, $carousel.data());
     });
@@ -5715,21 +5715,21 @@ var Carousel = (cov_4ujrvtkth.s[0]++, function ($) {
    * ------------------------------------------------------------------------
    */
 
-  cov_4ujrvtkth.s[200]++;
+  cov_18euoep3ft.s[200]++;
   $.fn[NAME] = Carousel._jQueryInterface;
-  cov_4ujrvtkth.s[201]++;
+  cov_18euoep3ft.s[201]++;
   $.fn[NAME].Constructor = Carousel;
-  cov_4ujrvtkth.s[202]++;
+  cov_18euoep3ft.s[202]++;
 
   $.fn[NAME].noConflict = function () {
-    cov_4ujrvtkth.f[32]++;
-    cov_4ujrvtkth.s[203]++;
+    cov_18euoep3ft.f[32]++;
+    cov_18euoep3ft.s[203]++;
     $.fn[NAME] = JQUERY_NO_CONFLICT;
-    cov_4ujrvtkth.s[204]++;
+    cov_18euoep3ft.s[204]++;
     return Carousel._jQueryInterface;
   };
 
-  cov_4ujrvtkth.s[205]++;
+  cov_18euoep3ft.s[205]++;
   return Carousel;
 }($));
 //# sourceMappingURL=carousel.js.map

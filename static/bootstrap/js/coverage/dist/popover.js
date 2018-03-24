@@ -1,11 +1,11 @@
-var cov_1di2q5gxu4 = function () {
-  var path = "C:\\distantworlds2\\static\\bootstrap\\js\\src\\popover.js",
-      hash = "86dd15ac82594d2f74b62ebf898d6d3c686bfc03",
+var cov_1eu7mbjdp2 = function () {
+  var path = "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/popover.js",
+      hash = "2f7cf2cf3e3eb282ea19c48350dfc87aa5a260ca",
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = "__coverage__",
       coverageData = {
-    path: "C:\\distantworlds2\\static\\bootstrap\\js\\src\\popover.js",
+    path: "/Users/zach/Developer/personal/distantworlds2/static/bootstrap/js/src/popover.js",
     statementMap: {
       "0": {
         start: {
@@ -1473,39 +1473,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-var Popover = (cov_1di2q5gxu4.s[0]++, function ($) {
-  cov_1di2q5gxu4.f[0]++;
+var Popover = (cov_1eu7mbjdp2.s[0]++, function ($) {
+  cov_1eu7mbjdp2.f[0]++;
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  var NAME = (cov_1di2q5gxu4.s[1]++, 'popover');
-  var VERSION = (cov_1di2q5gxu4.s[2]++, '4.0.0');
-  var DATA_KEY = (cov_1di2q5gxu4.s[3]++, 'bs.popover');
-  var EVENT_KEY = (cov_1di2q5gxu4.s[4]++, "." + DATA_KEY);
-  var JQUERY_NO_CONFLICT = (cov_1di2q5gxu4.s[5]++, $.fn[NAME]);
-  var CLASS_PREFIX = (cov_1di2q5gxu4.s[6]++, 'bs-popover');
-  var BSCLS_PREFIX_REGEX = (cov_1di2q5gxu4.s[7]++, new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g'));
-  var Default = (cov_1di2q5gxu4.s[8]++, _objectSpread({}, Tooltip.Default, {
+  var NAME = (cov_1eu7mbjdp2.s[1]++, 'popover');
+  var VERSION = (cov_1eu7mbjdp2.s[2]++, '4.0.0');
+  var DATA_KEY = (cov_1eu7mbjdp2.s[3]++, 'bs.popover');
+  var EVENT_KEY = (cov_1eu7mbjdp2.s[4]++, "." + DATA_KEY);
+  var JQUERY_NO_CONFLICT = (cov_1eu7mbjdp2.s[5]++, $.fn[NAME]);
+  var CLASS_PREFIX = (cov_1eu7mbjdp2.s[6]++, 'bs-popover');
+  var BSCLS_PREFIX_REGEX = (cov_1eu7mbjdp2.s[7]++, new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g'));
+  var Default = (cov_1eu7mbjdp2.s[8]++, _objectSpread({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
     template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   }));
-  var DefaultType = (cov_1di2q5gxu4.s[9]++, _objectSpread({}, Tooltip.DefaultType, {
+  var DefaultType = (cov_1eu7mbjdp2.s[9]++, _objectSpread({}, Tooltip.DefaultType, {
     content: '(string|element|function)'
   }));
-  var ClassName = (cov_1di2q5gxu4.s[10]++, {
+  var ClassName = (cov_1eu7mbjdp2.s[10]++, {
     FADE: 'fade',
     SHOW: 'show'
   });
-  var Selector = (cov_1di2q5gxu4.s[11]++, {
+  var Selector = (cov_1eu7mbjdp2.s[11]++, {
     TITLE: '.popover-header',
     CONTENT: '.popover-body'
   });
-  var Event = (cov_1di2q5gxu4.s[12]++, {
+  var Event = (cov_1eu7mbjdp2.s[12]++, {
     HIDE: "hide" + EVENT_KEY,
     HIDDEN: "hidden" + EVENT_KEY,
     SHOW: "show" + EVENT_KEY,
@@ -1537,120 +1537,120 @@ var Popover = (cov_1di2q5gxu4.s[0]++, function ($) {
 
     // Overrides
     _proto.isWithContent = function isWithContent() {
-      cov_1di2q5gxu4.f[8]++;
-      cov_1di2q5gxu4.s[20]++;
-      return (cov_1di2q5gxu4.b[0][0]++, this.getTitle()) || (cov_1di2q5gxu4.b[0][1]++, this._getContent());
+      cov_1eu7mbjdp2.f[8]++;
+      cov_1eu7mbjdp2.s[20]++;
+      return (cov_1eu7mbjdp2.b[0][0]++, this.getTitle()) || (cov_1eu7mbjdp2.b[0][1]++, this._getContent());
     };
 
     _proto.addAttachmentClass = function addAttachmentClass(attachment) {
-      cov_1di2q5gxu4.f[9]++;
-      cov_1di2q5gxu4.s[21]++;
+      cov_1eu7mbjdp2.f[9]++;
+      cov_1eu7mbjdp2.s[21]++;
       $(this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
     };
 
     _proto.getTipElement = function getTipElement() {
-      cov_1di2q5gxu4.f[10]++;
-      cov_1di2q5gxu4.s[22]++;
-      this.tip = (cov_1di2q5gxu4.b[1][0]++, this.tip) || (cov_1di2q5gxu4.b[1][1]++, $(this.config.template)[0]);
-      cov_1di2q5gxu4.s[23]++;
+      cov_1eu7mbjdp2.f[10]++;
+      cov_1eu7mbjdp2.s[22]++;
+      this.tip = (cov_1eu7mbjdp2.b[1][0]++, this.tip) || (cov_1eu7mbjdp2.b[1][1]++, $(this.config.template)[0]);
+      cov_1eu7mbjdp2.s[23]++;
       return this.tip;
     };
 
     _proto.setContent = function setContent() {
-      cov_1di2q5gxu4.f[11]++;
-      var $tip = (cov_1di2q5gxu4.s[24]++, $(this.getTipElement())); // We use append for html objects to maintain js events
+      cov_1eu7mbjdp2.f[11]++;
+      var $tip = (cov_1eu7mbjdp2.s[24]++, $(this.getTipElement())); // We use append for html objects to maintain js events
 
-      cov_1di2q5gxu4.s[25]++;
+      cov_1eu7mbjdp2.s[25]++;
       this.setElementContent($tip.find(Selector.TITLE), this.getTitle());
-      var content = (cov_1di2q5gxu4.s[26]++, this._getContent());
-      cov_1di2q5gxu4.s[27]++;
+      var content = (cov_1eu7mbjdp2.s[26]++, this._getContent());
+      cov_1eu7mbjdp2.s[27]++;
 
       if (typeof content === 'function') {
-        cov_1di2q5gxu4.b[2][0]++;
-        cov_1di2q5gxu4.s[28]++;
+        cov_1eu7mbjdp2.b[2][0]++;
+        cov_1eu7mbjdp2.s[28]++;
         content = content.call(this.element);
       } else {
-        cov_1di2q5gxu4.b[2][1]++;
+        cov_1eu7mbjdp2.b[2][1]++;
       }
 
-      cov_1di2q5gxu4.s[29]++;
+      cov_1eu7mbjdp2.s[29]++;
       this.setElementContent($tip.find(Selector.CONTENT), content);
-      cov_1di2q5gxu4.s[30]++;
+      cov_1eu7mbjdp2.s[30]++;
       $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW);
     }; // Private
 
 
     _proto._getContent = function _getContent() {
-      cov_1di2q5gxu4.f[12]++;
-      cov_1di2q5gxu4.s[31]++;
-      return (cov_1di2q5gxu4.b[3][0]++, this.element.getAttribute('data-content')) || (cov_1di2q5gxu4.b[3][1]++, this.config.content);
+      cov_1eu7mbjdp2.f[12]++;
+      cov_1eu7mbjdp2.s[31]++;
+      return (cov_1eu7mbjdp2.b[3][0]++, this.element.getAttribute('data-content')) || (cov_1eu7mbjdp2.b[3][1]++, this.config.content);
     };
 
     _proto._cleanTipClass = function _cleanTipClass() {
-      cov_1di2q5gxu4.f[13]++;
-      var $tip = (cov_1di2q5gxu4.s[32]++, $(this.getTipElement()));
-      var tabClass = (cov_1di2q5gxu4.s[33]++, $tip.attr('class').match(BSCLS_PREFIX_REGEX));
-      cov_1di2q5gxu4.s[34]++;
+      cov_1eu7mbjdp2.f[13]++;
+      var $tip = (cov_1eu7mbjdp2.s[32]++, $(this.getTipElement()));
+      var tabClass = (cov_1eu7mbjdp2.s[33]++, $tip.attr('class').match(BSCLS_PREFIX_REGEX));
+      cov_1eu7mbjdp2.s[34]++;
 
-      if ((cov_1di2q5gxu4.b[5][0]++, tabClass !== null) && (cov_1di2q5gxu4.b[5][1]++, tabClass.length > 0)) {
-        cov_1di2q5gxu4.b[4][0]++;
-        cov_1di2q5gxu4.s[35]++;
+      if ((cov_1eu7mbjdp2.b[5][0]++, tabClass !== null) && (cov_1eu7mbjdp2.b[5][1]++, tabClass.length > 0)) {
+        cov_1eu7mbjdp2.b[4][0]++;
+        cov_1eu7mbjdp2.s[35]++;
         $tip.removeClass(tabClass.join(''));
       } else {
-        cov_1di2q5gxu4.b[4][1]++;
+        cov_1eu7mbjdp2.b[4][1]++;
       }
     }; // Static
 
 
     Popover._jQueryInterface = function _jQueryInterface(config) {
-      cov_1di2q5gxu4.f[14]++;
-      cov_1di2q5gxu4.s[36]++;
+      cov_1eu7mbjdp2.f[14]++;
+      cov_1eu7mbjdp2.s[36]++;
       return this.each(function () {
-        cov_1di2q5gxu4.f[15]++;
-        var data = (cov_1di2q5gxu4.s[37]++, $(this).data(DATA_KEY));
+        cov_1eu7mbjdp2.f[15]++;
+        var data = (cov_1eu7mbjdp2.s[37]++, $(this).data(DATA_KEY));
 
-        var _config = (cov_1di2q5gxu4.s[38]++, typeof config === 'object' ? (cov_1di2q5gxu4.b[6][0]++, config) : (cov_1di2q5gxu4.b[6][1]++, null));
+        var _config = (cov_1eu7mbjdp2.s[38]++, typeof config === 'object' ? (cov_1eu7mbjdp2.b[6][0]++, config) : (cov_1eu7mbjdp2.b[6][1]++, null));
 
-        cov_1di2q5gxu4.s[39]++;
+        cov_1eu7mbjdp2.s[39]++;
 
-        if ((cov_1di2q5gxu4.b[8][0]++, !data) && (cov_1di2q5gxu4.b[8][1]++, /destroy|hide/.test(config))) {
-          cov_1di2q5gxu4.b[7][0]++;
-          cov_1di2q5gxu4.s[40]++;
+        if ((cov_1eu7mbjdp2.b[8][0]++, !data) && (cov_1eu7mbjdp2.b[8][1]++, /destroy|hide/.test(config))) {
+          cov_1eu7mbjdp2.b[7][0]++;
+          cov_1eu7mbjdp2.s[40]++;
           return;
         } else {
-          cov_1di2q5gxu4.b[7][1]++;
+          cov_1eu7mbjdp2.b[7][1]++;
         }
 
-        cov_1di2q5gxu4.s[41]++;
+        cov_1eu7mbjdp2.s[41]++;
 
         if (!data) {
-          cov_1di2q5gxu4.b[9][0]++;
-          cov_1di2q5gxu4.s[42]++;
+          cov_1eu7mbjdp2.b[9][0]++;
+          cov_1eu7mbjdp2.s[42]++;
           data = new Popover(this, _config);
-          cov_1di2q5gxu4.s[43]++;
+          cov_1eu7mbjdp2.s[43]++;
           $(this).data(DATA_KEY, data);
         } else {
-          cov_1di2q5gxu4.b[9][1]++;
+          cov_1eu7mbjdp2.b[9][1]++;
         }
 
-        cov_1di2q5gxu4.s[44]++;
+        cov_1eu7mbjdp2.s[44]++;
 
         if (typeof config === 'string') {
-          cov_1di2q5gxu4.b[10][0]++;
-          cov_1di2q5gxu4.s[45]++;
+          cov_1eu7mbjdp2.b[10][0]++;
+          cov_1eu7mbjdp2.s[45]++;
 
           if (typeof data[config] === 'undefined') {
-            cov_1di2q5gxu4.b[11][0]++;
-            cov_1di2q5gxu4.s[46]++;
+            cov_1eu7mbjdp2.b[11][0]++;
+            cov_1eu7mbjdp2.s[46]++;
             throw new TypeError("No method named \"" + config + "\"");
           } else {
-            cov_1di2q5gxu4.b[11][1]++;
+            cov_1eu7mbjdp2.b[11][1]++;
           }
 
-          cov_1di2q5gxu4.s[47]++;
+          cov_1eu7mbjdp2.s[47]++;
           data[config]();
         } else {
-          cov_1di2q5gxu4.b[10][1]++;
+          cov_1eu7mbjdp2.b[10][1]++;
         }
       });
     };
@@ -1659,50 +1659,50 @@ var Popover = (cov_1di2q5gxu4.s[0]++, function ($) {
       key: "VERSION",
       // Getters
       get: function get() {
-        cov_1di2q5gxu4.f[1]++;
-        cov_1di2q5gxu4.s[13]++;
+        cov_1eu7mbjdp2.f[1]++;
+        cov_1eu7mbjdp2.s[13]++;
         return VERSION;
       }
     }, {
       key: "Default",
       get: function get() {
-        cov_1di2q5gxu4.f[2]++;
-        cov_1di2q5gxu4.s[14]++;
+        cov_1eu7mbjdp2.f[2]++;
+        cov_1eu7mbjdp2.s[14]++;
         return Default;
       }
     }, {
       key: "NAME",
       get: function get() {
-        cov_1di2q5gxu4.f[3]++;
-        cov_1di2q5gxu4.s[15]++;
+        cov_1eu7mbjdp2.f[3]++;
+        cov_1eu7mbjdp2.s[15]++;
         return NAME;
       }
     }, {
       key: "DATA_KEY",
       get: function get() {
-        cov_1di2q5gxu4.f[4]++;
-        cov_1di2q5gxu4.s[16]++;
+        cov_1eu7mbjdp2.f[4]++;
+        cov_1eu7mbjdp2.s[16]++;
         return DATA_KEY;
       }
     }, {
       key: "Event",
       get: function get() {
-        cov_1di2q5gxu4.f[5]++;
-        cov_1di2q5gxu4.s[17]++;
+        cov_1eu7mbjdp2.f[5]++;
+        cov_1eu7mbjdp2.s[17]++;
         return Event;
       }
     }, {
       key: "EVENT_KEY",
       get: function get() {
-        cov_1di2q5gxu4.f[6]++;
-        cov_1di2q5gxu4.s[18]++;
+        cov_1eu7mbjdp2.f[6]++;
+        cov_1eu7mbjdp2.s[18]++;
         return EVENT_KEY;
       }
     }, {
       key: "DefaultType",
       get: function get() {
-        cov_1di2q5gxu4.f[7]++;
-        cov_1di2q5gxu4.s[19]++;
+        cov_1eu7mbjdp2.f[7]++;
+        cov_1eu7mbjdp2.s[19]++;
         return DefaultType;
       }
     }]);
@@ -1716,21 +1716,21 @@ var Popover = (cov_1di2q5gxu4.s[0]++, function ($) {
    */
 
 
-  cov_1di2q5gxu4.s[48]++;
+  cov_1eu7mbjdp2.s[48]++;
   $.fn[NAME] = Popover._jQueryInterface;
-  cov_1di2q5gxu4.s[49]++;
+  cov_1eu7mbjdp2.s[49]++;
   $.fn[NAME].Constructor = Popover;
-  cov_1di2q5gxu4.s[50]++;
+  cov_1eu7mbjdp2.s[50]++;
 
   $.fn[NAME].noConflict = function () {
-    cov_1di2q5gxu4.f[16]++;
-    cov_1di2q5gxu4.s[51]++;
+    cov_1eu7mbjdp2.f[16]++;
+    cov_1eu7mbjdp2.s[51]++;
     $.fn[NAME] = JQUERY_NO_CONFLICT;
-    cov_1di2q5gxu4.s[52]++;
+    cov_1eu7mbjdp2.s[52]++;
     return Popover._jQueryInterface;
   };
 
-  cov_1di2q5gxu4.s[53]++;
+  cov_1eu7mbjdp2.s[53]++;
   return Popover;
 }($));
 //# sourceMappingURL=popover.js.map
