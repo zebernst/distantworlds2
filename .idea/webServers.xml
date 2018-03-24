@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="416eef3f-9713-45a6-9beb-c5549eea974f" name="Atomic RasPi" url="http://dw2photo.serveftp.com">
+        <fileTransfer host="dw2photo.serveftp.com" port="8762" privateKey="$USER_HOME$/.ssh/galaxykey.ppk" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="8762" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
