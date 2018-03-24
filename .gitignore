@@ -10,9 +10,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -187,5 +185,5 @@ Temporary Items
 .idea/webServers.xml
 db.sqlite3
 /media/
-/static/bootstrap/
 /core/google_api_secret.json
+/static/bootstrap/node_modules/
