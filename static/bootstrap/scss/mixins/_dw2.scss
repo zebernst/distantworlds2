@@ -1,0 +1,14 @@
+// ui-color = changable color
+
+// TODO:
+// refactor to by entire styling including non-hover styling
+
+body {
+  background-color: $black !important;
+}
+
+@mixin underline-hover($hover-color) {
+  color: $hover-color;
+  border-bottom: 2px solid $hover-color;
+}
+
