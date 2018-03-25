@@ -39,16 +39,16 @@ class Image(LoginRequiredMixin, models.Model):
     # utility fields
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
 
-    # image meta
-    img_height = models.IntegerField('image height')
-    img_width = models.IntegerField('image width')
-
     # filesystem
-    image = models.ImageField(upload_to=waypoint_folder, height_field=img_height, width_field=img_width)  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
+    image = models.ImageField(upload_to=waypoint_folder, height_field='img_height', width_field='img_width')  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
     thumb = models.ImageField(upload_to='thumbs', null=True)
 
     orig_filename = models.CharField('original filename', max_length=768)
     upload_date = models.DateTimeField('date uploaded', auto_now_add=True)
+
+    # image meta
+    img_height = models.IntegerField('image height')
+    img_width = models.IntegerField('image width')
 
     # expedition meta
     desc = models.CharField('description', max_length=768, null=True, blank=True)
