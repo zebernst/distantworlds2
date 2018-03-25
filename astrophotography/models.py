@@ -39,14 +39,18 @@ class Image(LoginRequiredMixin, models.Model):
     # utility fields
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
 
+    # image meta
+    img_height = models.IntegerField('image height')
+    img_width = models.IntegerField('image width')
+
     # filesystem
-    image = models.ImageField(upload_to=waypoint_folder)  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
+    image = models.ImageField(upload_to=waypoint_folder, height_field=img_height, width_field=img_width)  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
     thumb = models.ImageField(upload_to='thumbs', null=True)
 
     orig_filename = models.CharField('original filename', max_length=768)
     upload_date = models.DateTimeField('date uploaded', auto_now_add=True)
 
-    # image meta
+    # expedition meta
     desc = models.CharField('description', max_length=768, null=True, blank=True)
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     waypoint = models.ForeignKey(Waypoint, on_delete=models.SET_NULL, null=True, blank=False)
@@ -62,7 +66,8 @@ class Image(LoginRequiredMixin, models.Model):
     imgur_url = models.CharField(max_length=512, null=True)
     del_hash = models.CharField(max_length=512, null=True)
 
-    # todo: make flags that indicate whether or not a photo has been "exported"
+    # internal use
+    processed = models.BooleanField('processed by image utilities', default=False)
 
     def save(self, *args, **kwargs):
 
@@ -74,7 +79,7 @@ class Image(LoginRequiredMixin, models.Model):
                 sha1.update(chunk)
             self.sha1sum = sha1.hexdigest()
 
-        # save user
+            # todo: logic for denying upload if matching sha1sum
 
         # convert .bmp files before saving
         name, ext = os.path.splitext(self.image.name)
