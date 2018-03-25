@@ -490,10 +490,11 @@ mark,
   font-size: 1.5rem;
   font-weight: 500;
   text-transform: uppercase;
+  font-family: 'Eurostile';
 }
 
 .jumbo-number {
-  font-family: 'Michroma', sans-serif;
+  font-size: 1.6rem;
 }
 
 .img-fluid {
