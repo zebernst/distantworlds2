@@ -16,6 +16,7 @@ gspread = "*"
 python-dateutil = "*"
 tqdm = "*"
 django-choices = "*"
+sorl-thumbnail = "*"
 
 
 [dev-packages]

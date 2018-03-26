@@ -1,6 +1,8 @@
 import hashlib
 import os
+from pathlib import Path
 
+from PIL import Image as PImage
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import models
 from django.db.models.signals import pre_delete
@@ -59,15 +61,17 @@ class Image(LoginRequiredMixin, models.Model):
     owner = models.ForeignKey(Commander, on_delete=models.SET_NULL, null=True)
 
     # image uses
-    public = models.BooleanField(default=False)
-    edited = models.BooleanField(default=False)
+    public = models.BooleanField('display publicly', default=False)
+    edited = models.BooleanField('edited', default=False)
 
     # imgur
-    imgur_url = models.CharField(max_length=512, null=True)
-    del_hash = models.CharField(max_length=512, null=True)
+    imgur_url = models.CharField('link to imgur upload', max_length=512, null=True)
+    del_hash = models.CharField('imgur deletion hash', max_length=512, null=True)
 
     # internal use
     processed = models.BooleanField('processed by image utilities', default=False)
+
+    # todo: when creating LocationForm, auto-populate from parsed image filename
 
     def save(self, *args, **kwargs):
 
@@ -81,21 +85,42 @@ class Image(LoginRequiredMixin, models.Model):
 
             # todo: logic for denying upload if matching sha1sum
 
-        # convert .bmp files before saving
-        name, ext = os.path.splitext(self.image.name)
-        if ext.lower() == ".bmp":
-            # do conversion
-            pass
-
-        # watermark, etc.
-
-        # generate thumbnail
-        if not self.thumb:
-            # create thumbnail
-            pass
-
-        # save image
         super(Image, self).save(*args, **kwargs)
+
+        if not self.processed:
+            # open image in pillow for editing
+            orig_path = self.image.path
+            img = PImage.open(self.image.path)
+
+            w, h = img.size
+
+            # resize if greater than 4k
+            if w > 3840:
+                resize_factor = 3840 / float(w)
+                w_new = 3840
+                h_new = round(h * resize_factor)
+                img = img.resize((w_new, h_new))
+
+            # save as jpg
+            img_path = Path(self.image.path).with_suffix('.png')
+            img_name = Path(self.image.name).with_suffix('.png')
+            img.save(img_path, 'png')
+            self.image = str(img_name)
+
+            # ... do stuff
+
+            # watermark
+
+            # generate thumbnail (todo: use sorl instead?)
+
+            # mark image as processed
+            self.processed = True
+
+            # save changes to db
+            super(Image, self).save(*args, **kwargs)
+
+            # delete original image
+            os.remove(orig_path)
 
 
 # delete the image file when the Image instance is deleted by the admin panel.
