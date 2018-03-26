@@ -102,9 +102,9 @@ class Image(LoginRequiredMixin, models.Model):
 
             # save as jpg
             img_path = Path(self.image.path).with_suffix('.png')
-            img_name = str(Path(self.image.name).with_suffix('.png'))
+            img_name = Path(self.image.name).with_suffix('.png')
             img.save(img_path, 'png')
-            self.image = str(img_name)
+            self.image.name = str(img_name)
 
             # ... do stuff
 
@@ -124,8 +124,6 @@ class Image(LoginRequiredMixin, models.Model):
 @receiver(pre_delete, sender=Image)
 def image_delete(sender, instance, **kwargs):
     instance.image.delete(False)  # pass False to ensure that a save() isn't called.
-    if instance.thumb:
-        instance.thumb.delete(False)
 
 # todo: for upload template, make 'file' and 'url' tabs and use ajax to rewrite the page accordingly
 
