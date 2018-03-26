@@ -101,9 +101,9 @@ class Image(LoginRequiredMixin, models.Model):
                 img = img.resize((w_new, h_new))
 
             # save as jpg
-            img_path = Path(self.image.path).with_suffix('.png')
-            img_name = Path(self.image.name).with_suffix('.png')
-            img.save(img_path, 'png')
+            img_path = Path(self.image.path).with_suffix('.jpg')
+            img_name = Path(self.image.name).with_suffix('.jpg')
+            img.save(img_path, 'jpg')
             self.image.name = str(img_name)
 
             # ... do stuff
