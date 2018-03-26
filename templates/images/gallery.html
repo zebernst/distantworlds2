@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block title %}
     Gallery
@@ -7,4 +8,12 @@
 {% block content %}
     <h1 class="mt-5">image gallery</h1>
     {#  todo: use sorl-thumbnail (already installed) to display thumbnails  #}
+    
+    {% for image in object_list %}
+        {% thumbnail image.image "x300" as im %}
+            <img src="{{ im.url }}" alt="">
+        {% endthumbnail %}
+    {% endfor %}
+    
+
 {% endblock %}

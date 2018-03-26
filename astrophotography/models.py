@@ -43,7 +43,6 @@ class Image(LoginRequiredMixin, models.Model):
 
     # filesystem
     image = models.ImageField(upload_to=waypoint_folder, height_field='img_height', width_field='img_width')  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
-    thumb = models.ImageField(upload_to='thumbs', null=True)
 
     orig_filename = models.CharField('original filename', max_length=768)
     upload_date = models.DateTimeField('date uploaded', auto_now_add=True)
@@ -103,15 +102,13 @@ class Image(LoginRequiredMixin, models.Model):
 
             # save as jpg
             img_path = Path(self.image.path).with_suffix('.png')
-            img_name = Path(self.image.name).with_suffix('.png')
+            img_name = str(Path(self.image.name).with_suffix('.png'))
             img.save(img_path, 'png')
             self.image = str(img_name)
 
             # ... do stuff
 
             # watermark
-
-            # generate thumbnail (todo: use sorl instead?)
 
             # mark image as processed
             self.processed = True

@@ -5,7 +5,7 @@ from .forms import *
 
 
 # Create your views here.
-class ImageUpload(LoginRequiredMixin, generic.FormView):
+class ImageUploadView(LoginRequiredMixin, generic.FormView):
     form_class = ImageForm
     template_name = 'images/upload_form.html'
     success_url = '/success/'
@@ -26,5 +26,12 @@ class ImageUpload(LoginRequiredMixin, generic.FormView):
             return render(request, self.template_name, {'form': form})
 
 
-class UserImageGallery(generic.ListView):
+class UserImageGalleryView(generic.ListView):
     model = Image
+
+
+class PublicImageGalleryView(generic.ListView):
+    template_name = 'images/gallery.html'
+
+    def get_queryset(self):
+        return Image.objects.filter(public=True)
