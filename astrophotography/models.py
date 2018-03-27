@@ -17,14 +17,6 @@ from distantworlds2.settings.base import SITE_ROOT
 # todo: make success_url go to the Location form that pre-populates from filename
 class Image(LoginRequiredMixin, models.Model):
 
-    def user_media_folder(self, filename):
-        """return the media folder for a certain user"""
-        self.orig_filename = filename
-        if self.owner:
-            return 'uploads/{}/{}'.format(slugify(self.owner.cmdr_name), filename)  # self.owner.cmdr_name
-        else:
-            return 'uploads/anonymous/{}'.format(filename)
-
     def waypoint_folder(self, filename):
         # save original filename
         self.orig_filename = filename
@@ -35,8 +27,6 @@ class Image(LoginRequiredMixin, models.Model):
         wp = slugify('Misc' if self.waypoint is None else self.waypoint.abbrev)
 
         return 'uploads/{wp}/{cmdr}_{f}'.format(wp=wp, cmdr=cmdr, f=filename)
-
-    # id is automatic
 
     # utility fields
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
@@ -88,41 +78,25 @@ class Image(LoginRequiredMixin, models.Model):
             orig_path = self.image.path
             img = PImage.open(self.image.file).convert('RGB')
 
-            w, h = img.size
-
             # resize if greater than 4k
-            resize_factor = 1  # default
-            if w > 3840:
-                resize_factor = 3840 / float(w)
-                w_new = 3840
-                h_new = round(h * resize_factor)
-                img = img.resize((w_new, h_new))
-
-            # ... do stuff
+            basewidth = 3840
+            resize_factor = basewidth / float(img.width)
+            if img.width > 3840:
+                img = img.resize((basewidth, round(img.height * resize_factor)))
 
             # watermark
+            # open watermark file
             wmk = PImage.open(str(SITE_ROOT/'static/watermark_margin.png'))
-            wmk_ratio = wmk.size[0] / 3840
 
-            wmk_w = wmk_ratio * img.size[0]
-            wmk_resize_factor = wmk_w / float(wmk.size[0])
-            wmk_h = wmk_resize_factor * wmk.size[1]
-            wmk = wmk.resize((round(wmk_ratio * img.size[0]), round(wmk_h)))
+            # calculate watermark width relative to 4k image width
+            wmk_ratio = wmk.width / basewidth
+            new_wmk_width = wmk_ratio * img.width
+            wmk_resize_factor = new_wmk_width / float(wmk.width)
+            new_wmk_height = wmk_resize_factor * wmk.height
+            wmk = wmk.resize((round(new_wmk_width), round(new_wmk_height)))
 
             pos = [img.size[i] - wmk.size[i] for i in [0, 1]]
-
             img.paste(wmk, box=pos, mask=wmk)
-
-            # font = ImageFont.truetype(str(SITE_ROOT/'static/fonts/Cambay-Regular.ttf'), 22)
-            # textlayer = PImage.new('RGBA', img.size)
-            # draw = ImageDraw.Draw(textlayer)
-            # textsize = draw.textsize("Distant Worlds", font=font)
-            # textpos = [(img.size[i]) - (textsize[i]) - margin[i] for i in [0, 1]]
-            # draw.text(textpos, "Distant Worlds", font=font)
-            # watermask = textlayer.convert("L").point(lambda x: min(x, 200))
-            # textlayer.putalpha(watermask)
-            #
-            # img.paste(textlayer, None, textlayer)
 
             # open output stream and save image
             stream = io.BytesIO()
