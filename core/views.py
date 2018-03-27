@@ -41,12 +41,12 @@ class FleetStatsView(generic.TemplateView):
             .values('ship_model')\
             .order_by('ship_model')\
             .annotate(n=Count('ship_model'))
-        total_cmdrs = Commander.objects.exclude(ship_model='INVALID SHIP').count()
+        ship_total = Commander.objects.exclude(ship_model='INVALID SHIP').count()
 
         # format ship type stats into javascript array (use |safe filter in template)
         context['ship_types'] = [{'ship': Commander.Ship.values.get(s['ship_model']),
                                   'num': s['n'],
-                                  'percent': (s['n']/total_cmdrs)} for s in ship_qset]
+                                  'percent': (s['n']/ship_total)} for s in ship_qset]
 
         return context
 
