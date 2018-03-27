@@ -1,9 +1,10 @@
 import hashlib
-import os
+import io
 from pathlib import Path
 
 from PIL import Image as PImage
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
@@ -53,8 +54,8 @@ class Image(LoginRequiredMixin, models.Model):
 
     # expedition meta
     desc = models.CharField('description', max_length=768, null=True, blank=True)
-    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
-    waypoint = models.ForeignKey(Waypoint, on_delete=models.SET_NULL, null=True, blank=False)
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True, blank=True)
+    waypoint = models.ForeignKey(Waypoint, on_delete=models.SET_NULL, null=True, blank=True)
 
     # user
     owner = models.ForeignKey(Commander, on_delete=models.SET_NULL, null=True)
@@ -64,32 +65,29 @@ class Image(LoginRequiredMixin, models.Model):
     edited = models.BooleanField('edited', default=False)
 
     # imgur
-    imgur_url = models.CharField('link to imgur upload', max_length=512, null=True)
-    del_hash = models.CharField('imgur deletion hash', max_length=512, null=True)
+    imgur_url = models.CharField('link to imgur upload', max_length=512, null=True, blank=True)
+    del_hash = models.CharField('imgur deletion hash', max_length=512, null=True, blank=True)
 
     # internal use
     processed = models.BooleanField('processed by image utilities', default=False)
 
     # todo: when creating LocationForm, auto-populate from parsed image filename
 
+    # todo: add "validated" field and create script to manually approve and then upload to imgur
+
     def save(self, *args, **kwargs):
 
-        # if file is new, store sha1sum
-        # note: important that the sha1sum is calculated BEFORE watermarking images
+        # if file is new, store sha1sum (important that the sha1sum is calculated BEFORE watermarking images)
         if not self.pk:
             sha1 = hashlib.sha1()
             for chunk in self.image.chunks():
                 sha1.update(chunk)
             self.sha1sum = sha1.hexdigest()
 
-            # todo: logic for denying upload if matching sha1sum
-
-        super(Image, self).save(*args, **kwargs)
-
         if not self.processed:
             # open image in pillow for editing
             orig_path = self.image.path
-            img = PImage.open(self.image.path)
+            img = PImage.open(self.image.file).convert('RGB')
 
             w, h = img.size
 
@@ -100,24 +98,36 @@ class Image(LoginRequiredMixin, models.Model):
                 h_new = round(h * resize_factor)
                 img = img.resize((w_new, h_new))
 
-            # save as jpg
-            img_path = Path(self.image.path).with_suffix('.jpg')
-            img_name = Path(self.image.name).with_suffix('.jpg')
-            img.save(img_path, 'jpg')
-            self.image.name = str(img_name)
-
             # ... do stuff
 
             # watermark
+            # margin = (30, 30)
+            # font = ImageFont.truetype(str(SITE_ROOT/'static/fonts/Cambay-Regular.ttf'), 22)
+            # textlayer = PImage.new('RGBA', img.size)
+            # draw = ImageDraw.Draw(textlayer)
+            # textsize = draw.textsize("Distant Worlds", font=font)
+            # textpos = [(img.size[i]) - (textsize[i]) - margin[i] for i in [0, 1]]
+            # draw.text(textpos, "Distant Worlds", font=font)
+            # watermask = textlayer.convert("L").point(lambda x: min(x, 200))
+            # textlayer.putalpha(watermask)
+            #
+            # img.paste(textlayer, None, textlayer)
+
+            # open output stream and save image
+            stream = io.BytesIO()
+            img.save(stream, format='jpeg', quality=95)
+
+            # create new django file wrapper for image
+            self.image = InMemoryUploadedFile(file=stream, field_name='image',
+                                              name=Path(orig_path).with_suffix('.jpg'),
+                                              content_type='image/jpeg', size=stream.getbuffer().nbytes,
+                                              content_type_extra=None, charset=None)
 
             # mark image as processed
             self.processed = True
 
             # save changes to db
             super(Image, self).save(*args, **kwargs)
-
-            # delete original image
-            os.remove(orig_path)
 
 
 # delete the image file when the Image instance is deleted by the admin panel.
