@@ -9,6 +9,7 @@ from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
 from django.utils.text import slugify
+from sorl.thumbnail import delete
 
 from core.models import Commander, Location, Waypoint
 from distantworlds2.settings.base import SITE_ROOT
@@ -118,7 +119,8 @@ class Image(LoginRequiredMixin, models.Model):
 # delete the image file when the Image instance is deleted by the admin panel.
 @receiver(pre_delete, sender=Image)
 def image_delete(sender, instance, **kwargs):
-    instance.image.delete(False)  # pass False to ensure that a save() isn't called.
+    delete(instance.image.file)   # delete thumbnail and source file
+    # instance.image.delete(False)  # pass False to ensure that a save() isn't called.
 
 # todo: for upload template, make 'file' and 'url' tabs and use ajax to rewrite the page accordingly
 
