@@ -11,6 +11,7 @@ from django.dispatch.dispatcher import receiver
 from django.utils.text import slugify
 
 from core.models import Commander, Location, Waypoint
+from distantworlds2.settings.base import SITE_ROOT
 
 
 # todo: make success_url go to the Location form that pre-populates from filename
@@ -29,8 +30,6 @@ class Image(LoginRequiredMixin, models.Model):
         self.orig_filename = filename
 
         # todo: parse filename for system info
-
-        # todo: add cmdr_name to filename
 
         cmdr = slugify('Anonymous' if self.owner.cmdr_name is None else self.owner.cmdr_name)
         wp = slugify('Misc' if self.waypoint is None else self.waypoint.abbrev)
@@ -92,6 +91,7 @@ class Image(LoginRequiredMixin, models.Model):
             w, h = img.size
 
             # resize if greater than 4k
+            resize_factor = 1  # default
             if w > 3840:
                 resize_factor = 3840 / float(w)
                 w_new = 3840
@@ -101,7 +101,18 @@ class Image(LoginRequiredMixin, models.Model):
             # ... do stuff
 
             # watermark
-            # margin = (30, 30)
+            wmk = PImage.open(str(SITE_ROOT/'static/watermark_margin.png'))
+            wmk_ratio = wmk.size[0] / 3840
+
+            wmk_w = wmk_ratio * img.size[0]
+            wmk_resize_factor = wmk_w / float(wmk.size[0])
+            wmk_h = wmk_resize_factor * wmk.size[1]
+            wmk = wmk.resize((round(wmk_ratio * img.size[0]), round(wmk_h)))
+
+            pos = [img.size[i] - wmk.size[i] for i in [0, 1]]
+
+            img.paste(wmk, box=pos, mask=wmk)
+
             # font = ImageFont.truetype(str(SITE_ROOT/'static/fonts/Cambay-Regular.ttf'), 22)
             # textlayer = PImage.new('RGBA', img.size)
             # draw = ImageDraw.Draw(textlayer)

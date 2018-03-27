@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import *
@@ -8,7 +9,7 @@ from .forms import *
 class ImageUploadView(LoginRequiredMixin, generic.FormView):
     form_class = ImageForm
     template_name = 'images/upload_form.html'
-    success_url = '/success/'
+    success_url = reverse_lazy('astrophotography:upload-image')
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
