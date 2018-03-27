@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('sha1sum', models.CharField(blank=True, max_length=40, unique=True)),
-                ('file', models.ImageField(upload_to=astrophotography.models.Image.user_media_folder)),
+                ('file', models.ImageField(upload_to=astrophotography.models.Image.waypoint_folder)),
                 ('orig_filename', models.CharField(blank=True, max_length=768, verbose_name='original filename')),
                 ('upload_date', models.DateTimeField(auto_now_add=True, verbose_name='date uploaded')),
                 ('desc', models.CharField(blank=True, max_length=768, null=True, verbose_name='description')),

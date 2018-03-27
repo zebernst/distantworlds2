@@ -9,6 +9,7 @@ from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
 from django.utils.text import slugify
+from sorl.thumbnail import delete
 
 from core.models import Commander, Location, Waypoint
 from distantworlds2.settings.base import SITE_ROOT
@@ -32,7 +33,7 @@ class Image(LoginRequiredMixin, models.Model):
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
 
     # filesystem
-    image = models.ImageField(upload_to=waypoint_folder, height_field='img_height', width_field='img_width')  # todo: use django-imagekit for processing photos (https://github.com/matthewwithanm/django-imagekit/)
+    image = models.ImageField(upload_to=waypoint_folder, height_field='img_height', width_field='img_width')
 
     orig_filename = models.CharField('original filename', max_length=768)
     upload_date = models.DateTimeField('date uploaded', auto_now_add=True)
@@ -118,7 +119,8 @@ class Image(LoginRequiredMixin, models.Model):
 # delete the image file when the Image instance is deleted by the admin panel.
 @receiver(pre_delete, sender=Image)
 def image_delete(sender, instance, **kwargs):
-    instance.image.delete(False)  # pass False to ensure that a save() isn't called.
+    delete(instance.image.file)   # delete thumbnail and source file
+    # instance.image.delete(False)  # pass False to ensure that a save() isn't called.
 
 # todo: for upload template, make 'file' and 'url' tabs and use ajax to rewrite the page accordingly
 
