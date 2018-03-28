@@ -15,7 +15,6 @@ from core.models import Commander, Location, Waypoint
 from distantworlds2.settings.base import SITE_ROOT
 
 
-# todo: make success_url go to the Location form that pre-populates from filename
 class Image(LoginRequiredMixin, models.Model):
 
     def waypoint_folder(self, filename):
@@ -59,7 +58,6 @@ class Image(LoginRequiredMixin, models.Model):
     del_hash = models.CharField('imgur deletion hash', max_length=512, null=True, blank=True)
 
     # todo: when creating LocationForm, auto-populate from parsed image filename
-
     # todo: add "validated" field and create script to manually approve and then upload to imgur
 
     def save(self, *args, **kwargs):
@@ -115,6 +113,4 @@ class Image(LoginRequiredMixin, models.Model):
 def image_delete(sender, instance, **kwargs):
     delete(instance.image.file)   # delete thumbnail and source file
     # instance.image.delete(False)  # pass False to ensure that a save() isn't called.
-
-# todo: for upload template, make 'file' and 'url' tabs and use ajax to rewrite the page accordingly
 
