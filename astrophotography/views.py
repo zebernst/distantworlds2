@@ -19,7 +19,7 @@ class ImageUploadView(LoginRequiredMixin, generic.FormView):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.owner = request.user.commander
+            instance.owner = request.user.commander  # save user
             instance.save()
 
             return redirect(self.success_url)

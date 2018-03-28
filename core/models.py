@@ -83,7 +83,7 @@ class Commander(models.Model):
 
     class Platform(DjangoChoices):
         pc = ChoiceItem('PC', 'PC')
-        xbox = ChoiceItem('XBOne', 'XBox One')
+        xbox = ChoiceItem('XBOne', 'Xbox One')
         ps4 = ChoiceItem('PS4', 'PlayStation 4')
         mac = ChoiceItem('Mac', 'Mac')
 
