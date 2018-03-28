@@ -17,7 +17,7 @@ class ImageAdmin(AdminImageMixin, admin.ModelAdmin):
                      'waypoint__id', 'waypoint__name',
                      'desc']
 
-    # autocomplete_fields = ['owner']
+    autocomplete_fields = ['owner']
     fieldsets = (
         ('Image File', {
             'fields': ('image', 'orig_filename', 'img_height', 'img_width')

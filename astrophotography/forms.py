@@ -27,7 +27,8 @@ class ImageForm(forms.ModelForm):
 
             # reject low-res images
             min_width = 1280  # px
-            if file.image.width < min_width:
+            i = PImage.open(file.file)
+            if i.width < min_width:
                 raise ValidationError('Image is too small. Please submit '
                                       'images that are at least {}px across.'.format(min_width))
 
