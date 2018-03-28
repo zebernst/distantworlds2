@@ -25,8 +25,9 @@ class Image(LoginRequiredMixin, models.Model):
 
         cmdr = slugify('Anonymous' if self.owner.cmdr_name is None else self.owner.cmdr_name)
         wp = slugify('Misc' if self.waypoint is None else self.waypoint.abbrev)
+        ext = Path(filename).suffix
 
-        return 'uploads/{wp}/{cmdr}_{f}'.format(wp=wp, cmdr=cmdr, f=filename)
+        return 'uploads/{wp}/{cmdr}_{hash}{ext}'.format(wp=wp, cmdr=cmdr, hash=self.sha1sum, ext=ext)
 
     # utility fields
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
@@ -111,6 +112,11 @@ class Image(LoginRequiredMixin, models.Model):
 # delete the image file when the Image instance is deleted by the admin panel.
 @receiver(pre_delete, sender=Image)
 def image_delete(sender, instance, **kwargs):
-    delete(instance.image.file)   # delete thumbnail and source file
-    # instance.image.delete(False)  # pass False to ensure that a save() isn't called.
+    try:
+        delete(instance.image.file)   # delete thumbnail and source file
+        # instance.image.delete(False)  # pass False to ensure that a save() isn't called.
+
+    # if file is already gone, just ignore the error
+    except FileNotFoundError:
+        pass
 
