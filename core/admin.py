@@ -4,3 +4,5 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Commander)
+admin.site.register(Location)
+admin.site.register(Waypoint)

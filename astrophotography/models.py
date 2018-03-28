@@ -9,7 +9,7 @@ from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
 from django.utils.text import slugify
-from sorl.thumbnail import delete
+from sorl.thumbnail import delete, ImageField
 
 from core.models import Commander, Location, Waypoint
 from distantworlds2.settings.base import SITE_ROOT
@@ -33,7 +33,7 @@ class Image(LoginRequiredMixin, models.Model):
     sha1sum = models.CharField(unique=True, max_length=40, blank=True, editable=False)
 
     # filesystem
-    image = models.ImageField(upload_to=waypoint_folder, height_field='img_height', width_field='img_width')
+    image = ImageField(upload_to=waypoint_folder, height_field='img_height', width_field='img_width')
 
     orig_filename = models.CharField('original filename', max_length=768)
     upload_date = models.DateTimeField('date uploaded', auto_now_add=True)
