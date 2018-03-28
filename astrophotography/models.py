@@ -72,7 +72,7 @@ class Image(LoginRequiredMixin, models.Model):
 
             # open image in pillow for editing
             orig_path = self.image.path
-            img = PImage.open(self.image.file).convert('RGB')
+            img = PImage.open(self.image.file)
 
             # resize if greater than 4k
             basewidth = 3840
@@ -97,7 +97,7 @@ class Image(LoginRequiredMixin, models.Model):
 
             # open output stream and save image
             stream = io.BytesIO()
-            img.save(stream, format='jpeg', quality=95)
+            img.save(stream, format='jpeg', dpi=(72, 72), quality=95)
 
             # create new django file wrapper for image
             self.image = InMemoryUploadedFile(file=stream, field_name='image',

@@ -31,6 +31,10 @@ class ImageForm(forms.ModelForm):
                 raise ValidationError('Image is too small. Please submit '
                                       'images that are at least {}px across.'.format(min_width))
 
+            # reject files that are too large
+            size_limit = 3e+08  # 300MB
+            if file.size > size_limit:
+                raise ValidationError('File is too large! Please upload files that are less than 300MB.')
         # in case there isn't an image that was uploaded
         except KeyError:
             pass
