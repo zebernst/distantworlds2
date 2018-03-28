@@ -58,23 +58,19 @@ class Image(LoginRequiredMixin, models.Model):
     imgur_url = models.CharField('link to imgur upload', max_length=512, null=True, blank=True)
     del_hash = models.CharField('imgur deletion hash', max_length=512, null=True, blank=True)
 
-    # internal use
-    processed = models.BooleanField('processed by image utilities', default=False)
-
     # todo: when creating LocationForm, auto-populate from parsed image filename
 
     # todo: add "validated" field and create script to manually approve and then upload to imgur
 
     def save(self, *args, **kwargs):
 
-        # if file is new, store sha1sum (important that the sha1sum is calculated BEFORE watermarking images)
+        # if file is new, store sha1sum and then watermark
         if not self.pk:
             sha1 = hashlib.sha1()
             for chunk in self.image.chunks():
                 sha1.update(chunk)
             self.sha1sum = sha1.hexdigest()
 
-        if not self.processed:
             # open image in pillow for editing
             orig_path = self.image.path
             img = PImage.open(self.image.file).convert('RGB')
@@ -96,6 +92,7 @@ class Image(LoginRequiredMixin, models.Model):
             new_wmk_height = wmk_resize_factor * wmk.height
             wmk = wmk.resize((round(new_wmk_width), round(new_wmk_height)))
 
+            # calculate position and watermark original image
             pos = [img.size[i] - wmk.size[i] for i in [0, 1]]
             img.paste(wmk, box=pos, mask=wmk)
 
@@ -108,9 +105,6 @@ class Image(LoginRequiredMixin, models.Model):
                                               name=Path(orig_path).with_suffix('.jpg'),
                                               content_type='image/jpeg', size=stream.getbuffer().nbytes,
                                               content_type_extra=None, charset=None)
-
-            # mark image as processed
-            self.processed = True
 
             # save changes to db
             super(Image, self).save(*args, **kwargs)
