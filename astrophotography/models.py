@@ -101,7 +101,7 @@ class Image(LoginRequiredMixin, models.Model):
 
             # create new django file wrapper for image
             self.image = InMemoryUploadedFile(file=stream, field_name='image',
-                                              name=Path(orig_path).with_suffix('.jpg'),
+                                              name=str(Path(orig_path).with_suffix('.jpg')),
                                               content_type='image/jpeg', size=stream.getbuffer().nbytes,
                                               content_type_extra=None, charset=None)
 
