@@ -40,3 +40,5 @@ class CommanderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Commander, CommanderAdmin)
+admin.site.register(Location)
+admin.site.register(Waypoint)

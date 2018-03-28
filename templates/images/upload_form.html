@@ -9,7 +9,23 @@
     <h1 class="mt-5">upload an image</h1>
     <form method="post" enctype="multipart/form-data" class="form-group" novalidate>
         {% csrf_token %}
-        
+
+        {# todo: tidy this code block up and make it pretty #}
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+
         {% for field in form.visible_fields %}
             <div class="form-group">
                 {{ field.label_tag }}

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bebea143a249b3749976104907584ae3072b155e34edd0a630b0b7e098e629a8"
+            "sha256": "8156ae945773c3dff12f7085269ffab28a2c4c1d7e99fcad09acf3cd44429a6e"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -171,10 +171,10 @@
         },
         "python-dateutil": {
             "hashes": [
-                "sha256:07009062406cffd554a9b4135cd2ff167c9bf6b7aac61fe946c93e69fad1bbd8",
-                "sha256:8f95bb7e6edbb2456a51a1fb58c8dca942024b4f5844cae62c90aa88afe6e300"
+                "sha256:6c0e72580272b561d8594362ab0e6b5b2191c703982150fc06ed45f7fae725be",
+                "sha256:14eb44faa298942c6385636bfd76bd5c21361632cf8ebc9c20d63fd00f6a069f"
             ],
-            "version": "==2.7.0"
+            "version": "==2.7.1"
         },
         "python-decouple": {
             "hashes": [
@@ -216,6 +216,13 @@
                 "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
             ],
             "version": "==1.11.0"
+        },
+        "sorl-thumbnail": {
+            "hashes": [
+                "sha256:c5ef989da07d31925754922ce95783fd2b1f8735124c0510884633eb32a4cd3e",
+                "sha256:1cc6d913fe4f1224e479f25a23ec2ad3ca71c3154919a2c9463b07e7fbe11ac2"
+            ],
+            "version": "==12.4.1"
         },
         "tqdm": {
             "hashes": [

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
     'widget_tweaks',
     'core.apps.CoreConfig',
     'astrophotography.apps.AstrophotographyConfig',

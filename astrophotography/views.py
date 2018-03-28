@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import *
 
 
 # Create your views here.
-class ImageUpload(LoginRequiredMixin, generic.FormView):
+class ImageUploadView(LoginRequiredMixin, generic.FormView):
     form_class = ImageForm
     template_name = 'images/upload_form.html'
-    success_url = '/success/'
+    success_url = reverse_lazy('astrophotography:upload-image')  # todo: success_url -> location form
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -26,5 +27,12 @@ class ImageUpload(LoginRequiredMixin, generic.FormView):
             return render(request, self.template_name, {'form': form})
 
 
-class UserImageGallery(generic.ListView):
+class UserImageGalleryView(generic.ListView):
     model = Image
+
+
+class PublicImageGalleryView(generic.ListView):
+    template_name = 'images/gallery.html'
+
+    def get_queryset(self):
+        return Image.objects.filter(public=True)
