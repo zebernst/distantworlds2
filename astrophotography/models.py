@@ -105,8 +105,8 @@ class Image(LoginRequiredMixin, models.Model):
                                               content_type='image/jpeg', size=stream.getbuffer().nbytes,
                                               content_type_extra=None, charset=None)
 
-            # save changes to db
-            super(Image, self).save(*args, **kwargs)
+        # save changes to db
+        super(Image, self).save(*args, **kwargs)
 
 
 # delete the image file when the Image instance is deleted by the admin panel.

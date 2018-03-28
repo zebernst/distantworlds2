@@ -4,6 +4,7 @@ from .models import *
 
 
 # Register your models here.
+@admin.register(Commander)
 class CommanderAdmin(admin.ModelAdmin):
     search_fields = ['cmdr_name', 'comms_id', '=roster_num']
     autocomplete_fields = ['user']
@@ -49,6 +50,5 @@ class CommanderAdmin(admin.ModelAdmin):
     empty_value_display = 'None'
 
 
-admin.site.register(Commander, CommanderAdmin)
 admin.site.register(Location)
 admin.site.register(Waypoint)

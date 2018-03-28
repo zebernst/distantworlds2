@@ -1,11 +1,11 @@
 from django.contrib import admin
-from sorl.thumbnail.admin import AdminImageMixin
 
 from astrophotography.models import Image
 
 
 # Register your models here.
-class ImageAdmin(AdminImageMixin, admin.ModelAdmin):
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
 
     def img_str(self, obj):
         return "Image Object ({}) [{}x{}]".format(obj.pk, obj.img_width, obj.img_height)
@@ -32,6 +32,3 @@ class ImageAdmin(AdminImageMixin, admin.ModelAdmin):
     )
     readonly_fields = ('orig_filename', 'img_height', 'img_width')
     view_on_site = True
-
-
-admin.site.register(Image, ImageAdmin)
