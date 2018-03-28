@@ -9,7 +9,7 @@ from .forms import *
 class ImageUploadView(LoginRequiredMixin, generic.FormView):
     form_class = ImageForm
     template_name = 'images/upload_form.html'
-    success_url = reverse_lazy('astrophotography:upload-image')  # todo: success_url -> location form
+    success_url = reverse_lazy('astrophotography:gallery')  # todo: success_url -> location form
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
