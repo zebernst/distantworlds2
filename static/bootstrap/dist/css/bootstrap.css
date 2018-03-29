@@ -1619,6 +1619,23 @@ pre code {
   background-color: rgba(255, 255, 255, 0.075);
 }
 
+tr {
+  color: #f07b05;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border: transparent;
+  background-color: rgba(240, 123, 5, 0.1);
+}
+
+.table td {
+  border-top: transparent;
+}
+
+tr:hover {
+  color: #000;
+  background: rgba(240, 123, 5, 0.8);
+}
+
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     display: block;

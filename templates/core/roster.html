@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% load static %}
+{% block javascript %}
+<script src="{% static 'js/table-styler.js' %}"></script>
+{% endblock %}
+
 {% block title %}
     Roster
 {% endblock %}
@@ -7,7 +12,7 @@
 {% block content %}
     <h1 class="mt-5 mb-4">distant worlds 2 roster</h1>
     <p>last modified: {{ timestamp }}</p>
-    <table id="roster" class="table table-striped table-bordered" style="width:100%">
+    <table id="roster" class="table" style="width:100%">
         <thead>
         <tr>
             <th>Roster #</th>
