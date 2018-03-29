@@ -21,7 +21,7 @@ SITE_ROOT = PurePath(__file__).parent.parent.parent
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'dw2photo.serveftp.com']
+ALLOWED_HOSTS = ['localhost', 'dw2photo.serveftp.com', 'distantworlds2.space', 'www.distantworlds2.space']
 
 LOGIN_REDIRECT_URL = 'core:home'
 
