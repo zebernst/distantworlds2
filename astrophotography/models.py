@@ -51,7 +51,7 @@ class Image(LoginRequiredMixin, models.Model):
     owner = models.ForeignKey(Commander, on_delete=models.SET_NULL, null=True)
 
     # image uses
-    public = models.BooleanField('display publicly', default=False)
+    public = models.BooleanField('public', default=False)
     edited = models.BooleanField('edited', default=False)
 
     # imgur
@@ -106,7 +106,7 @@ class Image(LoginRequiredMixin, models.Model):
                                               content_type_extra=None, charset=None)
 
         # save changes to db
-        super(Image, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
 
 # delete the image file when the Image instance is deleted by the admin panel.
