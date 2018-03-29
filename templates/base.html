@@ -21,9 +21,9 @@
     <link rel="icon" type="image/png" href="{% static 'favicons/favicon-32x32.png' %}" sizes="32x32" />
     <link rel="icon" type="image/png" href="{% static 'favicons/favicon-16x16.png' %}" sizes="16x16" />
     <link rel="icon" type="image/png" href="{% static 'favicons/favicon-128.png' %}" sizes="128x128" />
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="{% static 'favicons/mstile-144x144.png' %}" />
+    <meta name="application-name"                   content="&nbsp;"/>
+    <meta name="msapplication-TileColor"            content="#FFFFFF" />
+    <meta name="msapplication-TileImage"            content="{% static 'favicons/mstile-144x144.png' %}" />
     <meta name="msapplication-square70x70logo"      content="{% static 'favicons/mstile-70x70.png' %}" />
     <meta name="msapplication-square150x150logo"    content="{% static 'favicons/mstile-150x150.png' %}" />
     <meta name="msapplication-wide310x150logo"      content="{% static 'favicons/mstile-310x150.png' %}" />
@@ -42,7 +42,6 @@
     <link rel="stylesheet" href="https://use.typekit.net/nrn3jvr.css">
 
     <!-- DataTables -->
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS, then DataTables -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -59,6 +58,7 @@
     <title>Distant Worlds 2 | {% block title %}invalid title{% endblock %}</title>
 
     {% block javascript %}{% endblock %}
+    {% block extrahead %}{% endblock %}
 </head>
 {% block body %}
     <body>
@@ -180,11 +180,13 @@
         </div>
     </nav>
 
+    {% block main %}
     <main role="main">
         <div class="container">
             {% block content %}{% endblock %}
         </div>
     </main>
+    {% endblock %}
 
     </body>
 {% endblock %}
