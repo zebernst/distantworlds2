@@ -1,8 +1,11 @@
+from pprint import pprint
+
 import dateutil.parser
 import gspread
 from dateutil import tz
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.utils import IntegrityError
 from djchoices import DjangoChoices, ChoiceItem
 from oauth2client.service_account import ServiceAccountCredentials
 from tqdm import tqdm
@@ -453,7 +456,12 @@ class Commander(models.Model):
                     data['exp_55'] = True
 
             # create/update Commander object
-            cmdr, new = Commander.objects.update_or_create(app_num=entry['Valid Application Number'], defaults=data)
+            try:
+                cmdr, new = Commander.objects.update_or_create(app_num=entry['Valid Application Number'], defaults=data)
+            except IntegrityError as e:
+                print('bad commander found:')
+                pprint(entry)
+                raise
 
             # count
             if new:

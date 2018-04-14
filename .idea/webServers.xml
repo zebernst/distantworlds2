@@ -10,6 +10,14 @@
           <option name="port" value="8762" />
         </fileTransfer>
       </webServer>
+      <webServer id="3f3d3f15-e175-4bc6-9e5f-58bf27154dbf" name="AWS" url="http://35.176.228.160">
+        <fileTransfer host="35.176.228.160" port="22" privateKey="$USER_HOME$/.ssh/distantworlds_aws.ppk" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

@@ -10,7 +10,8 @@ urlpatterns = [
     path('fleet/roster/', RosterView.as_view(), name='roster'),
     path('fleet/stats/', FleetStatsView.as_view(), name='stats'),
     path('fleet/showcase/', FleetShowcaseView.as_view(), name='showcase'),
-    path('theexpedition/distantworlds2/', DistantWorlds2View.as_view(), name='distantworlds2'),
+    path('expedition/distantworlds2/', DistantWorlds2View.as_view(), name='distantworlds2'),
+    path('expedition/cg-proposal/', CGProposalView.as_view(), name='cg-proposal'),
 
     path('ajax/roster', RosterDataJSON, name='roster_ajax'),
     path('success/', Success.as_view(), name='success'),
