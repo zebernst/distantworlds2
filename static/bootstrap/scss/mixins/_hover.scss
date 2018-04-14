@@ -16,6 +16,7 @@
 @mixin hover-focus {
   &:hover,
   &:focus {
+    transition-duration: 0.5s;
     @content;
   }
 }

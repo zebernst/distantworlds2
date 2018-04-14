@@ -51,6 +51,9 @@
   @include hover-focus {
     text-decoration: none;
   }
+  img {
+    width: 86%;
+  }
 }
 
 
@@ -258,10 +261,11 @@
 
   .navbar-nav {
     .nav-link {
+      @include underline-hover(rgba(0,0,0,0));
       color: $navbar-dark-color;
 
       @include hover-focus {
-        color: $navbar-dark-hover-color;
+        @include underline-hover($ui-color);
       }
 
       &.disabled {
@@ -273,7 +277,7 @@
     .active > .nav-link,
     .nav-link.show,
     .nav-link.active {
-      color: $navbar-dark-active-color;
+      @include underline-hover($ui-color);
     }
   }
 
