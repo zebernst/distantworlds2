@@ -159,6 +159,21 @@
   }
 }
 
+//DON'T TOUCH
+tr {
+  color: $ui-color;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border: transparent;
+  background-color: rgba($ui-color, 0.1);
+}
+.table td {
+  border-top: transparent;
+}
+tr:hover {
+  color: $black;
+  background: rgba($ui-color, 0.8);
+}
 
 // Responsive tables
 //

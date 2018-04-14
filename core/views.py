@@ -10,6 +10,8 @@ from core.forms import *
 class HomeView(generic.TemplateView):
     template_name = 'core/home.html'
 
+class DistantWorlds2View(generic.TemplateView):
+    template_name = 'core/distant-worlds-2.html'
 
 class FleetRegistrationView(generic.TemplateView):
     template_name = 'core/fleet_registration.html'
