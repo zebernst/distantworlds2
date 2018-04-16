@@ -5,6 +5,72 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="mt-5 ">welcome to distant worlds ii</h1>
-    <p class="lead">This is the homepage, please take a peek around :)</p>
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica:400i" rel="stylesheet">
+<style type="text/css">
+	p {
+		color: white;
+		text-align: justify;
+		font-family: Sintony, sans serif;
+	}
+
+	em {
+		color: #ff7100;
+	}
+
+	.quote {
+		font-family: IM Fell Double Pica, serif;
+		font-style: italic;
+		font-size: 2.5em;
+		color: #ff7100;
+		text-align: center;
+	}
+
+	.home-title {
+		font-family: Eurostile, sans serif;
+		/*font-weight: 500;*/
+		font-size: 3em;
+		color: #fff;
+		opacity: 0.7;
+	}
+
+	.home-stats {
+		font-family: Eurostile, sans serif;
+		font-weight: 700;
+		font-size: 3em;
+		color: #ff7100;
+	}
+
+	.col-lg-8 {
+		padding-left: 50px;
+	}
+
+</style>
+	<body background="/static/svg/StarrySky.svg">
+	<div class="container" style="padding-top: 100px">
+		<div class="row" style="padding-top: 50px; padding-bottom: 70px;">
+			<div class="col-lg-12">
+				<p class="quote">“Tracing one warm line through a land so wide and savage...”</p>
+				<p style="color: #fff; text-align: right; font-size: 0.8em;"> - Stan Rogers (Northwest Passage)</p>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-lg-4">
+				<img src="/static/svg/dw2patch.svg" width="350" height="350">
+			</div>
+			<div class="col-lg-8">
+				<p>Distant Worlds 2 will be the largest player-driven event in Elite: Dangerous.<br /><br />Follow-up to the Distant Worlds 3302 expedition that changed group exploration of the Galaxy forever, Distant Worlds 2 ambitions to be the definitive massively multiplayer exploration experience. With more than <em>2,300 Commanders signed up</em> and <em>Frontier's official support</em>, this one-of-a-kind adventure is already a game-changer.<br />The expedition will take place on all platforms over 16 weeks for the outbound trip to Beagle Point, 65,000ly from Sol. Learn more about the <a href="placeholder link">expedition</a>, the <a href="placeholder link">gameplay ideas</a> and the <a href="placeholder link">Fleet Roster</a> for more information.<br /><br /><span style="font-size: 0.7em; font-style: italic;">Although supported by Frontier, in a still unknown capacity, Distant Worlds 2 is not an official Elite: Dangerous event.</span><br /><br /><a href="placeholder link">Join the Fleet now!</a></p>
+			</div>
+		</div>
+		<div class="row" style="padding-top: 50px;">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
+				<p style="text-align: center;"><span class="home-title">Current Total Signups: </span><span class="home-stats">2,365</span></p>
+				<p style="text-align: center;"><span class="home-title">Departure: </span><span class="home-stats">Q4 3304 - Q1 3305</span></p>
+				<p style="text-align: center;"><span class="home-title">Distance: </span><span class="home-stats">est. 200,000ly</span></p>
+			</div>
+			<div class="col-lg-2"></div>
+	</div>
+</body>
+
+
 {% endblock %}
