@@ -23,6 +23,10 @@ class FleetRegistrationView(generic.TemplateView):
     template_name = 'core/fleet_registration.html'
 
 
+class BackgroundView(generic.TemplateView):
+    template_name = 'core/background.html'
+
+
 class NewsView(generic.TemplateView):
     template_name = 'core/news.html'
 
@@ -61,6 +65,10 @@ class FleetStatsView(generic.TemplateView):
 
 class FleetShowcaseView(generic.TemplateView):
     template_name = 'core/showcase.html'
+
+
+class ContactView(generic.TemplateView):
+    template_name = 'core/contact.html'
 
 
 class SignUpView(generic.FormView):

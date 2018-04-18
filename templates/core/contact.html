@@ -1,0 +1,425 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Sintony" rel="stylesheet">
+<style type="text/css">
+	@font-face {
+		font-family: Telegrama;
+		src: url('/static/fonts/telegrama_render.otf') format('opentype');
+	}
+
+	p {
+		color: white;
+		text-align: justify;
+		font-family: Sintony, sans serif;
+	}
+
+	li {
+		color: white;
+		text-align: justify;
+	}
+
+	h1 {
+		font-family: Eurostile;
+		font-weight: bold;
+		font-size: 3em;
+		color: #fff;
+		text-transform: uppercase;
+		padding-left: 30px;
+	}
+
+	h2 {
+		font-family: Eurostile;
+		font-weight: bold;
+		font-size: 2em;
+		color: #fff;
+		opacity: 0.6;
+		padding-left: 30px;
+	}
+
+	h3 {
+		font-family: Eurostile;
+		font-size: 1.5em;
+		color: #ff7100;
+		padding-left: 10px;
+	}
+
+	h4 {
+		font-family: Eurostile;
+		font-size: 1.3em;
+		color: #fff;
+		padding-left: 10px;
+	}
+
+	a {
+		color: #ff7100;
+	}
+
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.highlight {
+		color: #ff7100;
+	}
+
+	.highlight2 {
+		color: #62c462;
+	}
+
+	.title-container {
+		display: block;
+		background-color: #ff7100;
+		width: 100%;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+	}
+
+	.grad {
+		height: 25px;
+		background-color: #ff7100;
+		background: linear-gradient(to bottom,rgba(255,28,0,0.3),rgba(255,28,0,0));
+	}
+
+	.ext-link {
+		font-family: Telegrama, serif;
+		font-style: Render;
+		color: #ff7100;
+		margin-left: 50px;
+	}
+
+	rect#contact {
+
+		fill: #280700;
+
+	}
+
+	rect#contact:hover {
+
+  		fill: #ff7100;
+
+	}
+
+	#security {
+		background-image: url('/static/svg/contact11.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#security:hover {
+		background-image: url('/static/svg/contact11h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#waypoint {
+		background-image: url('/static/svg/contact12.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#waypoint:hover {
+		background-image: url('/static/svg/contact12h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#social {
+		background-image: url('/static/svg/contact13.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#social:hover {
+		background-image: url('/static/svg/contact13h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#roster {
+		background-image: url('/static/svg/contact14.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#roster:hover {
+		background-image: url('/static/svg/contact14h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#consoles {
+		background-image: url('/static/svg/contact15.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#consoles:hover {
+		background-image: url('/static/svg/contact15h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#edsm {
+		background-image: url('/static/svg/contact16.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#edsm:hover {
+		background-image: url('/static/svg/contact16h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#general {
+		background-image: url('/static/svg/contact17.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#general:hover {
+		background-image: url('/static/svg/contact17h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#assets {
+		background-image: url('/static/svg/contact18.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	#assets:hover {
+		background-image: url('/static/svg/contact18h.svg');
+		width: 244px;
+		height: 44px;
+	}
+
+	.div {
+		margin: auto;
+	}
+
+</style>
+
+<div class="div" style="padding-top: 100px;">
+<h4>I have a question about/a problem with...</h4>
+</div>
+<div class="container-fluid" style="display: inline-block; padding-top: 20px; padding-bottom: 70px; margin-left: auto; margin-right: auto;">
+	<div class="row justify-content-center">
+		<a href="mailto:distantworlds2@gmail.com?subject=[SECURITY]">
+			<div id="security" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+		<a href="mailto:distantworlds2@gmail.com?subject=[WAYPOINTS]">
+			<div id="waypoint" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+		<a href="mailto:distantworlds2@gmail.com?subject=[SOCIAL]">
+			<div id="social" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+		<a href="mailto:distantworlds2@gmail.com?subject=[ROSTER]">
+			<div id="roster" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+	</div>
+		<div class="row justify-content-center">
+		<a href="mailto:distantworlds2@gmail.com?subject=[CONSOLES]">
+			<div id="consoles" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+		<a href="mailto:distantworlds2@gmail.com?subject=[EDSM]">
+			<div id="edsm" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+		<a href="mailto:distantworlds2@gmail.com?subject=[GENERAL]">
+			<div id="general" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+		<a href="mailto:distantworlds2@gmail.com?subject=[ASSETS]">
+			<div id="assets" style="margin-left: 5px; margin-right: 5px; margin-top: 10px;"></div>
+		</a>
+	</div>
+</div>
+
+
+<div style="padding-bottom: 20px;">
+<h4>Distant Worlds 2 Organisation Team!</h4>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Distant Worlds Project Leaders</p></div>
+				<div class="col-sm-6">
+					<p class="text">Erimus<br />Dr. Kaii</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Security & PC FleetComm Private Group</p></div>
+				<div class="col-sm-6">
+					<p class="text">Grnbrg</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">FleetComm Discord server</p></div>
+				<div class="col-sm-6">
+					<p class="text">Dr. Kaii<br>Grnbrg<br>Kancro Vantas<br>NeoTron<br>Satsuma</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Waypoint Selection</p></div>
+				<div class="col-sm-6">
+					<p class="text">Erimus<br>Dr. Kaii<br>Corbin Moran<br>Andrew Gaspurr<br>Heavy Johnson<br>Satsuma<br>Finwen</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Basecamp Selection</p></div>
+				<div class="col-sm-6">
+					<p class="text">Erimus<br>Dr. Kaii<br>Frontier Developments (TBC)</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Roster</p></div>
+				<div class="col-sm-6">
+					<p class="text">Qohen Leth<br>Olivia Vespera</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Social Media & Public Relations</p></div>
+				<div class="col-sm-6">
+					<p class="text">Dr. Kaii</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Newsletter</p></div>
+				<div class="col-sm-6">
+					<p class="text">Dr. Kaii</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Photo Gallery</p></div>
+				<div class="col-sm-6">
+					<p class="text">Qohen Leth<br>At0micb0mb639<br>Galaxyutii<br>Alistair Hope</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Basecamp Events Officials</p></div>
+				<div class="col-sm-6">
+					<p class="text">Dr. Kaii (EU Timezone)<br>Kancro Vantas (USA East)</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Console Officials</p></div>
+				<div class="col-sm-6">
+					<p class="text">JT442<br>Dell Tarrant (Xbox)<br>Xta80 (XBox)<br>Allcrowsareblack (PS4)<br>Wilfred Sephiroth (PS4)</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Fleet Excursion Leaders</p></div>
+				<div class="col-sm-6">
+					<p class="text">Corbin Moran<br>Wishblend<br>Satsuma</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Non-Euro Timezones Officials</p></div>
+				<div class="col-sm-6">
+					<p class="text">Kancro Vantas (USA)<br>Alec Turner (Pacific)</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Visual Assets, Prizes & Merch</p></div>
+				<div class="col-sm-6">
+					<p class="text">Qohen Leth</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Elite: Dangerous RPG</p></div>
+				<div class="col-sm-6">
+					<p class="text">Olivia Vespera<br>Wishblend</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight">Website</p></div>
+				<div class="col-sm-6">
+					<p class="text">Galaxyutii<br>Nuwati<br>Qohen Leth<br>At0micb0mb639</p></div>
+				</div>
+			</div>
+		<div class="col-sm-6">
+			<div class="col-sm-12">
+					<p class="highlight2">Roles, groups and 3rd-party tools reps</p></div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Fuel Rats</p></div>
+				<div class="col-sm-6">
+					<p class="text">CrunchyBaton955<br>Alex Brentnall<br>Dystopia</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Rock Rats</p></div>
+				<div class="col-sm-6">
+					<p class="text">Eisen<br>Baroness Galaxy<br>Greytest<br>Michael Darkmoor</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Geologists</p></div>
+				<div class="col-sm-6">
+					<p class="text">MadRaptor<br>Sajime</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Fleet Mechanics</p></div>
+				<div class="col-sm-6">
+					<p class="text">Alex Brentnall</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Galactic Travel Agency</p></div>
+				<div class="col-sm-6">
+					<p class="text">Kola2<br>Deonon</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Scientists</p></div>
+				<div class="col-sm-6">
+					<p class="text">EfilOne</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Fleet Logistics</p></div>
+				<div class="col-sm-6">
+					<p class="text">Olivia Vespera</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Basecamp AI (ED Pathfinder)</p></div>
+				<div class="col-sm-6">
+					<p class="text">NeoTron</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Legacy Campaign Project</p></div>
+				<div class="col-sm-6">
+					<p class="text">Andrew Gaspurr</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">Deep Space Network</p></div>
+				<div class="col-sm-6">
+					<p class="text">Kazahnn Drahnn<br>Alistair Hope</p></div>
+				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<p class="highlight2">EDSM.net</p></div>
+				<div class="col-sm-6">
+					<p class="text">Anthor</p></div>
+				</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

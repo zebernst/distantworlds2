@@ -12,6 +12,8 @@ urlpatterns = [
     path('fleet/showcase/', FleetShowcaseView.as_view(), name='showcase'),
     path('expedition/distantworlds2/', DistantWorlds2View.as_view(), name='distantworlds2'),
     path('expedition/cg-proposal/', CGProposalView.as_view(), name='cg-proposal'),
+    path('expedition/background/', BackgroundView.as_view(), name='background'),
+    path('info/contact/', ContactView.as_view(), name='contact'),
 
     path('ajax/roster', RosterDataJSON, name='roster_ajax'),
     path('success/', Success.as_view(), name='success'),

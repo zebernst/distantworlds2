@@ -105,7 +105,7 @@
                         <div class="dropdown-menu" aria-labelledby="expeditionDropdown">
                             <a href="#" class="dropdown-item disabled">maps and basecamps</a> <!-- maps/basecamps -->
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item disabled">background</a> <!-- background -->
+                            <a href="{% url 'core:background' %}" class="dropdown-item">background</a> <!-- background -->
                             <a href="{% url 'core:distantworlds2' %}" class="dropdown-item">distant worlds 2</a> <!-- dw2 -->
                             <a href="{% url 'core:cg-proposal' %}" class="dropdown-item">community goal proposal</a> <!-- cg proposal -->
                         </div>
@@ -141,7 +141,7 @@
                             <a href="#" class="dropdown-item disabled">beginner info</a> <!-- beginners -->
                             <a href="#" class="dropdown-item disabled">order custom embroidered patch</a> <!-- patch -->
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item disabled">contact</a> <!-- contact -->
+                            <a href="{% url 'core:contact' %}" class="dropdown-item">contact</a> <!-- contact -->
                             <a href="#" class="dropdown-item disabled">fleetcomm private group</a> <!-- fleetcomm -->
                             <a href="#" class="dropdown-item disabled">faq</a> <!-- faq -->
 
