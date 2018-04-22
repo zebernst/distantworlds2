@@ -103,7 +103,7 @@
                            href="{{ join }}">sign up</a>
                     </li> <!-- join -->
                     <li class="nav-item">
-                        {% url 'core:news' as news %}
+                        {% url 'news:news' as news %}
                         <a class="nav-link {% if request.path == news %}active{% endif %}"
                            href="{{ news }}">news</a>
                     </li> <!-- news -->

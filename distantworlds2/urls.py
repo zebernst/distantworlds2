@@ -27,6 +27,7 @@ urlpatterns = [
     path('accounts/register/', SignUpView.as_view(), name='register'),
 
     path('', include('core.urls')),
+    path('', include('news.urls')),
     path('photos/', include('astrophotography.urls')),
 ]
 

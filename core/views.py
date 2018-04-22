@@ -27,10 +27,6 @@ class BackgroundView(generic.TemplateView):
     template_name = 'core/background.html'
 
 
-class NewsView(generic.TemplateView):
-    template_name = 'core/news.html'
-
-
 class FleetcommView(generic.TemplateView):
     template_name = 'core/fleetcomm.html'
 

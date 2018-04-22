@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import *
+from astrophotography.views import *
 
 app_name = 'astrophotography'
 urlpatterns = [
