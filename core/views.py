@@ -31,6 +31,10 @@ class NewsView(generic.TemplateView):
     template_name = 'core/news.html'
 
 
+class FleetcommView(generic.TemplateView):
+    template_name = 'core/fleetcomm.html'
+
+
 class RosterView(generic.TemplateView):
     template_name = 'core/roster.html'
 
