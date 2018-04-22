@@ -15,6 +15,7 @@ urlpatterns = [
     path('expedition/background/', BackgroundView.as_view(), name='background'),
     path('info/contact/', ContactView.as_view(), name='contact'),
     path('info/fleetcomm/', FleetcommView.as_view(), name='fleetcomm'),
+    path('info/order/', OrderView.as_view(), name='order'),
 
     path('ajax/roster', RosterDataJSON, name='roster_ajax'),
     path('success/', Success.as_view(), name='success'),

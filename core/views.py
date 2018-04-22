@@ -35,6 +35,10 @@ class FleetcommView(generic.TemplateView):
     template_name = 'core/fleetcomm.html'
 
 
+class OrderView(generic.TemplateView):
+    template_name = 'core/order.html'
+
+
 class RosterView(generic.TemplateView):
     template_name = 'core/roster.html'
 

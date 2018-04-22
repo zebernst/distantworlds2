@@ -156,7 +156,7 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">info</a>
                         <div class="dropdown-menu" aria-labelledby="infoDropdown">
                             <a href="#" class="dropdown-item disabled">beginner info</a> <!-- beginners -->
-                            <a href="#" class="dropdown-item disabled">order custom embroidered patch</a> <!-- patch -->
+                            <a href="{% url 'core:order' %}" class="dropdown-item">order embroidered patch</a> <!-- patch -->
                             <div class="dropdown-divider"></div>
                             <a href="{% url 'core:contact' %}" class="dropdown-item">Contact</a> <!-- contact -->
                             <a href="{% url 'core:fleetcomm' %}" class="dropdown-item">Fleetcomm Private Group</a> <!-- fleetcomm -->
