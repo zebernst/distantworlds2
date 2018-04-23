@@ -137,7 +137,7 @@
                         </div>
                     </li> <!-- photo dropdown -->
                     <li class="nav-item">
-                        {% url 'core:success' as scouting %}
+                        {% url 'core:scouting' as scouting %}
                         <a class="nav-link {% if request.path == scouting %}active{% endif %}"
                            href="{{ scouting }}">scouting</a>
                     </li> <!-- scouting -->
@@ -160,7 +160,8 @@
                             <div class="dropdown-divider"></div>
                             <a href="{% url 'core:contact' %}" class="dropdown-item">Contact</a> <!-- contact -->
                             <a href="{% url 'core:fleetcomm' %}" class="dropdown-item">Fleetcomm Private Group</a> <!-- fleetcomm -->
-                            <a href="#" class="dropdown-item disabled">FAQ</a> <!-- faq -->
+                            <a href="{% url 'core:faq' %}" class="dropdown-item">FAQ</a> <!-- faq -->
+                            <a href="{% url 'core:assets' %}" class="dropdown-item">Visual Assets</a> <!-- assets -->
 
                         </div>
                     </li> <!-- info dropdown -->

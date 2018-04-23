@@ -17,6 +17,12 @@
 		font-family: Sintony;
 	}
 
+	ol {
+		color: white;
+		text-align: justify;
+		font-family: Sintony;
+	}
+
 	h1 {
 		font-family: Eurostile;
 		font-weight: bold;
@@ -73,7 +79,6 @@
 
 	.content-img {
 		display: block;
-		align-content: center;
 		margin-top: 20px;
 		margin-bottom: 20px;
 
@@ -133,4 +138,53 @@
 		font-weight: 700;
 		font-size: 3em;
 		color: #ff7100;
+	}
+
+	.card {
+		border-color: #ff7100;
+	}
+
+	.list-group-item {
+		background-color: #111;
+		color: #fff;
+		text-align: center;
+		border-color: #ff7100;
+	}
+
+	.list-group-item:hover {
+		background-color: #000;
+		border-color: #ff7100;
+	}
+
+	.nav-item {
+		background-color: #111;
+		color: #ff7100;
+	}
+
+	.nav-item:hover {
+		background-color: #000;
+	}
+
+	.nav-item.show {
+		background-color: #ff7100;
+	}
+
+	.nav-tabs-link.active {
+		background-color: #ff7100;
+	}
+
+	.nav-link {
+		color: #fff;
+	}
+
+	.nav-link:hover {
+		color: #fff;
+	}
+
+	.nav-link:active {
+		color: #ff7100 ;
+	}
+
+	.nav-tabs {
+		border: #ff7100;
 	}

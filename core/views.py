@@ -38,6 +38,19 @@ class OrderView(generic.TemplateView):
 class RosterView(generic.TemplateView):
     template_name = 'core/roster.html'
 
+
+class FAQView(generic.TemplateView):
+    template_name = 'core/faq.html'
+
+
+class AssetsView(generic.TemplateView):
+    template_name = 'core/assets.html'
+
+
+class ScoutingView(generic.TemplateView):
+    template_name = 'core/scouting.html'
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
