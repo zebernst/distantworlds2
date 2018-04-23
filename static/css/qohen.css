@@ -153,11 +153,9 @@
 
 	.list-group-item:hover {
 		background-color: #000;
-		border-color: #ff7100;
 	}
 
 	.nav-item {
-		background-color: #111;
 		color: #ff7100;
 	}
 
