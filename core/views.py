@@ -51,6 +51,10 @@ class ScoutingView(generic.TemplateView):
     template_name = 'core/scouting.html'
 
 
+class LogisticsView(generic.TemplateView):
+    template_name = 'core/logistics.html'
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 

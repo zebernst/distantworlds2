@@ -1,3 +1,11 @@
+	html {
+	  position: relative;
+	  min-height: 100%;
+	}
+	body {
+	  margin-bottom: 145px; /* Margin bottom by footer height */
+	}
+
 	p {
 		color: white;
 		text-align: justify;
@@ -63,18 +71,20 @@
 		padding-left: 10px;
 	}
 
+	img {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100%;
+	}
+
+
+
 	.link {
 		color: #ff7100;
 	}
 
 	.link:hover {
 		color: #f2c86e;
-	}
-
-	img {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 100%;
 	}
 
 	.content-img {
@@ -110,11 +120,46 @@
 		background: linear-gradient(to bottom,rgba(255,28,0,0.3),rgba(255,28,0,0));
 	}
 
+	.footer {
+	  position: absolute;
+	  bottom: 0;
+	  width: 100%;
+	  margin-top: 50px;
+	  height: 95px; /* Set the fixed height of the footer here */
+	  /*line-height: 95px; /* Vertically center the text there */
+	  background-color: #ff7100;
+	}
+
+	.social-icon {
+	    padding: 0 5px 0 5px;
+	    color: #fff;
+	}
+
+	.social-icon:hover {
+	    color: #fff;
+	    opacity: 0.7;
+	}
+
+	.ip {
+	    text-align: center;
+	    font-family: Sintony;
+	    font-size: 0.7em;
+	    color: #000;
+	    padding-top: 12px;
+	    font-style: italic;
+	}
+
 	.ext-link {
 		font-family: Telegrama, serif;
 		font-style: Render;
-		color: #f2c86e;
+		color: #ff7100;
 		margin-left: 50px;
+	}
+
+	.ext-ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.quote {
@@ -155,34 +200,12 @@
 		background-color: #000;
 	}
 
-	.nav-item {
-		color: #ff7100;
-	}
-
-	.nav-item:hover {
-		background-color: #000;
-	}
-
-	.nav-item.show {
-		background-color: #ff7100;
-	}
-
-	.nav-tabs-link.active {
-		background-color: #ff7100;
-	}
-
-	.nav-link {
-		color: #fff;
-	}
-
-	.nav-link:hover {
-		color: #fff;
-	}
-
-	.nav-link:active {
-		color: #ff7100 ;
-	}
-
-	.nav-tabs {
-		border: #ff7100;
+	.blockquote { /*needs to be manually added to the div*/
+		border: 2px solid;
+		border-color: #ff7100;
+		font-size: 0.8em;
+		padding: 5px 5px 5px 5px;
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
 	}

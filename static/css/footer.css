@@ -5,12 +5,13 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 95px; /* Margin bottom by footer height */
+  margin-bottom: 145px; /* Margin bottom by footer height */
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: 50px;
   height: 95px; /* Set the fixed height of the footer here */
   /*line-height: 95px; /* Vertically center the text there */
   background-color: #ff7100;
