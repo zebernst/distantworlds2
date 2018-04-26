@@ -343,7 +343,12 @@ class Commander(models.Model):
             }
 
             expeditions = [e.strip() for e in entry['Expeditions'].split(',')]  # trim whitespace around strings
+
+            # expeditions_dict = {"Nebulae Research Voyages": 'exp_01', ...} # todo: do this
+
             for exp in expeditions:  # this is vile please don't judge me
+                # data[expeditions_dict[exp]] = True # todo: do this
+
                 if exp == "Nebulae Research Voyages":
                     data['exp_01'] = True
                 elif exp == "REGOR Border Mapping":

@@ -38,6 +38,13 @@ class OrderView(generic.TemplateView):
 class RosterView(generic.TemplateView):
     template_name = 'core/roster.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['timestamp'] = Commander.objects.latest('modified').modified
+        context['commanders'] = Commander.objects.all()
+        return context
+
 
 class FAQView(generic.TemplateView):
     template_name = 'core/faq.html'
