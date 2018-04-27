@@ -6,7 +6,6 @@
 
 {% block main %}
 <main role="main">
-  <div class="container-fluid">
 
 <style type="text/css">
   html, body {
@@ -57,12 +56,12 @@
     padding-bottom: 150px;
   }
 
-  #photos img {
-    /* Just in case there are inline attributes */
+/*  #photos img {
+    Just in case there are inline attributes
     width: 100% !important;
     height: auto !important;
     max-width: 442px;
-  }
+  }*/
 
   @media (max-width: 2550px) {
     #photos {
@@ -122,48 +121,6 @@
     margin-left: -10px;
     }*/
 
-  .watermark {
-    width: 50%;
-    margin-top: -35px;
-    margin-left: -10px;
-  }
-
-  .cmdr {
-    font-family: Eurostile;
-    color: #fff;
-    margin-top: 130px;
-    margin-left: -10px;
-    }
-
-  .cmdr-name {
-    font-family: Eurostile;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.4em;
-    margin-top: -22px;
-    margin-left: -10px;
-    }
-
-  .ship {
-    font-family: Eurostile;
-    color: #ff7100;
-    margin-top: -23px;
-    margin-left: -10px;
-    }
-
-  .number {
-    font-family: Eurostile;
-    color: #ff7100;
-    margin-top: -35px;
-    text-align: right;
-    margin-right: -10px;
-    font-size: 0.8em;
-  }
-
-  .show-grad {
-    background: none;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4),  rgba(0,0,0,0), rgba(0,0,0,0.8));
-    }
 
 </style>
 
@@ -171,26 +128,26 @@
     <div class="title-container">
       <div class="title-grad"></div>
       <h1 class="h1-std">Ship Showcase</h1>
-      <h2 class="h2-std">Here ye shall find the entire fleet of registered Distant Worlds 2 Commanders</h2>
+      <h2 class="h2-std">Here ye shall find the entire fleet of registered Distant Worlds 2 Cmdrs</h2>
     </div>
 
   <div class="row"><p class="p-std ext-link"><a class="a-std" href="https://forums.frontier.co.uk/showthread.php/403281-DW2-Distant-Worlds-2-Fleet-Ship-Showcase">> Forum thread</a></p></div>
     <br>
-    <p class="p-std">Reviving the concept from <a class="a-std"> href="https://forums.frontier.co.uk/showthread.php/210326-DISTANT-WORLDS-Commander-Profiles">Katejina's DW 3302 Cmdr Profiles</a> thread, the Ship Showcase is the visual counterpart of the Roster. You don't have to do anything to be featured on the DW2 Ship Showcase: the (almost) entire process is automatic. Just make sure the information you send in your registration form is correct. If you send a ship + paintjob combination that does not exist in the game, you won't appear on the Showcase.</p>
+    <p class="p-std">Reviving <a class="a-std" href="https://forums.frontier.co.uk/showthread.php/210326-DISTANT-WORLDS-Commander-Profiles">Katejina's DW 3302 Cmdr Profiles</a> thread concept, the Ship Showcase is the visual counterpart of the Roster. You don't have to do anything to be featured on the DW2 Ship Showcase: the (almost) entire process is automatic. Just make sure the information you send in your registration form is correct. If you send a ship + paintjob combination that does not exist in the game, you won't appear on the Showcase.</p>
     <p class="p-std highlight">When can I send my very own photo of my dear ship?</p>
     <p class="p-std">For now, the Showcase only uses stock hangar pictures, almost all of which you may recognize are coming from EDSM (thanks Anthor and all the contributors!). Well accept custom photos closer to launch date, when most fleet members won't be changing ships every other day anymore.</p>
 </div>
 
 <div class="showcase-warning">
     <blockquote class="blockquote border-danger bg-danger" style="border: 2px solid; padding: 5px 5px 5px 5px; width: 75%; margin-left: auto; margin-right: auto; margin-top: 30px; font-size: 1em;">
-      <p class="mb-0" style="text-align: center; color: #fff;">To prevent excessive data usage, the Showcase is disabled on mobile devices.</p>
+      <p class="mb-0 p-std" style="text-align: center; color: #fff;">To prevent excessive data usage, the Showcase is disabled on mobile devices.</p>
   </blockquote>
 </div>
 
-<div class="container-fluid">
-    <section id="photos">
+<div class="container-fluid full-page-width">
+<div class="row no-gutters justify-content-center" style="float: none; margin: 0 auto;">
 
-<div class="card text-white" style="max-width: 412px; border-color: #ff7100; float: left; margin: 5px 5px 5px 5px;">
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
   <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
   <div class="card-img-overlay show-grad">
     <img class="watermark" src="/static/svg/watermark.svg">
@@ -201,7 +158,7 @@
   </div>
 </div>
 
-<div class="card text-white" style="max-width: 412px; border-color: #ff7100; float: left; margin: 5px 5px 5px 5px;">
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
   <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
   <div class="card-img-overlay show-grad">
     <img class="watermark" src="/static/svg/watermark.svg">
@@ -212,7 +169,7 @@
   </div>
 </div>
 
-<div class="card text-white" style="max-width: 412px; border-color: #ff7100; float: left; margin: 5px 5px 5px 5px;">
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
   <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
   <div class="card-img-overlay show-grad">
     <img class="watermark" src="/static/svg/watermark.svg">
@@ -223,7 +180,90 @@
   </div>
 </div>
 
-  </section>
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+    
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+  
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+
+
+<div class="card text-white" style="width: 412px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+</div>
+</div>
 </div>
 
 
@@ -235,6 +275,5 @@
     </section>
 </div> -->
 
-    </div>
 </main>
 {% endblock %}
