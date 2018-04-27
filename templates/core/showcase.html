@@ -5,114 +5,168 @@
 {% endblock %}
 
 {% block main %}
-    <main role="main">
-        <div class="container-fluid">
+<main role="main">
+  <div class="container-fluid">
+
 <style type="text/css">
-html, body {
+  html, body {
     width: 100%;
     padding: 0;
     margin: 0;
-}
+  }
 
-@media screen and (max-width: 767.5px) {
-	.full-page-width {
+  @media screen and (max-width: 767.5px) {
+  	.full-page-width {
+      visibility: hidden;
+      width: 100%;
+      padding-bottom: 50px;
+      /*overflow: hidden;*/
+  		}
+      }
+
+  	.showcase-content {
+      width:100%;
+      	}
+
+  @media (max-width: 767.5px) {
+    .showcase-warning {
+      visibility: visible;
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .showcase-warning {
+      visibility: hidden;
+    }
+  }
+
+  #photos {
+    /* Prevent vertical gaps */
+    line-height: 0;
+     
+    -webkit-column-count: 6;
+    -webkit-column-gap:   0px;
+    -moz-column-count:    6;
+    -moz-column-gap:      0px;
+    column-count:         6;
+    column-gap:           0px;
+
+    padding-bottom: 150px;
+  }
+
+  #photos img {
+    /* Just in case there are inline attributes */
+    width: 100% !important;
+    height: auto !important;
+    max-width: 442px;
+  }
+
+  @media (max-width: 2550px) {
+    #photos {
+    -moz-column-count:    5;
+    -webkit-column-count: 5;
+    column-count:         5;
+    }
+  }
+
+  @media (max-width: 1900px) {
+    #photos {
+    -moz-column-count:    4;
+    -webkit-column-count: 4;
+    column-count:         4;
+    }
+  }
+
+  @media (max-width: 1326px) {
+    #photos {
+    -moz-column-count:    3;
+    -webkit-column-count: 3;
+    column-count:         3;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    #photos {
+    -moz-column-count:    2;
+    -webkit-column-count: 2;
+    column-count:         2;
+    }
+  }
+
+  @media (max-width: 767.5px) {
+    #photos {
     visibility: hidden;
-    width: 100%;
-    padding-bottom: 50px;
-    /*overflow: hidden;*/
-		}
+    -moz-column-count:    2;
+    -webkit-column-count: 2;
+    column-count:         2;
+    }
+  }
+
+  @media (max-width: 400px) {
+    #photos {
+    -moz-column-count:    1;
+    -webkit-column-count: 1;
+    column-count:         1;
+    }
+  }
+  
+  /*.dw2-watermark {
+    font-family: Cambay;
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: -10px;
+    margin-left: -10px;
+    }*/
+
+  .watermark {
+    width: 50%;
+    margin-top: -35px;
+    margin-left: -10px;
+  }
+
+  .cmdr {
+    font-family: Eurostile;
+    color: #fff;
+    margin-top: 130px;
+    margin-left: -10px;
     }
 
-	.showcase-content {
-    width:100%;
-    	}
+  .cmdr-name {
+    font-family: Eurostile;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-top: -22px;
+    margin-left: -10px;
+    }
 
-@media (max-width: 767.5px) {
-  .showcase-warning {
-    visibility: visible;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+  .ship {
+    font-family: Eurostile;
+    color: #ff7100;
+    margin-top: -23px;
+    margin-left: -10px;
+    }
+
+  .number {
+    font-family: Eurostile;
+    color: #ff7100;
+    margin-top: -35px;
+    text-align: right;
+    margin-right: -10px;
+    font-size: 0.8em;
   }
-}
 
-@media (min-width: 768px) {
-  .showcase-warning {
-    visibility: hidden;
-  }
-}
-
-#photos {
-  /* Prevent vertical gaps */
-  line-height: 0;
-   
-  -webkit-column-count: 6;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    6;
-  -moz-column-gap:      0px;
-  column-count:         6;
-  column-gap:           0px;
-
-  padding-bottom: 150px;
-}
-
-#photos img {
-  /* Just in case there are inline attributes */
-  width: 100% !important;
-  height: auto !important;
-  max-width: 442px;
-}
-
-@media (max-width: 2550px) {
-  #photos {
-  -moz-column-count:    5;
-  -webkit-column-count: 5;
-  column-count:         5;
-  }
-}
-
-@media (max-width: 1900px) {
-  #photos {
-  -moz-column-count:    4;
-  -webkit-column-count: 4;
-  column-count:         4;
-  }
-}
-
-@media (max-width: 1326px) {
-  #photos {
-  -moz-column-count:    3;
-  -webkit-column-count: 3;
-  column-count:         3;
-  }
-}
-
-@media (max-width: 1000px) {
-  #photos {
-  -moz-column-count:    2;
-  -webkit-column-count: 2;
-  column-count:         2;
-  }
-}
-
-@media (max-width: 767.5px) {
-  #photos {
-  visibility: hidden;
-  -moz-column-count:    2;
-  -webkit-column-count: 2;
-  column-count:         2;
-  }
-}
-
-@media (max-width: 400px) {
-  #photos {
-  -moz-column-count:    1;
-  -webkit-column-count: 1;
-  column-count:         1;
-  }
-}
+  .show-grad {
+    background: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4),  rgba(0,0,0,0), rgba(0,0,0,0.8));
+    }
 
 </style>
+
 <div class="container">
     <div class="title-container">
       <div class="grad"></div>
@@ -133,9 +187,51 @@ html, body {
 
 <div class="container-fluid">
     <section id="photos">
+
+<div class="card text-white" style="max-width: 412px; border-color: #ff7100; float: left; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+<div class="card text-white" style="max-width: 412px; border-color: #ff7100; float: left; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+<div class="card text-white" style="max-width: 412px; border-color: #ff7100; float: left; margin: 5px 5px 5px 5px;">
+  <img class="card-img" src="/static/AnacondaPulseBlue.jpg" alt="Card image">
+  <div class="card-img-overlay show-grad">
+    <img class="watermark" src="/static/svg/watermark.svg">
+    <p class="number">#1353</p>
+    <p class="cmdr">Cmdr</p>
+    <p class="cmdr-name">Commander Bob</p>
+    <p class="ship">Anaconda "Intrepid" [OPF-DW]</p>
+  </div>
+</div>
+
+  </section>
+</div>
+
+
+<!-- Old basic showcase
+
+<div class="container-fluid">
+    <section id="photos">
     <img src="https://qohenleth.sirv.com/dw2/ship/%233513.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233514.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233515.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233516.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233517.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233518.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233519.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233520.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233521.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233522.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233523.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233524.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233525.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233526.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233527.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233528.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233530.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233531.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233532.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233533.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233534.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233535.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233536.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233538.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233539.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233540.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233541.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233542.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233543.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233544.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233545.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233546.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233547.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233548.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233549.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233550.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233551.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233552.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233553.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233554.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233555.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233556.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233557.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233558.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233559.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233560.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233561.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233562.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233563.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233564.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233565.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233566.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233567.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233569.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233570.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233571.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233572.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233573.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233574.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233575.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233576.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233577.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233578.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233579.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233580.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233581.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233582.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233583.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233584.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233585.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233586.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233587.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233588.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233589.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233590.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233591.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233592.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233593.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233594.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233595.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233596.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233597.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233598.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233599.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233600.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233601.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233602.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233603.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233604.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233605.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233606.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233607.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233608.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233609.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233610.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233611.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233612.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233613.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233614.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233615.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233616.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233617.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233618.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233619.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233620.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233621.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233622.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233623.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233624.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233625.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233626.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233627.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233628.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233629.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233630.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233631.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233632.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233633.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233634.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233635.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233637.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233638.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233639.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233640.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233641.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233642.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233643.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233644.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233645.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233646.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233647.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233648.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233649.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233650.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233651.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233652.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233653.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233654.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233656.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233657.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233658.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233659.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233660.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233661.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233662.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233663.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233664.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233665.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233666.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233667.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233668.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233669.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233670.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233671.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233672.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233673.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233674.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233675.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233676.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233677.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233678.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233679.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233680.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233681.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233682.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233684.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233685.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233686.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233687.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233688.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233689.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233690.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233691.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233692.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233693.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233694.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233695.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233696.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233697.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233698.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233699.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233700.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233701.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233702.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233703.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233704.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233705.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233706.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233707.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233708.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233709.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233710.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233711.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233712.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233713.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233714.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233715.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233716.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233717.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233718.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233719.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233720.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233721.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233722.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233723.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233724.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233725.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233726.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233727.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233729.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233730.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233731.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233732.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233733.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233734.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233735.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233736.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233738.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233739.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233740.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233741.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233742.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233743.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233744.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233745.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233746.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233747.png"><img src="https://qohenleth.sirv.com/dw2/ship/%233748.png">
     </section>
-</div>
+</div> -->
 
     </div>
 </main>

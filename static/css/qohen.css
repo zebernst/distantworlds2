@@ -1,37 +1,38 @@
 	html {
-	  position: relative;
-	  min-height: 100%;
-	}
-	body {
-	  margin-bottom: 145px; /* Margin bottom by footer height */
+	position: relative;
+	min-height: 100%;
 	}
 
-	p {
+	body {
+	margin-bottom: 145px; /* Margin bottom by footer height */
+	}
+
+	.p-std {
 		color: white;
 		text-align: justify;
 		font-family: Sintony, sans serif;
 	}
 
-	li {
+	.li-std {
 		color: white;
 		text-align: justify;
 		font-family: inherit;
 	}
 
 
-	ul {
+	.ul-std {
 		color: white;
 		text-align: justify;
 		font-family: Sintony;
 	}
 
-	ol {
+	.ol-std {
 		color: white;
 		text-align: justify;
 		font-family: Sintony;
 	}
 
-	h1 {
+	.h1-std {
 		font-family: Eurostile;
 		font-weight: bold;
 		font-size: 3em;
@@ -40,7 +41,7 @@
 		padding-left: 30px;
 	}
 
-	h2 {
+	.h2-std {
 		font-family: Eurostile;
 		font-weight: bold;
 		font-size: 2em;
@@ -49,21 +50,21 @@
 		padding-left: 30px;
 	}
 
-	h3 {
+	.h3-std {
 		font-family: Eurostile;
 		font-size: 1.5em;
 		color: #ff7100;
 		padding-left: 10px;
 	}
 
-	h4 {
+	.h4-std {
 		font-family: Eurostile;
 		font-size: 1.3em;
 		color: #fff;
 		padding-left: 10px;
 	}
 
-	h5 {
+	.h5-std {
 		font-family: Telegrama;
 		font-style: Render;
 		font-size: 1.2em;
@@ -71,19 +72,17 @@
 		padding-left: 10px;
 	}
 
-	img {
+	.img-std {
 		margin-left: auto;
 		margin-right: auto;
 		max-width: 100%;
 	}
 
-
-
-	.link {
+	.a-std {
 		color: #ff7100;
 	}
 
-	.link:hover {
+	.a-std:hover {
 		color: #f2c86e;
 	}
 
@@ -121,32 +120,32 @@
 	}
 
 	.footer {
-	  position: absolute;
-	  bottom: 0;
-	  width: 100%;
-	  margin-top: 50px;
-	  height: 95px; /* Set the fixed height of the footer here */
-	  /*line-height: 95px; /* Vertically center the text there */
-	  background-color: #ff7100;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin-top: 50px;
+	height: 95px; /* Set the fixed height of the footer here */
+	/*line-height: 95px; /* Vertically center the text there */
+	background-color: #ff7100;
 	}
 
 	.social-icon {
-	    padding: 0 5px 0 5px;
-	    color: #fff;
+	padding: 0 5px 0 5px;
+	color: #fff;
 	}
 
 	.social-icon:hover {
-	    color: #fff;
-	    opacity: 0.7;
+	color: #fff;
+	opacity: 0.7;
 	}
 
 	.ip {
-	    text-align: center;
-	    font-family: Sintony;
-	    font-size: 0.7em;
-	    color: #000;
-	    padding-top: 12px;
-	    font-style: italic;
+	text-align: center;
+	font-family: Sintony;
+	font-size: 0.7em;
+	color: #000;
+	padding-top: 12px;
+	font-style: italic;
 	}
 
 	.ext-link {
@@ -185,7 +184,7 @@
 		color: #ff7100;
 	}
 
-	.card {
+	.card-std {
 		border-color: #ff7100;
 	}
 
@@ -200,7 +199,7 @@
 		background-color: #000;
 	}
 
-	.blockquote { /*needs to be manually added to the div*/
+	.blockquote-std { /*needs to be manually added to the div*/
 		border: 2px solid;
 		border-color: #ff7100;
 		font-size: 0.8em;
@@ -208,4 +207,4 @@
 		width: 75%;
 		margin-left: auto;
 		margin-right: auto;
-	}
+		}

@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="mt-5">image gallery</h1>
     {#  todo: use sorl-thumbnail (already installed) to display thumbnails  #}
     
     {% for image in object_list %}
@@ -14,6 +13,105 @@
             <img src="{{ im.url }}" alt="">
         {% endthumbnail %}
     {% endfor %}
-    
+
+<style type="text/css">
+  .card-wp {
+  font-family: Sintony;
+  font-size: 0.8em;
+  text-align: center;
+  margin: 3px 0 4px 0;
+}
+
+.card-wpbody {
+  /*margin: 5px 10px;*/
+  /*padding: 5px 5px 5px 5px;*/
+}
+
+.card-imgur {
+  font-family: Sintony;
+  font-size: 0.6em;
+  /*color: #a4a4a4;*/
+  text-align: right;
+  margin: 4px 7px 5px 0;
+}
+
+.card-imgurbody {
+  background: #111;
+  text-decoration: none;
+}
+
+.card-imgurbody:hover {
+  background: #1bb76e;
+  cursor: pointer;
+}
+
+.card-imgurlink {
+  background: #111;
+  text-decoration: none;
+  color: #1bb76e;
+}
+
+.card-imgurlink:hover {
+  background: #1bb76e;
+  text-decoration: none;
+  color: #000;
+}
+</style>
+
+<div class="grad">
+	<h1>DISTANT WORLDS 2 PHOTO GALLERY</h1>
+	<h2>What's worth more than 1,000 words? 1,000 pictures</h2>
+</div>
+
+<link rel="stylesheet" href="https://use.typekit.net/nrn3jvr.css">
+<link href="https://fonts.googleapis.com/css?family=Cambay|Sintony" rel="stylesheet">
+
+<div style="background: #000; height: 1000px; width: 100%;">
+
+<div class="container">
+<div class="row no-gutters">
+  <div class="col">
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 1 > Fine Ring Sector</p></div>
+      <a href="#"><img class="card-img-bottom" src="https://i.imgur.com/WpgRKa1.png" alt="Card image"></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
+      </div>
+    </div>
+  <div class="col">
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+      <img class="card-img" src="https://i.imgur.com/mrHIu7G.png" alt="Card image">
+      <div class="card-img-overlay"></div>
+      </div>
+    </div>
+  <div class="col">
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+      <img class="card-img" src="https://i.imgur.com/mrHIu7G.png" alt="Card image">
+      <div class="card-img-overlay"></div>
+      </div>
+    </div>
+  <div class="col">
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+      <img class="card-img" src="https://i.imgur.com/ZJb8e8l.png" alt="Card image">
+      <div class="card-img-overlay"></div>
+      </div>
+    </div>
+  <div class="col">
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+      <img class="card-img" src="https://i.imgur.com/qA1ibND.png" alt="Card image">
+      <div class="card-img-overlay"></div>
+      </div>
+    </div>
+  <div class="col">
+    <div class="card text-white" style="max-width: 150px; min-width: 150px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
+      <img class="card-img" src="https://i.imgur.com/W3s2JdF.png" alt="Card image">
+      <div class="card-img-overlay"></div>
+    </div>
+    </div>
+  </div>
+
+</div>
 
 {% endblock %}
