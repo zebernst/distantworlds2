@@ -113,7 +113,7 @@
 		margin-bottom: 30px;
 	}
 
-	.grad {
+	.title-grad {
 		height: 25px;
 		background-color: #ff7100;
 		background: linear-gradient(to bottom,rgba(255,28,0,0.3),rgba(255,28,0,0));
@@ -208,3 +208,10 @@
 		margin-left: auto;
 		margin-right: auto;
 		}
+
+	.flow {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 100%;
+	}
