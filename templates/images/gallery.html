@@ -18,6 +18,7 @@
 <style type="text/css">
 	.card-wp {
 	  font-family: Sintony;
+	  position: relative;
 	  font-size: 0.8em;
 	  text-align: center;
 	  margin: 3px 0 4px 0;
@@ -57,6 +58,26 @@
 	  text-decoration: none;
 	  color: #000;
 	}
+
+	.wp-overlay {
+	opacity: 0;
+
+}
+
+.card:hover .wp-overlay {
+	opacity: 0.3;
+	position: absolute;
+	top: 26px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 123px;
+	width: 100%;
+	transition: .5s ease;
+	background: #ff7100;
+	cursor: pointer;
+}
+
 </style>
 
 <div class="title-container">
@@ -66,46 +87,75 @@
 	</div>
 
 <div class="container">
-<div class="row no-gutters">
-  <div class="col">
+<div class="row no-gutters justify-content-center">
     <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
       <div>
       <p class="card-wp">Waypoint 1 > Fine Ring Sector</p></div>
-      <a href="#"><img class="card-img-bottom" src="https://i.imgur.com/WpgRKa1.png" alt="Card image"></a>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://i.imgur.com/WpgRKa1.png" alt="Card image"><div class="wp-overlay"></div></a>
       <a class="card-imgurlink" href="#">
       <div>
       <p class="card-imgur">View on Imgur</p></div></a>
       </div>
-    </div>
-  <div class="col">
-    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
-      <img class="card-img" src="https://i.imgur.com/mrHIu7G.png" alt="Card image">
-      <div class="card-img-overlay"></div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 2 > Lagoon Nebula</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://imgur.com/GDCRkyx.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
       </div>
-    </div>
-  <div class="col">
-    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
-      <img class="card-img" src="https://i.imgur.com/mrHIu7G.png" alt="Card image">
-      <div class="card-img-overlay"></div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 3 > Omega Nebula</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://imgur.com/5DqZuxd.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
       </div>
-    </div>
-  <div class="col">
-    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
-      <img class="card-img" src="https://i.imgur.com/ZJb8e8l.png" alt="Card image">
-      <div class="card-img-overlay"></div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 4 > Eagle Nebula</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://i.imgur.com/9cYiZAj.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
       </div>
-    </div>
-  <div class="col">
-    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
-      <img class="card-img" src="https://i.imgur.com/qA1ibND.png" alt="Card image">
-      <div class="card-img-overlay"></div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 5 > NGC 5367</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://i.imgur.com/vdC1Zc4.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
       </div>
-    </div>
-  <div class="col">
-    <div class="card text-white" style="max-width: 150px; min-width: 150px; border-color: #ff7100; margin: 5px 5px 5px 5px;">
-      <img class="card-img" src="https://i.imgur.com/W3s2JdF.png" alt="Card image">
-      <div class="card-img-overlay"></div>
-    </div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 6 > The Hollow Veil</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://i.imgur.com/CCM9leP.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
+      </div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">WP 7 > Greae Phio Stellar Forge</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://i.imgur.com/89LZ32W.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
+      </div>
+    <div class="card text-white" style="max-width: 220px; min-width: 220px; border-color: #ff7100; background: #111; margin: 5px 5px 5px 5px;">
+      <div>
+      <p class="card-wp">Waypoint 8 > New Botany Bay</p></div>
+      <a href="https://imgur.com/a/kkEGz"><img class="card-img-bottom" src="https://i.imgur.com/cv5MOHS.png" alt="Card image"><div class="wp-overlay"></div></a>
+      <a class="card-imgurlink" href="#">
+      <div>
+      <p class="card-imgur">View on Imgur</p></div></a>
+      </div>
+
+
+
+
     </div>
   </div>
 

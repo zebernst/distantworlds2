@@ -46,7 +46,7 @@
 		font-weight: bold;
 		font-size: 2em;
 		color: #fff;
-		opacity: 0.6;
+		opacity: 0.8;
 		padding-left: 30px;
 	}
 
@@ -60,7 +60,7 @@
 	.h4-std {
 		font-family: Eurostile;
 		font-size: 1.3em;
-		color: #fff;
+		color: #f2c86e;
 		padding-left: 10px;
 	}
 
@@ -259,3 +259,59 @@
     background: none;
     background: linear-gradient(to bottom, rgba(0,0,0,0.4),  rgba(0,0,0,0), rgba(0,0,0,0.8));
     }
+
+.scout-nav-item {
+	background-color: #111111;
+	border: 1px solid #ff7100;
+	margin: 1px;
+}
+
+.scout-nav-item:hover {
+	background-color: #000;
+	border: 1px solid #f2c86e;
+}
+
+.scout-nav-item:active {
+	background-color: #ff7100;
+	border: 1px solid #ff7100;
+}
+
+.scout-nav-item:focus {
+	background-color: #ff7100;
+	border: 1px solid #ff7100;
+}
+
+.a-scout {
+	line-height: 50px;
+	padding: 0 12px;
+	display: inline-block;
+	text-decoration: none;
+	color: #ff7100;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.a-scout:visited {
+	color: #ff7100;
+}
+
+.a-scout:hover {
+	text-decoration: none;
+	color: #f2c86e;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.a-scout:focus {
+	text-decoration: none;
+	color: #ff7100;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.a-scout:active {
+	text-decoration: none;
+	color: #000;
+	text-align: center;
+	vertical-align: middle;
+}

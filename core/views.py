@@ -27,8 +27,8 @@ class BackgroundView(generic.TemplateView):
     template_name = 'core/background.html'
 
 
-class FleetcommView(generic.TemplateView):
-    template_name = 'core/fleetcomm.html'
+class PrivateGroupsView(generic.TemplateView):
+    template_name = 'core/privategroups.html'
 
 
 class OrderView(generic.TemplateView):
