@@ -6,35 +6,101 @@
 
 {% block content %}
 <link href="https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica:400i" rel="stylesheet">
-<style type="text/css">
-	.col-lg-8 {
-		padding-left: 50px;
-	}
-</style>
-	<body background="/static/svg/StarrySky.svg">
+<script src="/static/bootstrap/assets/js/vendor/jquery-slim.min.js"></script><!-- jQuery is required -->
+<script src="/static/js/countdown-master/countdown.js"></script>
+
+<body background="/static/svg/StarrySky.svg">
 	<div class="container" style="padding-top: 50px">
-		<div class="row" style="padding-top: 50px; padding-bottom: 70px;">
+		<div class="d-flex flex-wrap flex-row align-items-center justify-content-center">
+			<div class="order-3 col-lg-4 justify-content-center" style="text-align: center;">
+				<img class="center-block mx-auto" src="/static/svg/dw2patch.svg" width="250" height="250">
+				<p class="p-std" style="margin-top: 25px;">Follow-up to the Distant Worlds 3302 expedition that changed group exploration of the Galaxy forever, Distant Worlds 2 ambitions to be the definitive massively multiplayer exploration experience. With more than <span class="highlight">3,100 Commanders signed up</span> and <span class="highlight">Frontier's official support</span>, this one-of-a-kind adventure is already a game-changer.<br />The expedition will take place on all platforms over 16 weeks for the outbound trip to Beagle Point, 65,000ly from Sol. Visit the <a class="a-std" href="placeholder link">main portal</a> for more info.<br /><br /><span style="font-size: 0.7em; font-style: italic;">Although supported by Frontier, in a still unknown capacity, Distant Worlds 2 is not an official Elite: Dangerous event.</span>
+			</div>
+			<div class="order-2 col-lg-4" style="padding-top: 25px; padding-bottom: 25px">
+				<p class="home-title" style="text-align: center;">Quick Links</p>
+				<div class="card card-std" style="width: 90%; margin-left: auto; margin-right: auto; margin-bottom: 25px;">
+    				<ul class="list-group list-group-flush ul-std">
+    					<li class="list-group-item li-std"><a class="a-std" href="forumthread">Main Information Portal</a></li>
+    					<li class="list-group-item li-std"><a class="a-std" href="http://localhost:8000/join/">Sign Up Here</a></li>
+						<li class="list-group-item li-std"><a class="a-std" href="mailto:dw2expedition@gmail.com?subject=[ROSTER]">Roster Amendments</a></li>
+						<li class="list-group-item li-std"><a class="a-std" href="http://localhost:8000/fleet/roster/">Fleet Roster</a></li>
+						<li class="list-group-item li-std"><a class="a-std" href="https://forums.frontier.co.uk/showthread.php/285918-Announcing-FleetComm-the-exploration-focused-Private-(pc)-Group">FleetComm Private Group (PC)</a></li>
+						<li class="list-group-item li-std"><a class="a-std" href="https://discord.io/FleetComm">FleetComm Discord Server</a></li>
+						<li class="list-group-item li-std"><a class="a-std" href="https://twitter.com/DrKaii">Dr. Kaii Twitter</a></li>
+						<li class="list-group-item li-std"><a class="a-std" href="distantworlds2@gmail.com?subject=[GENERAL]">Contact</a></li>
+				    </ul>
+				</div>
+			</div>
+			<div class="order-1 col-lg-4">
+				<div class="card bg-dark" style="width: 100%; margin-left: auto; margin-right: auto; border-color: #ff7100;">
+					<div class="card-header bg-dark" style="font-family: Sintony; color: #fff; font-size: 1.1em; text-align: center;">EXPEDITION STATUS</div>
+					<ul class="list-group list-group-flush">
+					<li class="list-group-item" style="font-family: Eurostile; font-size: 1.6em; text-align: center; color: #000; background-color: #fe54e1;">PREPARATION</li>
+					<li class="list-group-item" style="font-family: Telegrama; font-size: 0.8em; text-align: left; color: #fff;"><span style="color: #fe54e1;">Days until launch:  </span><span id="cd-launch"></span><br><span style="color: #fe54e1;">Days elapsed:  </span><span id="el-launch"></span><br><span style="color: #fe54e1;">Destination:  </span>Beagle Point</li></ul>
+					<div class="card-header bg-dark" style="font-family: Sintony; color: #fff; font-size: 1.1em; text-align: center;">CURRENT WAYPOINT</div>
+					<ul class="list-group list-group-flush">
+					<li class="list-group-item" style="font-family: Eurostile; font-size: 1.6em; text-align: center; color: #000; background-color: #14d6fe;">8 - GREEN CRYSTAL</li>
+					<li class="list-group-item" style="font-family: Telegrama; font-size: 0.8em; text-align: left; color: #fff;"><span style="color: #14d6fe;">System: </span>OOACHS WH-J e4-2244<br><span style="color: #14d6fe;">Meetups</span><br>EU Mar 8th 20:00 UTC<br>US Mar 8th 06:00 UTC<br>AUS Mar 8th 14:00 UTC<br><span style="color: #14d6fe;">Location: </span>B 4 c<br><span style="color: #14d6fe;">Coordinates: </span>-35.54 / 99.01</li></ul>
+					<div class="card-header bg-dark" style="font-family: Sintony; color: #fff; font-size: 1.1em; text-align: center;">MEGASHIP LOCATION</div>
+					<ul class="list-group list-group-flush">
+					<li class="list-group-item" style="font-family: Eurostile; font-size: 1.6em; text-align: center; color: #000; background-color: #edfe1e;">OOACHS JK-A A55</li>
+					<li class="list-group-item" style="font-family: Telegrama; font-size: 0.8em; text-align: left; color: #fff;"><span style="color: #edfe1e;">Status: </span>Refuelling<br><span style="color: #edfe1e;">Services: </span>Available</ul>
+					</div>
+				</div>
+			</div>
+		<div class="row" style="padding-top: 40px; padding-bottom: 40px;">
 			<div class="col-lg-12">
 				<p class="quote">“Tracing one warm line through a land so wide and savage...”</p>
 				<p style="color: #fff; text-align: right; font-size: 0.8em;"> - Stan Rogers (Northwest Passage)</p>
 			</div>
 		</div>	
-		<div class="row">
-			<div class="col-lg-4">
-				<img src="/static/svg/dw2patch.svg" width="350" height="350">
-			</div>
-			<div class="col-lg-8">
-				<p class="p-std">Distant Worlds 2 will be the largest player-driven event in Elite: Dangerous.<br /><br />Follow-up to the Distant Worlds 3302 expedition that changed group exploration of the Galaxy forever, Distant Worlds 2 ambitions to be the definitive massively multiplayer exploration experience. With more than <span class="highlight">2,300 Commanders signed up</span> and <span class="highlight">Frontier's official support</span>, this one-of-a-kind adventure is already a game-changer.<br />The expedition will take place on all platforms over 16 weeks for the outbound trip to Beagle Point, 65,000ly from Sol. Learn more about the <a class="a-std" href="placeholder link">expedition</a>, the <a class="a-std" href="placeholder link">gameplay ideas</a> and the <a class="a-std" href="placeholder link">Fleet Roster</a> for more information.<br /><br /><span style="font-size: 0.7em; font-style: italic;">Although supported by Frontier, in a still unknown capacity, Distant Worlds 2 is not an official Elite: Dangerous event.</span><br /><br /><a class="a-std" href="placeholder link">Join the Fleet now!</a></p>
-			</div>
-		</div>
-		<div class="row" style="padding-top: 50px; padding-bottom: 50px;">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8">
-				<p style="text-align: center;"><span class="home-title">Current Total Signups: </span><span class="home-stats">2,365</span></p>
-				<p style="text-align: center;"><span class="home-title">Departure: </span><span class="home-stats">Q4 3304 - Q1 3305</span></p>
-				<p style="text-align: center;"><span class="home-title">Distance: </span><span class="home-stats">est. 200,000ly</span></p>
-			</div>
-			<div class="col-lg-2"></div>
 	</div>
+
+		<script type="text/javascript">
+			//COUNTDOWN
+			// Set the date we're counting down to
+			var countDownDate = new Date("Jan 5, 2019 17:00:00").getTime();
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+			    // Get todays date and time
+			    var now = new Date().getTime();
+			    // Find the distance between now and the count down date
+			    var distance = countDownDate - now;
+			    // Time calculations for days, hours, minutes and seconds
+			    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			    // Output the result in an element with id
+			    document.getElementById("cd-launch").innerHTML = days;
+			    // + "d ";
+			    // If the count down is over, write some text 
+			    if (distance < 0) {
+			        clearInterval(x);
+			        document.getElementById("cd-launcho").innerHTML = "EXPIRED";
+			    }
+			}, 1000);
+
+
+			//ELAPSED
+			var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+
+			function countup(yr,m,d){
+			var today=new Date()
+			var todayy=today.getYear()
+			if (todayy < 1000)
+			todayy+=1900
+			var todaym=today.getMonth()
+			var todayd=today.getDate()
+			var todaystring=montharray[todaym]+" "+todayd+", "+todayy
+			var paststring=montharray[m-1]+" "+d+", "+yr
+			var difference=(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(24*60*60*1000))*1)
+			//difference+=" days"
+			document.getElementById("el-launch").innerHTML = difference;
+			}
+			//enter the count up date using the format year/month/day
+			countup(2018,06,05)
+		</script>
+
 	</body>
 {% endblock %}
